@@ -1,0 +1,125 @@
+:root {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #0c101a;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --accent-cyan: #00f2ff;
+  --accent-blue: #0072ff;
+  --status-ok: #00ff88;
+  --status-fail: #ff4d4d;
+  --status-warn: #ffcc00;
+  --glass: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top right, #1a1f35, #0c101a);
+  color: white;
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(to right, var(--accent-cyan), var(--accent-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.system-card {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  backdrop-filter: blur(12px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: slideIn 0.5s ease-out forwards;
+}
+
+.system-card:hover {
+  border-color: var(--accent-cyan);
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.status-ok {
+  background-color: var(--status-ok);
+  box-shadow: 0 0 10px var(--status-ok);
+}
+
+.status-fail {
+  background-color: var(--status-fail);
+  box-shadow: 0 0 10px var(--status-fail);
+}
+
+.status-warn {
+  background-color: var(--status-warn);
+  box-shadow: 0 0 10px var(--status-warn);
+}
+
+.log-window {
+  margin-top: 2rem;
+  background: #000;
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 1rem;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.9rem;
+  color: #a0a0a0;
+  height: 200px;
+  overflow-y: auto;
+}
+
+.log-entry {
+  margin-bottom: 4px;
+}
+
+.log-time {
+  color: var(--accent-cyan);
+  margin-right: 10px;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

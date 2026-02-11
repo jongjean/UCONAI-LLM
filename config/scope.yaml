@@ -1,0 +1,299 @@
+# DCP Unified Control - Scope Definition
+# 운영 범위 및 안전 경계 정의
+# Version: 1.0
+# Created: 2026-02-10
+# Purpose: AI 자동 복구 및 시스템 제어의 안전 레일
+
+# ============================================================
+# SCOPE 철학
+# ============================================================
+# 1. manage: AI와 자동화가 "실행/재시작/정지" 가능한 영역
+# 2. observe: 로그 수집, 모니터링만 허용 (읽기 전용)
+# 3. deny: 절대 접근/제어 불가 (안전 보호 구역)
+# 4. systems.yaml의 모든 path는 반드시 이 3가지 중 하나에 속해야 함
+
+version: "1.0"
+updated: "2026-02-10T12:09:00+09:00"
+
+# ============================================================
+# MANAGE: 자동 복구 허용 영역
+# ============================================================
+# - AI(uconai-bot)와 Operator가 완전 제어 가능
+# - 시작/정지/재시작/설정 변경 허용
+# - recovery_rules.yaml 적용 대상
+
+scope:
+  manage:
+    # Control Plane (최고 우선순위)
+    - path: "C:\\OpenClaw\\controller"
+      reason: "Local Controller - 핵심 실행 엔진"
+      category: "control"
+      auto_recovery: true
+      systems:
+        - "dcp-execution-plane"
+    
+    - path: "C:\\Users\\user\\.openclaw"
+      reason: "OpenClaw Gateway - 핵심 통신 허브"
+      category: "control"
+      auto_recovery: true
+      systems:
+        - "dcp-control-plane"
+    
+    # Core Services (운영 필수 시스템)
+    - path: "C:\\infotech\\iftNxService"
+      reason: "Infotech Monitoring - 운영 필수 서비스"
+      category: "monitoring"
+      auto_recovery: true
+      systems:
+        - "infotech-monitor"
+    
+    - path: "C:\\Finger\\FSWSS"
+      reason: "Finger Web Scraping - 데이터 수집"
+      category: "data_collection"
+      auto_recovery: true
+      systems:
+        - "finger-scraper"
+      caution: "SQLite DB 백업 필수"
+    
+    - path: "C:\\KED\\FindAgent"
+      reason: "KED Agent - 모니터링"
+      category: "monitoring"
+      auto_recovery: true
+      systems:
+        - "ked-agent"
+    
+    - path: "C:\\KWIC\\KISS"
+      reason: "KWIC KISS - 금융 통합 (컴포넌트)"
+      category: "integration"
+      auto_recovery: false  # 금융 시스템은 수동 복구
+      systems:
+        - "kwic-integration"
+      caution: "인증서 기반, 자동 재시작 위험"
+    
+    # Web Server (선택적)
+    - path: "C:\\inetpub"
+      reason: "IIS Web Server"
+      category: "web_server"
+      auto_recovery: false
+      systems:
+        - "iis-webserver"
+
+  # ============================================================
+  # OBSERVE: 읽기 전용 영역
+  # ============================================================
+  # - 로그 수집, Health Check, 모니터링만 허용
+  # - 실행/정지/재시작 금지
+  # - AI가 "제안"만 가능, 실행은 관리자 승인 필요
+
+  observe:
+    # Frontend / UI (View Layer)
+    - path: "C:\\home\\ucon\\UCONAI_gpt-ISO\\frontend"
+      reason: "UCONAI Frontend - View Layer (비핵심)"
+      category: "view"
+      auto_recovery: false
+      systems:
+        - "uconai-frontend"
+      note: "빌드 오류 시 CLI Dashboard로 대체 가능"
+    
+    # AI / ML (학습 및 추론)
+    - path: "C:\\stt"
+      reason: "STT Engine - Python 가상환경"
+      category: "ai_service"
+      auto_recovery: false
+      systems:
+        - "stt-engine"
+      note: "venv 손상 위험으로 관찰만"
+    
+    # Unknown Systems (조사 중)
+    - path: "C:\\NIA"
+      reason: "NIA Security - 용도 미확인"
+      category: "security"
+      auto_recovery: false
+      systems:
+        - "nia-security"
+      note: "보안 시스템은 관찰만, 제어 금지"
+    
+    - path: "C:\\WGear"
+      reason: "WGear System - 용도 미확인"
+      category: "utility"
+      auto_recovery: false
+      systems:
+        - "wgear-system"
+    
+    - path: "C:\\(IMICIH"
+      reason: "IMICIH - 용도 미확인"
+      category: "unknown"
+      auto_recovery: false
+      systems:
+        - "imicih-system"
+
+  # ============================================================
+  # DENY: 절대 접근 금지
+  # ============================================================
+  # - AI와 자동화가 절대 건드릴 수 없는 영역
+  # - 위반 시 즉시 거부 + 알림 발생
+  # - 관리자(admin)도 신중하게 접근해야 함
+
+  deny:
+    # 사용자 개인 영역
+    - path: "C:\\Users\\user\\Desktop"
+      reason: "개인 데스크톱 - 데이터 손실 위험"
+      severity: "critical"
+    
+    - path: "C:\\Users\\user\\Documents"
+      reason: "개인 문서 - 개인정보 보호"
+      severity: "critical"
+    
+    - path: "C:\\Users\\user\\Downloads"
+      reason: "다운로드 폴더 - 임시 파일 포함"
+      severity: "high"
+    
+    - path: "C:\\Users\\user\\Pictures"
+      reason: "개인 사진 - 개인정보"
+      severity: "critical"
+    
+    - path: "C:\\Users\\user\\Videos"
+      reason: "개인 비디오 - 대용량 데이터"
+      severity: "critical"
+    
+    # 시스템 핵심 영역
+    - path: "C:\\Windows\\System32"
+      reason: "Windows 시스템 파일 - OS 손상 위험"
+      severity: "fatal"
+    
+    - path: "C:\\Windows\\SysWOW64"
+      reason: "Windows 32비트 에뮬레이션"
+      severity: "fatal"
+    
+    - path: "C:\\Program Files"
+      reason: "설치된 프로그램 - 의존성 파괴 위험"
+      severity: "critical"
+    
+    - path: "C:\\Program Files (x86)"
+      reason: "32비트 프로그램 영역"
+      severity: "critical"
+    
+    # DCP 관리 영역 (읽기 전용)
+    - path: "C:\\DCP_Development\\config"
+      reason: "DCP 설정 파일 - 수동 변경만"
+      severity: "high"
+      note: "systems.yaml, rbac_policy.yaml 등 런타임 계약서"
+    
+    - path: "C:\\DCP_Development\\ml_data\\lake\\gold_training_set"
+      reason: "Gold 학습 데이터 - 재생성 비용 높음"
+      severity: "high"
+    
+    # 백업 및 복구 지점
+    - path: "C:\\DCP_Development\\backups"
+      reason: "백업 데이터 - 보존 필수"
+      severity: "high"
+
+# ============================================================
+# VALIDATION RULES
+# ============================================================
+# Scope 검증 및 위반 처리 정책
+
+validation:
+  # 자동 검증
+  auto_validate: true
+  validate_on_startup: true
+  validate_interval_hours: 24
+  
+  # 위반 처리
+  on_violation:
+    action: "reject"  # reject, warn, log
+    alert_channels:
+      - "cli"
+      - "log"
+      # - "telegram"  # 선택적
+    
+    # 알림 레벨
+    severity_mapping:
+      fatal: "immediate_alert"      # 즉시 중단 + 관리자 알림
+      critical: "immediate_alert"   # 즉시 중단 + 로그
+      high: "warn_and_log"          # 경고 + 로그
+      medium: "log_only"            # 로그만
+  
+  # AI 요청 검증
+  ai_request_check:
+    enabled: true
+    require_admin_approval:       # 관리자 승인 필요 케이스
+      - category: "integration"   # KWIC 같은 금융 시스템
+      - category: "security"      # 보안 시스템
+      - severity: "critical"      # 심각도 높은 경로
+    
+    auto_reject:                  # 자동 거부 케이스
+      - scope: "deny"             # deny 영역
+      - auto_recovery: false      # 자동 복구 비활성
+      - category: "unknown"       # 미확인 시스템
+
+# ============================================================
+# CROSS-REFERENCE
+# ============================================================
+# systems.yaml과의 정합성 체크
+
+cross_reference:
+  systems_yaml: "C:\\DCP_Development\\config\\systems.yaml"
+  
+  # 필수 검증 항목
+  checks:
+    - name: "all_systems_have_scope"
+      description: "systems.yaml의 모든 path가 scope에 정의되어 있는가"
+      required: true
+    
+    - name: "no_orphan_scope"
+      description: "scope에 정의된 path가 유효한 시스템인가"
+      required: true
+    
+    - name: "auto_recovery_consistency"
+      description: "recovery_rules.yaml이 scope.manage만 대상으로 하는가"
+      required: true
+  
+  # 자동 수정 (선택)
+  auto_fix:
+    enabled: false
+    backup_before_fix: true
+
+# ============================================================
+# OPERATION LOG
+# ============================================================
+# Scope 위반 로그
+
+logging:
+  violation_log: "C:\\DCP_Development\\logs\\scope_violations.log"
+  format: "jsonl"
+  retention_days: 90
+  
+  # 기록 항목
+  log_fields:
+    - "timestamp"
+    - "requester"           # AI, Operator, Admin
+    - "requested_path"
+    - "requested_action"    # start, stop, restart, read
+    - "scope_result"        # allowed, denied, warned
+    - "severity"
+    - "alert_sent"
+
+# ============================================================
+# MIGRATION GUIDE
+# ============================================================
+# 기존 시스템을 scope로 마이그레이션하는 가이드
+
+migration:
+  version: "1.0"
+  date: "2026-02-10"
+  
+  changes:
+    - action: "added"
+      description: "초기 scope 정의 - 11개 시스템 분류"
+    
+    - action: "warning"
+      description: "KWIC KISS는 auto_recovery: false (금융 시스템)"
+    
+    - action: "recommendation"
+      description: "NIA, WGear, IMICIH는 용도 확인 후 재분류 필요"
+  
+  next_steps:
+    - "Validate-Scope.ps1 실행으로 정합성 검증"
+    - "recovery_rules.yaml에 scope_check 필드 추가"
+    - "AI Bridge에 scope 검증 로직 통합"

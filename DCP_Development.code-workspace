@@ -1,0 +1,158 @@
+{
+    "folders": [
+        {
+            "name": "00_PROJECT_ROOT",
+            "path": "."
+        },
+        {
+            "name": "01_UCONAI_FRONTEND",
+            "path": "C:\\home\\ucon\\UCONAI_gpt-ISO\\frontend"
+        },
+        {
+            "name": "02_OPENCLAW_CONTROLLER",
+            "path": "C:\\OpenClaw\\controller"
+        },
+        {
+            "name": "03_OPENCLAW_GATEWAY",
+            "path": "C:\\Users\\user\\.openclaw"
+        },
+        {
+            "name": "04_INFOTECH_MONITOR",
+            "path": "C:\\infotech\\iftNxService"
+        },
+        {
+            "name": "05_FINGER_SCRAPER",
+            "path": "C:\\Finger\\FSWSS"
+        },
+        {
+            "name": "06_KED_AGENT",
+            "path": "C:\\KED\\FindAgent"
+        },
+        {
+            "name": "07_KWIC_KISS",
+            "path": "C:\\KWIC\\KISS"
+        },
+        {
+            "name": "08_STT_ENGINE",
+            "path": "C:\\stt"
+        },
+        {
+            "name": "09_NIA_SECURITY",
+            "path": "C:\\NIA"
+        },
+        {
+            "name": "10_WGEAR_SYSTEM",
+            "path": "C:\\WGear"
+        },
+        {
+            "name": "11_IMICIH_SYSTEM",
+            "path": "C:\\(IMICIH"
+        },
+        {
+            "name": "12_IIS_WEBSERVER",
+            "path": "C:\\inetpub"
+        }
+    ],
+    "settings": {
+        "files.encoding": "utf8",
+        "files.autoSave": "afterDelay",
+        "files.exclude": {
+            "**/.git": true,
+            "**/node_modules": true,
+            "**/dist": true,
+            "**/bin": true,
+            "**/obj": true
+        },
+        "terminal.integrated.defaultProfile.windows": "PowerShell",
+        "editor.fontSize": 14,
+        "editor.tabSize": 2,
+        "editor.renderWhitespace": "all",
+        "search.exclude": {
+            "**/node_modules": true,
+            "**/dist": true,
+            "**/logs": true
+        },
+        "powershell.executionPolicy": "Bypass"
+    },
+    "extensions": {
+        "recommendations": [
+            "ms-vscode.powershell",
+            "ms-dotnettools.csharp",
+            "ms-vscode.azurecli",
+            "dbaeumer.vscode-eslint",
+            "esbenp.prettier-vscode",
+            "redhat.vscode-yaml"
+        ]
+    },
+    "tasks": {
+        "version": "2.0.0",
+        "tasks": [
+            {
+                "label": "DCP: Health Check All",
+                "type": "shell",
+                "command": "PowerShell -NoProfile -ExecutionPolicy Bypass -File C:\\DCP_Development\\scripts\\health\\health-all.ps1",
+                "group": "test",
+                "problemMatcher": []
+            },
+            {
+                "label": "DCP: Status Dashboard (CLI)",
+                "type": "shell",
+                "command": "PowerShell -NoProfile -ExecutionPolicy Bypass -File C:\\DCP_Development\\scripts\\ops\\status-dashboard.ps1",
+                "group": "none",
+                "problemMatcher": []
+            },
+            {
+                "label": "DCP: Start All Systems",
+                "type": "shell",
+                "command": "PowerShell -NoProfile -ExecutionPolicy Bypass -File C:\\DCP_Development\\scripts\\ops\\Start-All.ps1",
+                "group": "none",
+                "problemMatcher": []
+            },
+            {
+                "label": "DCP: Stop All Systems",
+                "type": "shell",
+                "command": "PowerShell -NoProfile -ExecutionPolicy Bypass -File C:\\DCP_Development\\scripts\\ops\\Stop-All.ps1",
+                "group": "none",
+                "problemMatcher": []
+            },
+            {
+                "label": "DCP: Start Controller (Service)",
+                "type": "shell",
+                "command": "PowerShell -NoProfile -ExecutionPolicy Bypass -File C:\\OpenClaw\\controller\\Install-Controller-Service.ps1",
+                "group": "none",
+                "problemMatcher": []
+            },
+            {
+                "label": "UCONAI: Frontend Dev Server",
+                "type": "shell",
+                "command": "npm run dev",
+                "options": {
+                    "cwd": "C:\\home\\ucon\\UCONAI_gpt-ISO\\frontend"
+                },
+                "group": "none",
+                "presentation": {
+                    "reveal": "always",
+                    "panel": "new"
+                },
+                "problemMatcher": []
+            },
+            {
+                "label": "UCONAI: Frontend Build",
+                "type": "shell",
+                "command": "npm run build",
+                "options": {
+                    "cwd": "C:\\home\\ucon\\UCONAI_gpt-ISO\\frontend"
+                },
+                "group": "build",
+                "problemMatcher": []
+            },
+            {
+                "label": "OpenClaw: Watchdog Setup",
+                "type": "shell",
+                "command": "PowerShell -NoProfile -ExecutionPolicy Bypass -File C:\\OpenClaw\\controller\\Install-Watchdog.ps1",
+                "group": "none",
+                "problemMatcher": []
+            }
+        ]
+    }
+}

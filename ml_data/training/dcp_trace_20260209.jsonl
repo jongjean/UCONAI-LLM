@@ -1,0 +1,19 @@
+﻿{"component":"CoreEngine","message":"DCP Start Sequence Initiated","source":"dcp_trace_20260209.log","timestamp":"2026-02-09 22:02:06","level":"INFO","traceId":"65DF548E"}
+{"component":"HealthCheck","message":"Gateway Check Failed","source":"dcp_trace_20260209.log","timestamp":"2026-02-09 22:02:06","level":"WARN","traceId":"65DF548E"}
+{"component":"Recovery","message":"Restarting Gateway...","source":"dcp_trace_20260209.log","timestamp":"2026-02-09 22:02:06","level":"INFO","traceId":"65DF548E"}
+{"component":"OpenClawBridge","message":"Sending context to AI for analysis (unknown-system)...","source":"dcp_trace_20260209.log","timestamp":"2026-02-09 22:03:03","level":"INFO","traceId":"599357ED"}
+{"component":"OpenClawBridge","message":"AI Analysis Received: unknown-system is likely suffering from gateway timeout.","source":"dcp_trace_20260209.log","timestamp":"2026-02-09 22:03:05","level":"SUCCESS","traceId":"599357ED"}
+{"component":"Pipeline","message":"Starting Deployment Pipeline for [Production]...","source":"dcp_trace_20260209.log","timestamp":"2026-02-09 22:52:01","level":"INFO","traceId":"7C8F21A4"}
+{"component":"Pipeline","message":"Syncing source code from Git repository...","source":"dcp_trace_20260209.log","timestamp":"2026-02-09 22:52:01","level":"INFO","traceId":"7C8F21A4"}
+{"component":"Pipeline","message":"Source code is up to date.","source":"dcp_trace_20260209.log","timestamp":"2026-02-09 22:52:03","level":"SUCCESS","traceId":"7C8F21A4"}
+{"component":"Pipeline","message":"Verifying Branch Standards...","source":"dcp_trace_20260209.log","timestamp":"2026-02-09 22:52:03","level":"INFO","traceId":"7C8F21A4"}
+{"component":"Pipeline","message":"Rolling Update: Restarting openclaw-gateway...","source":"dcp_trace_20260209.log","timestamp":"2026-02-09 22:52:03","level":"INFO","traceId":"7C8F21A4"}
+{"component":"Wrapper","message":"Initiating \u0027Restart\u0027 for system: OpenClaw Gateway","source":"dcp_trace_20260209.log","timestamp":"2026-02-09 22:52:03","level":"INFO","traceId":"D700B629"}
+{"component":"Wrapper","message":"openclaw-gateway restart sequence completed.","source":"dcp_trace_20260209.log","timestamp":"2026-02-09 22:52:05","level":"SUCCESS","traceId":"D700B629"}
+{"component":"Pipeline","message":"Rolling Update: Restarting infotech-monitor...","source":"dcp_trace_20260209.log","timestamp":"2026-02-09 22:52:05","level":"INFO","traceId":"7C8F21A4"}
+{"component":"Wrapper","message":"Initiating \u0027Restart\u0027 for system: Infotech Monitor","source":"dcp_trace_20260209.log","timestamp":"2026-02-09 22:52:05","level":"INFO","traceId":"129A0EAD"}
+{"component":"Wrapper","message":"infotech-monitor restart sequence completed.","source":"dcp_trace_20260209.log","timestamp":"2026-02-09 22:52:07","level":"SUCCESS","traceId":"129A0EAD"}
+{"component":"Pipeline","message":"Running Post-deployment Verification...","source":"dcp_trace_20260209.log","timestamp":"2026-02-09 22:52:07","level":"INFO","traceId":"7C8F21A4"}
+{"component":"Pipeline","message":"Deployment to [Production] COMPLETED successfully.","source":"dcp_trace_20260209.log","timestamp":"2026-02-09 22:52:12","level":"SUCCESS","traceId":"7C8F21A4"}
+{"component":"DataPipeline","message":"Initiating Data Extraction \u0026 Normalization...","source":"dcp_trace_20260209.log","timestamp":"2026-02-09 23:49:50","level":"INFO","traceId":"1BF9BAEC"}
+{"component":"DataPipeline","message":"Processing: dcp_trace_20260209.log","source":"dcp_trace_20260209.log","timestamp":"2026-02-09 23:49:50","level":"INFO","traceId":"1BF9BAEC"}

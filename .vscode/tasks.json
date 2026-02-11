@@ -1,0 +1,563 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        // ============================================================
+        // 통합 시스템 관리 태스크
+        // ============================================================
+        {
+            "label": "🎯 [ALL] System Status",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                "${workspaceFolder}/scripts/ops/status-all.ps1"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "🚀 [ALL] Start All Systems",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                "${workspaceFolder}/scripts/ops/start-all.ps1"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "🛑 [ALL] Stop All Systems",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                "${workspaceFolder}/scripts/ops/stop-all.ps1"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "📊 [ALL] Health Check",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                "${workspaceFolder}/scripts/ops/health-check.ps1"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "📝 [ALL] Collect Logs",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                "${workspaceFolder}/scripts/ops/collect-logs.ps1"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        // ============================================================
+        // Control Plane (OpenClaw)
+        // ============================================================
+        {
+            "label": "🔵 [OpenClaw] Start Gateway",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-ExecutionPolicy",
+                "Bypass",
+                "-Command",
+                "Start-ScheduledTask -TaskName 'OpenClaw Gateway'"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "🔵 [OpenClaw] Start Controller",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                "C:\\OpenClaw\\controller\\start_controller.bat"
+            ],
+            "problemMatcher": [],
+            "isBackground": true
+        },
+        {
+            "label": "🔵 [OpenClaw] Stop Controller",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "Get-Process | Where-Object {$_.ProcessName -eq 'powershell' -and $_.CommandLine -like '*openclaw_controller*'} | Stop-Process -Force"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "🔵 [OpenClaw] Test API",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "Invoke-RestMethod -Uri 'http://127.0.0.1:17777/health' -Method GET"
+            ],
+            "problemMatcher": []
+        },
+        // ============================================================
+        // Infotech Monitoring
+        // ============================================================
+        {
+            "label": "🟢 [Infotech] Start Service",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "Start-Service -Name 'iftExWeb'"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "🟢 [Infotech] Stop Service",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "Stop-Service -Name 'iftExWeb' -Force"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "🟢 [Infotech] Restart Service",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "Restart-Service -Name 'iftExWeb' -Force"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "🟢 [Infotech] Status",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "Get-Service -Name 'iftExWeb' | Format-List"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "🟢 [Infotech] View Logs",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "Get-Content C:\\infotech\\*.log -Tail 50"
+            ],
+            "problemMatcher": []
+        },
+        // ============================================================
+        // Finger Web Scraping
+        // ============================================================
+        {
+            "label": "🟡 [Finger] Start FSWSS",
+            "type": "shell",
+            "command": "C:\\Finger\\FSWSS\\fswss.exe",
+            "options": {
+                "cwd": "C:\\Finger\\FSWSS"
+            },
+            "problemMatcher": [],
+            "isBackground": true
+        },
+        {
+            "label": "🟡 [Finger] Stop FSWSS",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "Get-Process -Name 'fswss' -ErrorAction SilentlyContinue | Stop-Process -Force"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "🟡 [Finger] Check Database",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "Test-Path C:\\Finger\\FSWSS\\scraping.db"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "🟡 [Finger] Backup Database",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "Copy-Item C:\\Finger\\FSWSS\\scraping.db C:\\Finger\\FSWSS\\Backup\\scraping.db.bak -Force"
+            ],
+            "problemMatcher": []
+        },
+        // ============================================================
+        // KED Agent
+        // ============================================================
+        {
+            "label": "🟣 [KED] Start Agent",
+            "type": "shell",
+            "command": "C:\\KED\\FindAgent\\AgentVersion.exe",
+            "options": {
+                "cwd": "C:\\KED\\FindAgent"
+            },
+            "problemMatcher": [],
+            "isBackground": true
+        },
+        {
+            "label": "🟣 [KED] Stop Agent",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "Get-Process -Name 'AgentVersion' -ErrorAction SilentlyContinue | Stop-Process -Force"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "🟣 [KED] View Logs",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "Get-ChildItem C:\\KED\\FindAgent\\Logs | Sort-Object LastWriteTime -Descending | Select-Object -First 1 | Get-Content -Tail 50"
+            ],
+            "problemMatcher": []
+        },
+        // ============================================================
+        // STT Engine
+        // ============================================================
+        {
+            "label": "🔴 [STT] Start Transcription",
+            "type": "shell",
+            "command": "C:\\stt\\venv\\Scripts\\python.exe",
+            "args": [
+                "transcribe_raw.py"
+            ],
+            "options": {
+                "cwd": "C:\\stt"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "🔴 [STT] Check Environment",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "C:\\stt\\venv\\Scripts\\python.exe --version"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "🔴 [STT] View Transcripts",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "Get-Content C:\\stt\\transcript_raw.txt"
+            ],
+            "problemMatcher": []
+        },
+        // ============================================================
+        // UCONAI Frontend
+        // ============================================================
+        {
+            "label": "🟠 [UCONAI] Build",
+            "type": "shell",
+            "command": "npm",
+            "args": [
+                "run",
+                "build"
+            ],
+            "options": {
+                "cwd": "C:\\home\\ucon\\UCONAI_gpt-ISO\\frontend"
+            },
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        },
+        {
+            "label": "🟠 [UCONAI] Start Dev Server",
+            "type": "shell",
+            "command": "npm",
+            "args": [
+                "run",
+                "dev"
+            ],
+            "options": {
+                "cwd": "C:\\home\\ucon\\UCONAI_gpt-ISO\\frontend"
+            },
+            "problemMatcher": [],
+            "isBackground": true
+        },
+        {
+            "label": "🟠 [UCONAI] Check Build Error",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "Get-Content C:\\home\\ucon\\UCONAI_gpt-ISO\\frontend\\build-error.log"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "🟠 [UCONAI] Install Dependencies",
+            "type": "shell",
+            "command": "npm",
+            "args": [
+                "install"
+            ],
+            "options": {
+                "cwd": "C:\\home\\ucon\\UCONAI_gpt-ISO\\frontend"
+            },
+            "problemMatcher": []
+        },
+        // ============================================================
+        // 유틸리티 태스크
+        // ============================================================
+        {
+            "label": "🔧 [Util] Port Check",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "netstat -ano | findstr 'LISTENING' | findstr /C:'17777' /C:'18789' /C:'5000' /C:'8080'"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "🔧 [Util] Process List",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "Get-Process | Where-Object {$_.ProcessName -like '*ift*' -or $_.ProcessName -like '*fswss*' -or $_.ProcessName -like '*Agent*'} | Format-Table ProcessName, Id, CPU, WorkingSet"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "🔧 [Util] Service List",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "Get-Service | Where-Object {$_.Name -like '*ift*' -or $_.Name -like '*W3SVC*'} | Format-Table Name, Status, StartType"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "🔧 [Util] Task Scheduler Status",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "Get-ScheduledTask | Where-Object {$_.TaskName -like '*OpenClaw*'} | Format-Table TaskName, State, LastRunTime"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "🔧 [Util] Disk Space",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "Get-PSDrive C | Select-Object Used, Free, @{Name='UsedGB';Expression={[math]::Round($_.Used/1GB,2)}}, @{Name='FreeGB';Expression={[math]::Round($_.Free/1GB,2)}} | Format-List"
+            ],
+            "problemMatcher": []
+        },
+        // ============================================================
+        // 시스템 진단
+        // ============================================================
+        {
+            "label": "🩺 [Diagnostic] Full System Check",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                "${workspaceFolder}/scripts/ops/full-diagnostic.ps1"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "🩺 [Diagnostic] Generate Report",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "Bypass",
+                "-File",
+                "${workspaceFolder}/scripts/ops/generate-report.ps1"
+            ],
+            "problemMatcher": []
+        },
+        
+        // ============================================================
+        // Chapter 1: 관제 기반 구축 (New!)
+        // ============================================================
+        {
+            "label": "✅ [Chapter 1] Scope 검증",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                "${workspaceFolder}/scripts/ops/Validate-Scope.ps1"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "group": {
+                "kind": "test",
+                "isDefault": false
+            }
+        },
+        {
+            "label": "🏥 [Chapter 1] Health Check V2",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                "${workspaceFolder}/scripts/health/health-all.ps1"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "group": {
+                "kind": "test",
+                "isDefault": false
+            }
+        },
+        {
+            "label": "🏥 [Chapter 1] Health Check (Auto-Heal)",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                "${workspaceFolder}/scripts/health/health-all.ps1",
+                "-AutoHeal"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "👁️ [Chapter 1] Watchdog Monitor (Once)",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                "${workspaceFolder}/scripts/ops/Watchdog-Monitor.ps1",
+                "-Once"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "📊 [Chapter 1] CLI Dashboard",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                "${workspaceFolder}/scripts/ops/Dashboard.ps1",
+                "-Once"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "clear": true
+            }
+        },
+        {
+            "label": "📊 [Chapter 1] Dashboard (Auto-Refresh)",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                "${workspaceFolder}/scripts/ops/Dashboard.ps1"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "clear": true
+            },
+            "isBackground": true
+        }
+    ]
+}

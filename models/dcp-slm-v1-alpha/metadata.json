@@ -1,0 +1,6 @@
+﻿{
+    "accuracy":  0.92,
+    "trained_at":  "2026-02-10T01:28:40.8574494+09:00",
+    "name":  "dcp-slm-v1-alpha",
+    "base_model":  "llama3-8b-base"
+}

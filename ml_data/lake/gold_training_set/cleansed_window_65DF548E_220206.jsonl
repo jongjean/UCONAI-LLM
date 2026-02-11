@@ -1,0 +1,5 @@
+﻿{"component":"CoreEngine","message":"DCP Start Sequence Initiated","source":"dcp_trace_20260209.log","timestamp":"2026-02-09 22:02:06","level":"INFO","traceId":"65DF548E"}
+{"component":"HealthCheck","message":"Gateway Check Failed","source":"dcp_trace_20260209.log","timestamp":"2026-02-09 22:02:06","level":"WARN","traceId":"65DF548E"}
+{"component":"Recovery","message":"Restarting Gateway...","source":"dcp_trace_20260209.log","timestamp":"2026-02-09 22:02:06","level":"INFO","traceId":"65DF548E"}
+{"component":"OpenClawBridge","message":"Sending context to AI for analysis (unknown-system)...","source":"dcp_trace_20260209.log","timestamp":"2026-02-09 22:03:03","level":"INFO","traceId":"599357ED"}
+{"component":"OpenClawBridge","message":"AI Analysis Received: unknown-system is likely suffering from gateway timeout.","source":"dcp_trace_20260209.log","timestamp":"2026-02-09 22:03:05","level":"SUCCESS","traceId":"599357ED"}

@@ -1,0 +1,17 @@
+{
+    "Test_B_Token":  {
+                         "LifespanDays":  1,
+                         "CreatedDate":  "2026-02-09T17:47:55.7381737+09:00",
+                         "LastRotated":  "2026-02-09T17:47:55.7381737+09:00"
+                     },
+    "System_B_Token":  {
+                           "LifespanDays":  1,
+                           "CreatedDate":  "2026-02-09T17:47:55.7381737+09:00",
+                           "LastRotated":  "2026-02-09T17:47:55.7381737+09:00"
+                       },
+    "System_A_Token":  {
+                           "LifespanDays":  90,
+                           "CreatedDate":  "2026-02-09T15:39:21.0922140+09:00",
+                           "LastRotated":  "2026-02-09T15:39:21.0935922+09:00"
+                       }
+}
