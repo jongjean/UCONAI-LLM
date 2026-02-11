@@ -1,0 +1,18 @@
+﻿tools:
+  web_search:
+    provider: brave
+    # Brave 규격: ui_lang는 로케일, search_lang은 언어 코드
+    search_lang: ko
+    ui_lang: ko-KR
+
+# Korean-first policy (if supported by OpenClaw)
+locale:
+  default_language: ko
+  force_language: ko
+  ui_language: ko-KR
+
+agent:
+  system_policy: |
+    Always respond in Korean (ko-KR), regardless of tool outputs.
+    If a tool returns English system messages or errors, summarize and explain them in Korean.
+    Ask follow-up questions in Korean.
