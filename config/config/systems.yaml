@@ -1,0 +1,79 @@
+﻿# UCONAI-LLM 2.0 Master Configuration (Stable Revert)
+# Updated: 2026-02-11 (Removing BOM and fixing execution paths)
+
+global:
+  base_path: "C:\\UCONAI-LLM"
+  log_base: "C:\\UCONAI-LLM\\logs"
+  health_timeout: 5000
+
+systems:
+  - id: "dcp-control-plane"
+    name: "DCP Gateway"
+    category: "control"
+    priority: 10
+    path: "C:\\Users\\user\\.openclaw"
+    type: "gateway"
+    status: "active"
+    health:
+      type: "http"
+      endpoint: "http://localhost:18789/health"
+    control:
+      start: 
+        command: "cmd /c \"cd /d C:\\Users\\user\\.openclaw && openclaw gateway run\""
+      stop: 
+        pattern: "openclaw"
+
+  - id: "dcp-execution-plane"
+    name: "DCP Controller"
+    category: "control"
+    priority: 10
+    path: "C:\\OpenClaw\\controller"
+    type: "controller"
+    status: "active"
+    health:
+      type: "http"
+      endpoint: "http://localhost:17777/health"
+    control:
+      start: 
+        command: "Start-Process powershell -ArgumentList '-ExecutionPolicy Bypass -File C:\\OpenClaw\\controller\\openclaw_controller.ps1' -WindowStyle Hidden"
+      stop: 
+        pattern: "openclaw_controller.ps1"
+
+  - id: "uconai-bridge"
+    name: "UCONAI AI Bridge"
+    category: "ai_service"
+    priority: 9
+    path: "C:\\OpenClaw\\controller"
+    type: "bridge"
+    status: "active"
+    health:
+      type: "http"
+      endpoint: "http://localhost:18081/health"
+    control:
+      start: 
+        command: "Start-Process node -ArgumentList 'C:\\OpenClaw\\controller\\ai-bridge.js' -WindowStyle Hidden"
+      stop: 
+        pattern: "ai-bridge.js"
+
+  - id: "uconai-frontend"
+    name: "UCONAI Dashboard"
+    category: "ui"
+    priority: 8
+    path: "C:\\UCONAI-LLM\\frontend"
+    type: "frontend"
+    status: "active"
+    health:
+      type: "http"
+      endpoint: "http://localhost:5173"
+    control:
+      start: 
+        command: "cmd /c \"cd /d C:\\UCONAI-LLM\\frontend && npm run dev\""
+      stop: 
+        pattern: "vite"
+
+# Monitoring items (Simplified)
+monitor:
+  - id: "ollama-service"
+    name: "Ollama (Local LLM)"
+    endpoint: "http://localhost:11434"
+    type: "http"

@@ -373,7 +373,7 @@ roles:
 
 audit_policy:
   enabled: true
-  log_path: C:\UCONAI-LLM\logs\rbac_audit
+  log_path: C:\DCP_Development\logs\rbac_audit
   
   log_events:
     - system.start/stop/restart

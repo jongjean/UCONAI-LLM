@@ -114,7 +114,7 @@ TO-BE (V2):
 # scope.yaml deny ?�역
 - "C:\\Users\\user\\Desktop"  # 개인 ?�더 보호
 - "C:\\Windows\\System32"     # ?�스???�일 보호
-- "C:\\UCONAI-LLM\\config"  # ?�정 ?�일 보호
+- "C:\\DCP_Development\\config"  # ?�정 ?�일 보호
 ```
 
 **?�과**: AI가 ?�수�?중요 ?�일 ??��/변�?불�?

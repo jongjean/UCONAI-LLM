@@ -84,9 +84,9 @@ scope.yaml   = "ë¬´ì—‡??ê´€ë¦¬í•´???˜ëŠ”ê°€" (ê¶Œí•œ)
 - `C:\Program Files (x86)` (critical)
 
 **DCP ê´€ë¦?*:
-- `C:\UCONAI-LLM\config` (high) - ?°í???ê³„ì•½??
-- `C:\UCONAI-LLM\ml_data\lake\gold_training_set` (high)
-- `C:\UCONAI-LLM\backups` (high)
+- `C:\DCP_Development\config` (high) - ?°í???ê³„ì•½??
+- `C:\DCP_Development\ml_data\lake\gold_training_set` (high)
+- `C:\DCP_Development\backups` (high)
 
 ---
 
@@ -95,7 +95,7 @@ scope.yaml   = "ë¬´ì—‡??ê´€ë¦¬í•´???˜ëŠ”ê°€" (ê¶Œí•œ)
 ### ?ë™ ê²€ì¦?
 ```powershell
 # ?•í•©??ê²€ì¦??¤í–‰
-C:\UCONAI-LLM\scripts\ops\Validate-Scope.ps1
+C:\DCP_Development\scripts\ops\Validate-Scope.ps1
 ```
 
 **ê²€ì¦???ª©**:
@@ -211,7 +211,7 @@ manage:  # ?ëŠ” observe
       - "new-system"
 
 # 3. ê²€ì¦?
-powershell -ExecutionPolicy Bypass -File "C:\UCONAI-LLM\scripts\ops\Validate-Scope.ps1"
+powershell -ExecutionPolicy Bypass -File "C:\DCP_Development\scripts\ops\Validate-Scope.ps1"
 ```
 
 ---
@@ -240,7 +240,7 @@ Auditor + ëª¨ë“  ?ì—­ = ???½ê¸°ë§?ê°€??
 
 ### ë¡œê·¸ ?„ì¹˜
 ```
-C:\UCONAI-LLM\logs\scope_violations.log
+C:\DCP_Development\logs\scope_violations.log
 ```
 
 ### ë¡œê·¸ ?¬ë§· (JSONL)
@@ -259,11 +259,11 @@ C:\UCONAI-LLM\logs\scope_violations.log
 ### ë¡œê·¸ ì¡°íšŒ
 ```powershell
 # ìµœê·¼ 10ê°??„ë°˜
-Get-Content C:\UCONAI-LLM\logs\scope_violations.log -Tail 10 | ConvertFrom-Json
+Get-Content C:\DCP_Development\logs\scope_violations.log -Tail 10 | ConvertFrom-Json
 
 # ?¤ëŠ˜ ?„ë°˜ ê±´ìˆ˜
 $today = (Get-Date).ToString("yyyy-MM-dd")
-Get-Content C:\UCONAI-LLM\logs\scope_violations.log | 
+Get-Content C:\DCP_Development\logs\scope_violations.log | 
   ConvertFrom-Json | 
   Where-Object { $_.timestamp -like "$today*" } | 
   Measure-Object
@@ -278,13 +278,13 @@ Get-Content C:\UCONAI-LLM\logs\scope_violations.log |
 **?´ê²°**:
 ```powershell
 # 1. ë¡œê·¸ ?•ì¸
-powershell -File "C:\UCONAI-LLM\scripts\ops\Validate-Scope.ps1"
+powershell -File "C:\DCP_Development\scripts\ops\Validate-Scope.ps1"
 
 # 2. ?„ë½???œìŠ¤?œì„ scope.yaml??ì¶”ê?
 # (manage ?ëŠ” observe ?ì—­)
 
 # 3. ?¬ê?ì¦?
-powershell -File "C:\UCONAI-LLM\scripts\ops\Validate-Scope.ps1"
+powershell -File "C:\DCP_Development\scripts\ops\Validate-Scope.ps1"
 ```
 
 ---
@@ -314,7 +314,7 @@ deny:
 **ê²€ì¦?*:
 ```powershell
 # systems.yamlê³?ì¶©ëŒ ?•ì¸
-powershell -File "C:\UCONAI-LLM\scripts\ops\Validate-Scope.ps1"
+powershell -File "C:\DCP_Development\scripts\ops\Validate-Scope.ps1"
 ```
 
 ---

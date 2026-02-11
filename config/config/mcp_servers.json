@@ -1,0 +1,46 @@
+﻿{
+    "mcpServers":  {
+                       "filesystem":  {
+                                          "command":  "npx",
+                                          "args":  [
+                                                       "-y",
+                                                       "@modelcontextprotocol/server-filesystem",
+                                                       "C:\\UCONAI-LLM",
+                                                       "C:\\Users\\user\\Desktop"
+                                                   ]
+                                      },
+                       "memory":  {
+                                      "command":  "npx",
+                                      "args":  [
+                                                   "-y",
+                                                   "@modelcontextprotocol/server-memory"
+                                               ]
+                                  },
+                       "brave-search":  {
+                                            "command":  "npx",
+                                            "args":  [
+                                                         "-y",
+                                                         "@modelcontextprotocol/server-brave-search"
+                                                     ],
+                                            "env":  {
+                                                        "BRAVE_API_KEY":  "YOUR_API_KEY_HERE"
+                                                    }
+                                        },
+                       "excel-commander":  {
+                                               "command":  "node",
+                                               "args":  [
+                                                            "C:\\UCONAI-LLM\\mcp\\excel-server\\index.js"
+                                                        ],
+                                               "disabled":  false,
+                                               "note":  "Active (Phase 3)"
+                                           },
+                       "adobe-commander":  {
+                                               "command":  "node",
+                                               "args":  [
+                                                            "C:\\UCONAI-LLM\\mcp\\adobe-server\\index.js"
+                                                        ],
+                                               "disabled":  true,
+                                               "note":  "Milestone 3-3 ?덉젙"
+                                           }
+                   }
+}

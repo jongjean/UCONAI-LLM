@@ -171,7 +171,7 @@ LastTaskResult: 3221225786
 Controller ?ì¡´ ê°ì‹œ ë°??ë™ ë³µêµ¬
 
 ```powershell
-C:\UCONAI-LLM\scripts\ops\Install-DCP-Watchdog.ps1
+C:\DCP_Development\scripts\ops\Install-DCP-Watchdog.ps1
 ```
 
 **Watchdog ??• **:
@@ -225,5 +225,5 @@ Controllerê°€ Task Schedulerë¥??µí•´ ?ˆì •?ìœ¼ë¡?ë°±ê·¸?¼ìš´???¤í–‰?˜ë©°, DCP ?
 **?‘ì„±??*: DCP Admin  
 **ì°¸ì¡°**: 
 - `C:\OpenClaw\controller\Install-Controller-Service.ps1`
-- `C:\UCONAI-LLM\scripts\ops\Start-All.ps1`
-- `C:\UCONAI-LLM\config\scope.yaml`
+- `C:\DCP_Development\scripts\ops\Start-All.ps1`
+- `C:\DCP_Development\config\scope.yaml`

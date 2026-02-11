@@ -1,14 +1,14 @@
-Ôªø# UCONAI-LLM 1.1 ONE-CLICK RECOVERY SCRIPT
+# UCONAI-LLM 1.1 ONE-CLICK RECOVERY SCRIPT
 Write-Host "!!! WARNING: RECOVERING SYSTEM TO v1.1 STABLE STATE !!!" -ForegroundColor Yellow
- = 'C:\UCONAI-LLM\backups\FINAL_STABLE_v1.1_20260211'
+$backup = 'C:\UCONAI-LLM\backups\FINAL_STABLE_v1.1_20260211'
 
-# [1] ÌîÑÎ°úÏÑ∏Ïä§ Í∞ïÏ†ú Ï¢ÖÎ£å
+# [1] «¡∑ŒººΩ∫ ∞≠¡¶ ¡æ∑·
 Get-Process powershell, node, cmd -ErrorAction SilentlyContinue | Where-Object { $_.CommandLine -match "UCONAI|openclaw" } | Stop-Process -Force -ErrorAction SilentlyContinue
 
-# [2] ÌòÑÏû¨ ÏûëÏóÖ Ìè¥Îçî Ï†ïÎ¶¨ Î∞è Î≥µÏõê
+# [2] «ˆ¿Á ¿€æ˜ ∆˙¥ı ¡§∏Æ π◊ ∫πø¯
 Write-Host "[1/4] Restoring Frontend..."
 Remove-Item -Path "C:\UCONAI-LLM\frontend" -Recurse -Force -ErrorAction SilentlyContinue
-Copy-Item -Path "$backup\frontend" -Destination "C:\UCONAI-LLM\frontend" -Recurse -Force
+Copy-Item -Path "$backup\frontend\*" -Destination "C:\UCONAI-LLM\frontend\" -Recurse -Force
 
 Write-Host "[2/4] Restoring Scripts & Configs..."
 Remove-Item -Path "C:\UCONAI-LLM\scripts" -Recurse -Force -ErrorAction SilentlyContinue

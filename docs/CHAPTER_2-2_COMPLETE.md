@@ -93,7 +93,7 @@ permissions: []
 paths:
   - C:\Users\user\Desktop
   - C:\Windows\System32
-  - C:\UCONAI-LLM\config
+  - C:\DCP_Development\config
   - ...  # 14�?경로
 ```
 
@@ -104,7 +104,7 @@ paths:
 ```yaml
 audit_policy:
   enabled: true
-  log_path: C:\UCONAI-LLM\logs\rbac_audit
+  log_path: C:\DCP_Development\logs\rbac_audit
   
   log_events:
     - system.start/stop/restart

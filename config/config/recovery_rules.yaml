@@ -1,0 +1,71 @@
+# DCP Automated Recovery Rules
+# Chapter 3-1: Rule ?îÏßÑ ?§Í≥Ñ
+# Version: 1.0
+
+# Í∑úÏπô ?ïÏùò (Rules)
+rules:
+  - id: "R001-GATEWAY-RESTART"
+    target_system: "openclaw-gateway"
+    condition:
+      event_type: "HEALTH_FAILURE"
+      critical_only: true
+      retry_count: 2
+    action:
+      type: "RESTART"
+      command: "Start-ScheduledTask -TaskName 'OpenClaw Gateway'"
+      wait_after_sec: 10
+    notification:
+      level: "CRITICAL"
+      channels: ["cli", "log"]
+
+  - id: "R002-CONTROLLER-WATCHDOG"
+    target_system: "openclaw-controller"
+    condition:
+      event_type: "PROCESS_MISSING"
+    action:
+      type: "EXECUTE"
+      command: "C:\OpenClaw\controller\Install-Controller-Service.ps1"
+    notification:
+      level: "WARNING"
+
+  - id: "R003-SERVICE-AUTO-HEAL"
+    target_system: "infotech-monitor"
+    condition:
+      event_type: "SERVICE_STOPPED"
+    action:
+      type: "SERVICE_START"
+      service_name: "iftExWeb"
+    notification:
+      level: "INFO"
+
+  - id: "R004-COMPLEX-FAILURE-AI"
+    target_system: "any"
+    condition:
+      event_type: "UNKNOWN_ERROR"
+    action:
+      type: "ASK_AI"
+      model: "openclaw-llama3"
+    notification:
+      level: "WARNING"
+
+# ?ÑÏó≠ ?§Ï†ï (Global Settings)
+settings:
+  max_auto_recovery_attempts: 3
+  cooldown_period_minutes: 15
+  default_notification_channel: "log"
+  
+  # Scope ?àÏ†Ñ Í≤ÄÏ¶?(Chapter 1-0 Ï∂îÍ?)
+  scope_validation:
+    enabled: true
+    scope_file: "C:\\UCONAI-LLM\\config\\scope.yaml"
+    enforce_manage_only: true     # manage ?ÅÏó≠Îß??êÎèô Î≥µÍµ¨
+    reject_deny_area: true        # deny ?ÅÏó≠ Ï¶âÏãú Í±∞Î?
+    require_approval:             # ?πÏù∏ ?ÑÏöî???úÏä§??
+      - "kwic-integration"        # Í∏àÏúµ ?úÏä§??
+      - "nia-security"            # Î≥¥Ïïà ?úÏä§??
+    
+  # ?àÏ†Ñ ?ïÏ±Ö
+  safety:
+    dry_run_mode: false           # true???§Ï†ú ?§Ìñâ ????(?åÏä§?∏Ïö©)
+    log_all_attempts: true
+    alert_on_rejection: true

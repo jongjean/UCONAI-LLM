@@ -15,7 +15,7 @@ The primary focus of this upgrade was **Safety, Security, and Unified Architectu
 ### ?èÜ Key Achievements
 
 1.  **Unified Project Structure** ?ìÇ
-    - Migrated `C:\home\ucon\UCONAI_gpt-ISO\frontend` to `C:\UCONAI-LLM\frontend`.
+    - Migrated `C:\home\ucon\UCONAI_gpt-ISO\frontend` to `C:\DCP_Development\frontend`.
     - Consolidated all components (Backend, Frontend, Config, Scripts) into a single Git repository.
     - Standardized API ports and paths.
 
@@ -39,7 +39,7 @@ The primary focus of this upgrade was **Safety, Security, and Unified Architectu
 ## ?èóÔ∏?New Architecture (v2.0)
 
 ```
-C:\UCONAI-LLM\          (Unified Root)
+C:\DCP_Development\          (Unified Root)
 ?ú‚??Ä ?ìÅ frontend\             (Web UI - React 19 + Vite)
 ??  ?ú‚??Ä src\
 ??  ??  ?ú‚??Ä App.tsx          (Scope-Aware Dashboard)
@@ -82,7 +82,7 @@ C:\UCONAI-LLM\          (Unified Root)
 
 | Component | Status | Note |
 |-----------|--------|------|
-| **Frontend Code** | ??Migrated | Moved to `UCONAI-LLM/frontend` |
+| **Frontend Code** | ??Migrated | Moved to `DCP_Development/frontend` |
 | **API Ports** | ??Fixed | Standardized to 18081 (AI), 18082 (Control) |
 | **Git Integration**| ??Complete | All tracked in single repo |
 | **Dependencies** | ??Installed | npm install completed (0 vulnerabilities) |

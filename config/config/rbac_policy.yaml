@@ -1,0 +1,45 @@
+﻿# UCONAI-LLM 2.0 Security Policy (Updated: 2026-02-11)
+# 愿???: ?????媛???섏썝 - Antigravity AI ?먮즺 ???쇳븯 (Auto-Approve Enabled)
+
+version: "2.1"
+updated: "2026-02-11T01:14:00+09:00"
+
+roles:
+  commander:
+    description: "최고 관리자 (User)"
+    permissions: ["*"]
+    scope: "manage"
+    require_approval: false   # ?ъ슜?먮뒗 ?뱀???.. ?꾩뿉?쒕뒗... ?대?濡?
+
+  uconai-agent:
+    description: "Antigravity AI (Executive)"
+    permissions: 
+      - "system.control.*"
+      - "file.read_write"
+      - "network.connect"
+      - "process.manage"
+    scope: "manage"
+    require_approval: false  # [CHANGED] ?먮즺 ???쇳븯 (?뱀?? ??湲?X) !!!!!!!!!!!!!!
+    allowed_commands: ["*"]  # 紐뱺 紐낅졊 ???씤
+
+  operator:
+    description: "?쇰컲 ?ъ슜??
+    permissions: ["system.view", "process.simple_control"]
+    scope: "observe"
+    require_approval: true
+
+execution_policy:
+    mode: "autonomous"  # [CHANGED] supervised -> autonomous
+    unsafe_commands:
+        block: false    # [CHANGED] true -> false (??뿕 紐낅졊???댁슜)
+        log_only: true
+    whitelist:
+        - "npm install"
+        - "Start-Process"
+        - "Invoke-RestMethod"
+        - "Stop-Process"
+        - "Set-Content"
+
+audit:
+    log_level: "info"
+    retention_days: 30

@@ -2,7 +2,7 @@
 # Chapter 2-8: 문서??
 
 ## 1. 개발 ?�경 준�?
-1. **VS Code ?�크?�페?�스 ?�기**: `C:\UCONAI-LLM\UCONAI-LLM.code-workspace` ?�행.
+1. **VS Code ?�크?�페?�스 ?�기**: `C:\UCONAI-LLM\UCONAI_2.0.code-workspace` ?�행.
 2. **?�수 ?�장 ?�로그램**: PowerShell, YAML ?�구 ?�치 권장.
 
 ## 2. ?�상 ?�영 가?�드

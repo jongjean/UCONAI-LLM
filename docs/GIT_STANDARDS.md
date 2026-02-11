@@ -1,33 +1,33 @@
 # DCP Git Development Standards V2
-# Chapter 2-3: Git 표준화
+# Chapter 2-3: Git ?��???
 # Version: 2.0
 # Updated: 2026-02-10
 
-## 📋 목차
-1. [브랜치 전략](#1-브랜치-전략)
-2. [커밋 컨벤션](#2-커밋-컨벤션)
-3. [PR/MR 가이드라인](#3-prmr-가이드라인)
-4. [보안 가이드라인](#4-보안-가이드라인)
-5. [작업 워크플로우](#5-작업-워크플로우)
-6. [릴리스 관리](#6-릴리스-관리)
-7. [충돌 해결](#7-충돌-해결)
+## ?�� 목차
+1. [브랜�??�략](#1-브랜�??�략)
+2. [커밋 컨벤??(#2-커밋-컨벤??
+3. [PR/MR 가?�드?�인](#3-prmr-가?�드?�인)
+4. [보안 가?�드?�인](#4-보안-가?�드?�인)
+5. [?�업 ?�크?�로??(#5-?�업-?�크?�로??
+6. [릴리??관�?(#6-릴리??관�?
+7. [충돌 ?�결](#7-충돌-?�결)
 
 ---
 
-## 1. 브랜치 전략
+## 1. 브랜�??�략
 
-### Git Flow 단순화 전략
+### Git Flow ?�순???�략
 
-| 브랜치 | 용도 | 보호 수준 | 권한 |
+| 브랜�?| ?�도 | 보호 ?��? | 권한 |
 |--------|------|-----------|------|
-| `main` | 제품 출시 및 배포 (Stable) | 🔒 최상 | Admin만 병합 |
-| `develop` | 다음 출시 통합 브랜치 | 🔒 높음 | PR 필수 |
-| `feature/*` | 기능 개발 (단기) | - | 담당자 |
-| `fix/*` | 긴급 버그 수정 | - | 모든 개발자 |
-| `hotfix/*` | 프로덕션 긴급 수정 | 🔒 중간 | Admin 승인 |
-| `release/*` | 릴리스 준비 | 🔒 높음 | Admin만 |
+| `main` | ?�품 출시 �?배포 (Stable) | ?�� 최상 | Admin�?병합 |
+| `develop` | ?�음 출시 ?�합 브랜�?| ?�� ?�음 | PR ?�수 |
+| `feature/*` | 기능 개발 (?�기) | - | ?�당??|
+| `fix/*` | 긴급 버그 ?�정 | - | 모든 개발??|
+| `hotfix/*` | ?�로?�션 긴급 ?�정 | ?�� 중간 | Admin ?�인 |
+| `release/*` | 릴리??준�?| ?�� ?�음 | Admin�?|
 
-### 브랜치 명명 규칙
+### 브랜�?명명 규칙
 
 ```bash
 # 기능 개발
@@ -35,33 +35,33 @@ feature/chapter-2-3-git-standards
 feature/dashboard-ui
 feature/rbac-integration
 
-# 버그 수정
+# 버그 ?�정
 fix/controller-port-binding
 fix/watchdog-task-error
 fix/health-check-timeout
 
-# 긴급 수정 (main에서 분기)
+# 긴급 ?�정 (main?�서 분기)
 hotfix/security-patch-1.2.3
 hotfix/critical-memory-leak
 
-# 릴리스 (develop에서 분기)
+# 릴리??(develop?�서 분기)
 release/v1.0.0
 release/v1.1.0-beta
 ```
 
 **규칙**:
-- 소문자만 사용
-- 단어는 하이픈(`-`)으로 구분
-- Chapter 번호 포함 권장
-- 이슈 번호 포함 가능 (`feature/123-user-auth`)
+- ?�문?�만 ?�용
+- ?�어???�이??`-`)?�로 구분
+- Chapter 번호 ?�함 권장
+- ?�슈 번호 ?�함 가??(`feature/123-user-auth`)
 
 ---
 
-## 2. 커밋 컨벤션
+## 2. 커밋 컨벤??
 
 ### Conventional Commits 기반
 
-#### 기본 형식
+#### 기본 ?�식
 ```
 <type>(<scope>): <subject>
 
@@ -70,186 +70,186 @@ release/v1.1.0-beta
 [optional footer]
 ```
 
-#### Type (필수)
+#### Type (?�수)
 
-| Type | 설명 | 예시 |
+| Type | ?�명 | ?�시 |
 |------|------|------|
-| `feat` | 신규 기능 추가 | feat: Dashboard 실시간 모드 추가 |
-| `fix` | 버그 수정 | fix: Controller 포트 바인딩 오류 해결 |
-| `docs` | 문서 수정 | docs: RBAC V2 가이드 작성 |
-| `style` | 코드 스타일 (기능 변화 없음) | style: Dashboard 들여쓰기 수정 |
-| `refactor` | 리팩토링 | refactor: Health Check 로직 개선 |
-| `test` | 테스트 추가/수정 | test: Watchdog 단위 테스트 추가 |
-| `chore` | 빌드/설정 변경 | chore: .gitignore 업데이트 |
-| `perf` | 성능 개선 | perf: Scope 검증 속도 2x 향상 |
+| `feat` | ?�규 기능 추�? | feat: Dashboard ?�시�?모드 추�? |
+| `fix` | 버그 ?�정 | fix: Controller ?�트 바인???�류 ?�결 |
+| `docs` | 문서 ?�정 | docs: RBAC V2 가?�드 ?�성 |
+| `style` | 코드 ?��???(기능 변???�음) | style: Dashboard ?�여?�기 ?�정 |
+| `refactor` | 리팩?�링 | refactor: Health Check 로직 개선 |
+| `test` | ?�스??추�?/?�정 | test: Watchdog ?�위 ?�스??추�? |
+| `chore` | 빌드/?�정 변�?| chore: .gitignore ?�데?�트 |
+| `perf` | ?�능 개선 | perf: Scope 검�??�도 2x ?�상 |
 
-#### Scope (선택)
+#### Scope (?�택)
 
 ```bash
-feat(dashboard): 색상 코딩 추가
-fix(watchdog): 무한 루프 해결
-docs(chapter-1): Gate 1 보고서 작성
+feat(dashboard): ?�상 코딩 추�?
+fix(watchdog): 무한 루프 ?�결
+docs(chapter-1): Gate 1 보고???�성
 ```
 
-**Scope 예시**:
+**Scope ?�시**:
 - `dashboard`, `watchdog`, `health-check`
 - `rbac`, `scope`, `recovery`
 - `chapter-1`, `chapter-2`
 - `frontend`, `controller`, `gateway`
 
-#### Subject (제목)
+#### Subject (?�목)
 
 **규칙**:
-- 50자 이내
-- 명령형 현재 시제 ("추가함" ❌, "추가" ✅)
-- 첫 글자 소문자
-- 마침표 없음
+- 50???�내
+- 명령???�재 ?�제 ("추�??? ?? "추�?" ??
+- �?글???�문??
+- 마침???�음
 
-**좋은 예시**:
+**좋�? ?�시**:
 ```bash
-feat: CLI Dashboard 추가
-fix: Controller 포트 18082 바인딩 오류 해결
-docs: Chapter 2-2 RBAC 강화 완료 보고서
+feat: CLI Dashboard 추�?
+fix: Controller ?�트 18082 바인???�류 ?�결
+docs: Chapter 2-2 RBAC 강화 ?�료 보고??
 ```
 
-**나쁜 예시**:
+**?�쁜 ?�시**:
 ```bash
-Updated files.  ❌ (불명확)
-Fixed bug  ❌ (어떤 버그?)
-추가했음.  ❌ (명령형 아님)
+Updated files.  ??(불명??
+Fixed bug  ??(?�떤 버그?)
+추�??�음.  ??(명령???�님)
 ```
 
-#### Body (본문, 선택)
+#### Body (본문, ?�택)
 
 ```bash
-feat(watchdog): Scope 기반 자동 복구 추가
+feat(watchdog): Scope 기반 ?�동 복구 추�?
 
-Scope.yaml의 manage 영역에 있는 시스템만 자동 복구 수행.
-observe와 deny 영역은 자동 복구 대상에서 제외하여 안전성 확보.
+Scope.yaml??manage ?�역???�는 ?�스?�만 ?�동 복구 ?�행.
+observe?� deny ?�역?� ?�동 복구 ?�?�에???�외?�여 ?�전???�보.
 
-- manage: 7개 시스템 자동 복구 가능
-- observe: 읽기 전용, 복구 불가
-- deny: 절대 접근 불가
+- manage: 7�??�스???�동 복구 가??
+- observe: ?�기 ?�용, 복구 불�?
+- deny: ?��? ?�근 불�?
 ```
 
-#### Footer (푸터, 선택)
+#### Footer (?�터, ?�택)
 
 ```bash
-fix(controller): 포트 바인딩 오류 해결
+fix(controller): ?�트 바인???�류 ?�결
 
-포트 17777과 18082를 동시 바인딩하도록 수정.
-부팅 시 자동 시작 안정성 향상.
+?�트 17777�?18082�??�시 바인?�하?�록 ?�정.
+부?????�동 ?�작 ?�정???�상.
 
 Fixes #123
 Closes #456
-BREAKING CHANGE: 포트 설정 변경 필요
+BREAKING CHANGE: ?�트 ?�정 변�??�요
 ```
 
-**Footer 키워드**:
-- `Fixes #123`: 이슈 수정
-- `Closes #456`: 이슈 종료
+**Footer ?�워??*:
+- `Fixes #123`: ?�슈 ?�정
+- `Closes #456`: ?�슈 종료
 - `Refs #789`: 참조
-- `BREAKING CHANGE`: 호환성 깨지는 변경
+- `BREAKING CHANGE`: ?�환??깨�???변�?
 
-### 커밋 메시지 예시 (Chapter 1 완료)
+### 커밋 메시지 ?�시 (Chapter 1 ?�료)
 
 ```bash
-feat: Chapter 1 완료 - 관제 기반 구축
+feat: Chapter 1 ?�료 - 관??기반 구축
 
-[Chapter 1-0] 운영 안전망 구축
-- scope.yaml: 12개 시스템 분류 (Manage/Observe/Deny)
-- Validate-Scope.ps1: 정합성 검증
-- SCOPE_POLICY.md: 400 lines 운영 가이드
+[Chapter 1-0] ?�영 ?�전�?구축
+- scope.yaml: 12�??�스??분류 (Manage/Observe/Deny)
+- Validate-Scope.ps1: ?�합??검�?
+- SCOPE_POLICY.md: 400 lines ?�영 가?�드
 
-[Chapter 1-3] Controller 서비스화
-- Task Scheduler 통합
+[Chapter 1-3] Controller ?�비?�화
+- Task Scheduler ?�합
 - Install-DCP-Controller.ps1
 
 [Chapter 1-4] Watchdog Monitor
-- Watchdog-Monitor.ps1: 5분 주기 자동 감시
-- Scope 기반 자동 복구
+- Watchdog-Monitor.ps1: 5�?주기 ?�동 감시
+- Scope 기반 ?�동 복구
 
 [Chapter 1-5] Health Check V2
-- health-all.ps1 완전 재작성
-- Scope 통합, 자동 복구
+- health-all.ps1 ?�전 ?�작??
+- Scope ?�합, ?�동 복구
 
 [Chapter 1-6] CLI Dashboard
-- Dashboard.ps1: 실시간 터미널 UI
-- 색상 코딩, Scope 표시
+- Dashboard.ps1: ?�시�??��???UI
+- ?�상 코딩, Scope ?�시
 
-[Chapter 1-7] Gate 1 검증
+[Chapter 1-7] Gate 1 검�?
 - GATE_1_VERIFICATION.md
-- 82/100 조건부 통과
+- 82/100 조건부 ?�과
 
-완성율: 1.3% → 7.0% (+5.7%p)
-파일: 21개 (생성 18 + 수정 3)
-라인: 5,700+
-Gate 1: PASSED (82점)
+?�성?? 1.3% ??7.0% (+5.7%p)
+?�일: 21�?(?�성 18 + ?�정 3)
+?�인: 5,700+
+Gate 1: PASSED (82??
 
-다음: Chapter 2-1 (VS Code 통합)
+?�음: Chapter 2-1 (VS Code ?�합)
 
-BREAKING CHANGE: health-all.ps1 V2 재작성으로 기존 스크립트 호환 불가
+BREAKING CHANGE: health-all.ps1 V2 ?�작?�으�?기존 ?�크립트 ?�환 불�?
 
 Co-authored-by: Antigravity AI <ai@deepmind>
 ```
 
 ---
 
-## 3. PR/MR 가이드라인
+## 3. PR/MR 가?�드?�인
 
-### Pull Request 프로세스
+### Pull Request ?�로?�스
 
-#### 1. PR 생성 전 체크리스트
+#### 1. PR ?�성 ??체크리스??
 
-- [ ] 로컬 테스트 완료
-- [ ] 코드 린트 통과
-- [ ] 커밋 메시지 규칙 준수
-- [ ] 충돌 없음
-- [ ] `.gitignore` 확인 (비밀정보 없음)
+- [ ] 로컬 ?�스???�료
+- [ ] 코드 린트 ?�과
+- [ ] 커밋 메시지 규칙 준??
+- [ ] 충돌 ?�음
+- [ ] `.gitignore` ?�인 (비�??�보 ?�음)
 
-#### 2. PR 제목 규칙
+#### 2. PR ?�목 규칙
 
 ```
-[Chapter X-Y] 제목 - 핵심 내용
+[Chapter X-Y] ?�목 - ?�심 ?�용
 
-예시:
-[Chapter 1] 관제 기반 구축 - Scope + Watchdog + Dashboard
-[Chapter 2-2] RBAC 강화 - Scope 연동 및 이중 보안
-[Hotfix] Controller 포트 바인딩 긴급 수정
+?�시:
+[Chapter 1] 관??기반 구축 - Scope + Watchdog + Dashboard
+[Chapter 2-2] RBAC 강화 - Scope ?�동 �??�중 보안
+[Hotfix] Controller ?�트 바인??긴급 ?�정
 ```
 
-#### 3. PR 템플릿
+#### 3. PR ?�플�?
 
 ```markdown
-## 📋 작업 내용
+## ?�� ?�업 ?�용
 
-### 완료된 Chapter
-- Chapter X-Y: 제목
+### ?�료??Chapter
+- Chapter X-Y: ?�목
 
-### 주요 변경사항
+### 주요 변경사??
 - 기능 1
 - 기능 2
 - 기능 3
 
-## ✅ 체크리스트
+## ??체크리스??
 
-- [ ] 로컬 테스트 완료
-- [ ] 문서 업데이트 완료
-- [ ] 커밋 메시지 규칙 준수
-- [ ] 충돌 해결 완료
+- [ ] 로컬 ?�스???�료
+- [ ] 문서 ?�데?�트 ?�료
+- [ ] 커밋 메시지 규칙 준??
+- [ ] 충돌 ?�결 ?�료
 
-## 📊 테스트 결과
+## ?�� ?�스??결과
 
 ```
-테스트 명령어: powershell -File test.ps1
+?�스??명령?? powershell -File test.ps1
 결과: PASSED
 ```
 
-## 📝 참고사항
+## ?�� 참고?�항
 
-(특이사항, 주의사항, 추가 설명 등)
+(?�이?�항, 주의?�항, 추�? ?�명 ??
 
-## 🔗 관련 이슈
+## ?�� 관???�슈
 
 Fixes #123
 Refs #456
@@ -257,35 +257,35 @@ Refs #456
 
 #### 4. 리뷰 규칙
 
-- **필수 승인자**: 1명 이상 (Chapter 완료는 2명)
-- **리뷰 기한**: 24시간 이내
-- **변경 요청**: 명확한 이유 및 대안 제시
+- **?�수 ?�인??*: 1�??�상 (Chapter ?�료??2�?
+- **리뷰 기한**: 24?�간 ?�내
+- **변�??�청**: 명확???�유 �??�???�시
 
 ---
 
-## 4. 보안 가이드라인
+## 4. 보안 가?�드?�인
 
-### 절대 커밋 금지 항목
+### ?��? 커밋 금�? ??��
 
-1. **비밀번호 및 토큰**
+1. **비�?번호 �??�큰**
    ```bash
-   # ❌ 금지
+   # ??금�?
    api_key = "sk-1234567890abcdef"
    password = "mySecretPass123"
    
-   # ✅ 허용
+   # ???�용
    api_key = "${CRED:openai-api-key}"
    password = "${ENV:DB_PASSWORD}"
    ```
 
-2. **개인 정보**
-   - 이메일, 전화번호, 주소
-   - 실명 (공개 승인 제외)
-   - 내부 IP 주소
+2. **개인 ?�보**
+   - ?�메?? ?�화번호, 주소
+   - ?�명 (공개 ?�인 ?�외)
+   - ?��? IP 주소
 
-3. **로컬 설정 파일**
+3. **로컬 ?�정 ?�일**
    ```bash
-   # .gitignore에 필수 추가
+   # .gitignore???�수 추�?
    *.local
    *.env
    .env.*
@@ -294,20 +294,20 @@ Refs #456
    credentials/
    ```
 
-### .gitignore 표준
+### .gitignore ?��?
 
 ```gitignore
-# DCP 표준 .gitignore
+# DCP ?��? .gitignore
 
 # ============================================================
-# OS 생성 파일
+# OS ?�성 ?�일
 # ============================================================
 Thumbs.db
 .DS_Store
 desktop.ini
 
 # ============================================================
-# 개발 환경
+# 개발 ?�경
 # ============================================================
 .vscode/
 .idea/
@@ -316,7 +316,7 @@ desktop.ini
 *~
 
 # ============================================================
-# 빌드 결과물
+# 빌드 결과�?
 # ============================================================
 node_modules/
 dist/
@@ -326,7 +326,7 @@ build/
 *.so
 
 # ============================================================
-# 로그 및 임시 파일
+# 로그 �??�시 ?�일
 # ============================================================
 logs/
 *.log
@@ -335,7 +335,7 @@ temp/
 *.tmp
 
 # ============================================================
-# 보안 관련 (중요!)
+# 보안 관??(중요!)
 # ============================================================
 *.env
 *.env.*
@@ -350,65 +350,65 @@ credentials/
 .ssh/
 
 # ============================================================
-# DCP 특화
+# DCP ?�화
 # ============================================================
 backups/
 C:\OpenClaw\logs/
 ```
 
-### 비밀 정보 누출 시 대응
+### 비�? ?�보 ?�출 ???�??
 
-1. **즉시 중단**: 더 이상 커밋하지 않음
-2. **비밀 무효화**: API 키/토큰 즉시 재발급
-3. **히스토리 정리**: `git filter-branch` 또는 `BFG Repo-Cleaner`
-4. **보고**: 관리자에게 즉시 보고
-5. **재발 방지**: pre-commit hook 설정
+1. **즉시 중단**: ???�상 커밋?��? ?�음
+2. **비�? 무효??*: API ???�큰 즉시 ?�발�?
+3. **?�스?�리 ?�리**: `git filter-branch` ?�는 `BFG Repo-Cleaner`
+4. **보고**: 관리자?�게 즉시 보고
+5. **?�발 방�?**: pre-commit hook ?�정
 
 ---
 
-## 5. 작업 워크플로우
+## 5. ?�업 ?�크?�로??
 
-### 일반 기능 개발
+### ?�반 기능 개발
 
 ```bash
-# 1. develop에서 feature 브랜치 생성
+# 1. develop?�서 feature 브랜�??�성
 git checkout develop
 git pull origin develop
 git checkout -b feature/chapter-2-3-git-standards
 
-# 2. 작업 수행
+# 2. ?�업 ?�행
 # ... 코딩 ...
 
 # 3. 커밋
 git add .
-git commit -m "feat(git): GIT_STANDARDS.md V2 작성"
+git commit -m "feat(git): GIT_STANDARDS.md V2 ?�성"
 
-# 4. 원격 푸시
+# 4. ?�격 ?�시
 git push origin feature/chapter-2-3-git-standards
 
-# 5. PR 생성 (GitHub/GitLab)
+# 5. PR ?�성 (GitHub/GitLab)
 # develop <- feature/chapter-2-3-git-standards
 
-# 6. 리뷰 및 승인 후 병합
+# 6. 리뷰 �??�인 ??병합
 git checkout develop
 git pull origin develop
 
-# 7. feature 브랜치 삭제
+# 7. feature 브랜�???��
 git branch -d feature/chapter-2-3-git-standards
 ```
 
-### 긴급 수정 (Hotfix)
+### 긴급 ?�정 (Hotfix)
 
 ```bash
-# 1. main에서 hotfix 브랜치 생성
+# 1. main?�서 hotfix 브랜�??�성
 git checkout main
 git pull origin main
 git checkout -b hotfix/controller-port-binding
 
-# 2. 수정 및 커밋
-git commit -m "fix(controller): 포트 18082 바인딩 오류 긴급 수정"
+# 2. ?�정 �?커밋
+git commit -m "fix(controller): ?�트 18082 바인???�류 긴급 ?�정"
 
-# 3. main과 develop 모두에 병합
+# 3. main�?develop 모두??병합
 git checkout main
 git merge --no-ff hotfix/controller-port-binding
 git push origin main
@@ -417,188 +417,188 @@ git checkout develop
 git merge --no-ff hotfix/controller-port-binding
 git push origin develop
 
-# 4. hotfix 브랜치 삭제
+# 4. hotfix 브랜�???��
 git branch -d hotfix/controller-port-binding
 ```
 
 ---
 
-## 6. 릴리스 관리
+## 6. 릴리??관�?
 
-### Release 브랜치
+### Release 브랜�?
 
 ```bash
-# 1. develop에서 release 브랜치 생성
+# 1. develop?�서 release 브랜�??�성
 git checkout develop
 git checkout -b release/v1.0.0
 
-# 2. 버전 번호 업데이트
+# 2. 버전 번호 ?�데?�트
 # - README.md
 # - package.json
 # - metadata.yaml
 
-# 3. 최종 테스트 및 버그 수정
+# 3. 최종 ?�스??�?버그 ?�정
 
-# 4. main과 develop에 병합
+# 4. main�?develop??병합
 git checkout main
 git merge --no-ff release/v1.0.0
-git tag -a v1.0.0 -m "Release v1.0.0 - Chapter 1 완료"
+git tag -a v1.0.0 -m "Release v1.0.0 - Chapter 1 ?�료"
 git push origin main --tags
 
 git checkout develop
 git merge --no-ff release/v1.0.0
 git push origin develop
 
-# 5. release 브랜치 삭제
+# 5. release 브랜�???��
 git branch -d release/v1.0.0
 ```
 
-### 버전 태그 규칙
+### 버전 ?�그 규칙
 
 **Semantic Versioning (SemVer)**:
 ```
 v<MAJOR>.<MINOR>.<PATCH>
 
-예시:
-v1.0.0  - 첫 정식 릴리스
-v1.1.0  - 기능 추가
-v1.1.1  - 버그 수정
-v2.0.0  - 호환성 깨지는 변경
+?�시:
+v1.0.0  - �??�식 릴리??
+v1.1.0  - 기능 추�?
+v1.1.1  - 버그 ?�정
+v2.0.0  - ?�환??깨�???변�?
 ```
 
-**태그 메시지**:
+**?�그 메시지**:
 ```bash
-git tag -a v1.0.0 -m "Release v1.0.0 - UCONAI-LLM Chapter 1 완료
+git tag -a v1.0.0 -m "Release v1.0.0 - UCONAI-LLM Chapter 1 ?�료
 
 주요 기능:
-- Scope 기반 안전망
-- Watchdog 자동 감시
+- Scope 기반 ?�전�?
+- Watchdog ?�동 감시
 - CLI Dashboard
-- Gate 1 통과 (82점)
+- Gate 1 ?�과 (82??
 
-완성율: 7.0%
+?�성?? 7.0%
 "
 ```
 
 ---
 
-## 7. 충돌 해결
+## 7. 충돌 ?�결
 
-### 충돌 발생 시
+### 충돌 발생 ??
 
 ```bash
-# 1. develop 최신 상태로 업데이트
+# 1. develop 최신 ?�태�??�데?�트
 git checkout develop
 git pull origin develop
 
-# 2. feature 브랜치로 돌아가서 rebase
+# 2. feature 브랜치로 ?�아가??rebase
 git checkout feature/my-feature
 git rebase develop
 
-# 3. 충돌 파일 확인
+# 3. 충돌 ?�일 ?�인
 git status
 
-# 4. 충돌 해결 (수동 편집)
+# 4. 충돌 ?�결 (?�동 ?�집)
 # <<<<<<< HEAD
-# 나의 변경
+# ?�의 변�?
 # =======
-# 다른 사람의 변경
+# ?�른 ?�람??변�?
 # >>>>>>> develop
 
-# 5. 해결 후 계속
-git add <충돌파일>
+# 5. ?�결 ??계속
+git add <충돌?�일>
 git rebase --continue
 
-# 6. 강제 푸시 (rebase 후 필수)
+# 6. 강제 ?�시 (rebase ???�수)
 git push origin feature/my-feature --force-with-lease
 ```
 
-### 충돌 예방
+### 충돌 ?�방
 
-1. **자주 pull**: `git pull origin develop` 매일 아침
-2. **작은 단위**: feature 브랜치 수명 짧게 (1-3일)
-3. **의사소통**: 같은 파일 작업 시 사전 조율
+1. **?�주 pull**: `git pull origin develop` 매일 ?�침
+2. **?��? ?�위**: feature 브랜�??�명 짧게 (1-3??
+3. **?�사?�통**: 같�? ?�일 ?�업 ???�전 조율
 
 ---
 
-## 8. 유용한 Git 명령어
+## 8. ?�용??Git 명령??
 
-### 히스토리 조회
+### ?�스?�리 조회
 
 ```bash
-# 로그 보기 (예쁘게)
+# 로그 보기 (?�쁘�?
 git log --oneline --graph --all --decorate
 
-# 특정 파일 변경 이력
-git log -p <파일명>
+# ?�정 ?�일 변�??�력
+git log -p <?�일�?
 
-# 커밋 통계
+# 커밋 ?�계
 git shortlog -sn
 ```
 
-### 변경 취소
+### 변�?취소
 
 ```bash
-# 마지막 커밋 메시지 수정
+# 마�?�?커밋 메시지 ?�정
 git commit --amend
 
-# 스테이징 취소
-git reset HEAD <파일>
+# ?�테?�징 취소
+git reset HEAD <?�일>
 
-# 작업 디렉토리 변경 취소
-git checkout -- <파일>
+# ?�업 ?�렉?�리 변�?취소
+git checkout -- <?�일>
 
-# 커밋 되돌리기 (이력 유지)
+# 커밋 ?�돌리기 (?�력 ?��?)
 git revert <commit-hash>
 ```
 
-### 브랜치 관리
+### 브랜�?관�?
 
 ```bash
-# 로컬 브랜치 목록
+# 로컬 브랜�?목록
 git branch
 
-# 원격 브랜치 포함
+# ?�격 브랜�??�함
 git branch -a
 
-# 병합된 브랜치 삭제
+# 병합??브랜�???��
 git branch --merged | grep -v "\\*\\|main\\|develop" | xargs -n 1 git branch -d
 ```
 
 ---
 
-## 9. Chapter별 커밋 권장사항
+## 9. Chapter�?커밋 권장?�항
 
-| Chapter | 커밋 주기 | PR 크기 |
+| Chapter | 커밋 주기 | PR ?�기 |
 |---------|-----------|---------|
-| Chapter 1-X | 하위 Chapter 완료 시 | 소형 (1-5 파일) |
-| Gate X | Gate 통과 시 | 대형 (전체) |
-| Hotfix | 즉시 | 초소형 (1-2 파일) |
+| Chapter 1-X | ?�위 Chapter ?�료 ??| ?�형 (1-5 ?�일) |
+| Gate X | Gate ?�과 ??| ?�??(?�체) |
+| Hotfix | 즉시 | 초소??(1-2 ?�일) |
 
 ---
 
-## ✅ Git 표준 체크리스트
+## ??Git ?��? 체크리스??
 
-### 커밋 전
-- [ ] `.gitignore` 확인
-- [ ] 비밀정보 제거
-- [ ] 커밋 메시지 규칙 준수
-- [ ] 로컬 테스트 통과
+### 커밋 ??
+- [ ] `.gitignore` ?�인
+- [ ] 비�??�보 ?�거
+- [ ] 커밋 메시지 규칙 준??
+- [ ] 로컬 ?�스???�과
 
-### PR 전
-- [ ] `develop` 브랜치와 동기화
-- [ ] 충돌 해결 완료
-- [ ] PR 템플릿 작성
-- [ ] 리뷰어 지정
+### PR ??
+- [ ] `develop` 브랜치�? ?�기??
+- [ ] 충돌 ?�결 ?�료
+- [ ] PR ?�플�??�성
+- [ ] 리뷰??지??
 
-### 병합 전
-- [ ] 리뷰 승인 완료
-- [ ] CI/CD 통과 (구축 후)
-- [ ] 최종 테스트 확인
+### 병합 ??
+- [ ] 리뷰 ?�인 ?�료
+- [ ] CI/CD ?�과 (구축 ??
+- [ ] 최종 ?�스???�인
 
 ---
 
 **버전**: V2.0  
-**업데이트**: 2026-02-10  
-**작성자**: DCP Admin  
-**다음 업데이트**: Chapter 2-6 CI/CD 시
+**?�데?�트**: 2026-02-10  
+**?�성??*: DCP Admin  
+**?�음 ?�데?�트**: Chapter 2-6 CI/CD ??

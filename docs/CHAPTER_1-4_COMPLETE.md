@@ -70,12 +70,12 @@ Controller ë°??µì‹¬ ?œìŠ¤?œì˜ ?ì¡´ ?íƒœë¥?ê°ì‹œ?˜ê³  ?¤íŒ¨ ???ë™ ë³µêµ¬?˜ë
 
 ### 1???¤í–‰ (?ŒìŠ¤??
 ```powershell
-C:\UCONAI-LLM\scripts\ops\Watchdog-Monitor.ps1 -Once
+C:\DCP_Development\scripts\ops\Watchdog-Monitor.ps1 -Once
 ```
 
 ### ë°±ê·¸?¼ìš´???¤í–‰ (ë¬´í•œ ë£¨í”„)
 ```powershell
-Start-Process PowerShell -ArgumentList "-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File C:\UCONAI-LLM\scripts\ops\Watchdog-Monitor.ps1"
+Start-Process PowerShell -ArgumentList "-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File C:\DCP_Development\scripts\ops\Watchdog-Monitor.ps1"
 ```
 
 ### ?¬ìš©???•ì˜ ì£¼ê¸°

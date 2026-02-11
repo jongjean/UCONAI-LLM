@@ -1,0 +1,56 @@
+{
+    "folders": [
+        {
+            "name": "00_UCONAI_CORE",
+            "path": "."
+        },
+        {
+            "name": "01_UCONAI_FRONTEND",
+            "path": "frontend"
+        },
+        {
+            "name": "02_OPENCLAW_CONTROLLER",
+            "path": "C:\\OpenClaw\\controller"
+        },
+        {
+            "name": "03_OPENCLAW_GATEWAY",
+            "path": "C:\\Users\\user\\.openclaw"
+        },
+        {
+            "name": "04_INFOTECH_MONITOR",
+            "path": "C:\\infotech\\iftNxService"
+        },
+        {
+            "name": "05_FINGER_SCRAPER",
+            "path": "C:\\Finger\\FSWSS"
+        },
+        {
+            "name": "06_KED_AGENT",
+            "path": "C:\\KED\\FindAgent"
+        }
+    ],
+    "settings": {
+        "files.encoding": "utf8",
+        "files.autoSave": "afterDelay",
+        "powershell.executionPolicy": "Bypass"
+    },
+    "tasks": {
+        "version": "2.0.0",
+        "tasks": [
+            {
+                "label": "UCONAI: Health Check All",
+                "type": "shell",
+                "command": "PowerShell -NoProfile -ExecutionPolicy Bypass -File C:\\UCONAI-LLM\\scripts\\health\\health-all.ps1",
+                "group": "test",
+                "problemMatcher": []
+            },
+            {
+                "label": "UCONAI: Start All (Stealth)",
+                "type": "shell",
+                "command": "PowerShell -NoProfile -ExecutionPolicy Bypass -File C:\\OpenClaw\\UCONAI_Stealth_Start.ps1",
+                "group": "none",
+                "problemMatcher": []
+            }
+        ]
+    }
+}

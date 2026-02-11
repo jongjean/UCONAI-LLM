@@ -11,7 +11,7 @@
 
 ### 1. Scope Í≤ÄÏ¶??µÍ≥º ??**?µÍ≥º**
 ```bash
-C:\UCONAI-LLM\scripts\ops\Validate-Scope.ps1
+C:\DCP_Development\scripts\ops\Validate-Scope.ps1
 ```
 **Í≤∞Í≥º**: ??All checks passed!
 - Systems: 12Í∞??±Î°ù
@@ -73,7 +73,7 @@ C:\UCONAI-LLM\scripts\ops\Validate-Scope.ps1
 ### 4. Watchdog ?ëÎèô ?ïÏù∏ ??**?µÍ≥º**
 **?åÏä§??*:
 ```bash
-C:\UCONAI-LLM\scripts\ops\Watchdog-Monitor.ps1 -Once
+C:\DCP_Development\scripts\ops\Watchdog-Monitor.ps1 -Once
 ```
 
 **Í≤∞Í≥º**: ??All systems healthy!
@@ -90,7 +90,7 @@ C:\UCONAI-LLM\scripts\ops\Watchdog-Monitor.ps1 -Once
 ### 5. Dashboard ?ëÎèô ?ïÏù∏ ??**?µÍ≥º**
 **?åÏä§??*:
 ```bash
-C:\UCONAI-LLM\scripts\ops\Dashboard.ps1 -Once
+C:\DCP_Development\scripts\ops\Dashboard.ps1 -Once
 ```
 
 **Í≤∞Í≥º**: ???ëÎèô ?ïÏù∏

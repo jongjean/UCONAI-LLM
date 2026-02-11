@@ -1,122 +1,42 @@
-{
-    "version": "1.0",
-    "updated": "2026-02-11",
-    "tools": [
-        {
-            "name": "notepad",
-            "aliases": [
-                "메모장",
-                "노트패드",
-                "note"
-            ],
-            "command": "notepad.exe",
-            "type": "app"
-        },
-        {
-            "name": "calc",
-            "aliases": [
-                "계산기",
-                "calc"
-            ],
-            "command": "calc.exe",
-            "type": "app"
-        },
-        {
-            "name": "explorer",
-            "aliases": [
-                "탐색기",
-                "파일",
-                "폴더"
-            ],
-            "command": "explorer.exe",
-            "type": "app"
-        },
-        {
-            "name": "taskmgr",
-            "aliases": [
-                "작업관리자",
-                "프로세스",
-                "task"
-            ],
-            "command": "taskmgr.exe",
-            "type": "app"
-        },
-        {
-            "name": "vscode",
-            "aliases": [
-                "코드",
-                "vs",
-                "vscode"
-            ],
-            "command": "code",
-            "type": "app"
-        },
-        {
-            "name": "terminal",
-            "aliases": [
-                "터미널",
-                "cmd",
-                "shell"
-            ],
-            "command": "wt.exe",
-            "type": "app"
-        },
-        {
-            "name": "excel",
-            "aliases": [
-                "엑셀",
-                "표"
-            ],
-            "command": "excel.exe",
-            "type": "app"
-        },
-        {
-            "name": "powerpoint",
-            "aliases": [
-                "피피티",
-                "파워포인트",
-                "ppt"
-            ],
-            "command": "powerpnt.exe",
-            "type": "app"
-        },
-        {
-            "name": "word",
-            "aliases": [
-                "워드",
-                "문서"
-            ],
-            "command": "winword.exe",
-            "type": "app"
-        },
-        {
-            "name": "photoshop",
-            "aliases": [
-                "포토샵",
-                "사진"
-            ],
-            "command": "Photoshop.exe",
-            "type": "app"
-        },
-        {
-            "name": "chrome",
-            "aliases": [
-                "크롬",
-                "인터넷",
-                "브라우저"
-            ],
-            "command": "chrome.exe",
-            "type": "app"
-        },
-        {
-            "name": "health_check",
-            "aliases": [
-                "상태",
-                "점검",
-                "health"
-            ],
-            "command": "internal:health",
-            "type": "function"
+[
+    {
+        "name": "restart_system",
+        "description": "Restores or restarts a specific UCONAI system component.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "system_id": {
+                    "type": "string",
+                    "description": "The ID of the system (e.g., uconai-bridge, dcp-control-plane)."
+                }
+            },
+            "required": [
+                "system_id"
+            ]
         }
-    ]
-}
+    },
+    {
+        "name": "execute_powershell",
+        "description": "Executes a safe PowerShell command for system maintenance.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "command": {
+                    "type": "string",
+                    "description": "The PowerShell command to run."
+                }
+            },
+            "required": [
+                "command"
+            ]
+        }
+    },
+    {
+        "name": "check_all_health",
+        "description": "Retrieves the current status of all 11 empire systems.",
+        "parameters": {
+            "type": "object",
+            "properties": {}
+        }
+    }
+]

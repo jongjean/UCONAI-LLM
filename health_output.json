@@ -1,0 +1,150 @@
+﻿{
+    "systems":  [
+                    {
+                        "scope":  "error",
+                        "result":  {
+                                       "message":  "값 \"System.Object[]\"을(를) \"System.Int32\" 유형으로 변환할 수 없습니다. 오류: \"입력 문자열의 형식이 잘못되었습니다.\"",
+                                       "cpu":  0,
+                                       "ok":  false,
+                                       "uptime":  "0s",
+                                       "status":  "ERROR",
+                                       "pid":  0
+                                   },
+                        "name":  "DCP Gateway",
+                        "id":  "dcp-control-plane"
+                    },
+                    {
+                        "scope":  "error",
+                        "result":  {
+                                       "message":  "값 \"System.Object[]\"을(를) \"System.Int32\" 유형으로 변환할 수 없습니다. 오류: \"입력 문자열의 형식이 잘못되었습니다.\"",
+                                       "cpu":  0,
+                                       "ok":  false,
+                                       "uptime":  "0s",
+                                       "status":  "ERROR",
+                                       "pid":  0
+                                   },
+                        "name":  "DCP Controller",
+                        "id":  "dcp-execution-plane"
+                    },
+                    {
+                        "scope":  "error",
+                        "result":  {
+                                       "message":  "값 \"System.Object[]\"을(를) \"System.Int32\" 유형으로 변환할 수 없습니다. 오류: \"입력 문자열의 형식이 잘못되었습니다.\"",
+                                       "cpu":  0,
+                                       "ok":  false,
+                                       "uptime":  "0s",
+                                       "status":  "ERROR",
+                                       "pid":  0
+                                   },
+                        "name":  "AI Bridge",
+                        "id":  "uconai-bridge"
+                    },
+                    {
+                        "scope":  "error",
+                        "result":  {
+                                       "message":  "값 \"System.Object[]\"을(를) \"System.Int32\" 유형으로 변환할 수 없습니다. 오류: \"입력 문자열의 형식이 잘못되었습니다.\"",
+                                       "cpu":  0,
+                                       "ok":  false,
+                                       "uptime":  "0s",
+                                       "status":  "ERROR",
+                                       "pid":  0
+                                   },
+                        "name":  "Frontend",
+                        "id":  "uconai-frontend"
+                    },
+                    {
+                        "scope":  "error",
+                        "result":  {
+                                       "message":  "\"op_Subtraction\" 및 인수 개수(\"2\")에 대한 오버로드가 없습니다.",
+                                       "cpu":  0,
+                                       "ok":  false,
+                                       "uptime":  "0s",
+                                       "status":  "ERROR",
+                                       "pid":  0
+                                   },
+                        "name":  "Infotech TS",
+                        "id":  "infotech-monitor"
+                    },
+                    {
+                        "scope":  "observe",
+                        "result":  {
+                                       "message":  "Running",
+                                       "cpu":  0,
+                                       "ok":  true,
+                                       "uptime":  "11990s",
+                                       "status":  "OK",
+                                       "pid":  26216
+                                   },
+                        "name":  "Finger TS",
+                        "id":  "finger-monitor"
+                    },
+                    {
+                        "scope":  "observe",
+                        "result":  {
+                                       "message":  "Running",
+                                       "cpu":  0,
+                                       "ok":  true,
+                                       "uptime":  "11935s",
+                                       "status":  "OK",
+                                       "pid":  8052
+                                   },
+                        "name":  "KED TS",
+                        "id":  "ked-monitor"
+                    },
+                    {
+                        "scope":  "observe",
+                        "result":  {
+                                       "message":  "Offline",
+                                       "cpu":  0,
+                                       "ok":  false,
+                                       "uptime":  "0s",
+                                       "status":  "FAIL",
+                                       "pid":  0
+                                   },
+                        "name":  "GDC Server",
+                        "id":  "gdc-server"
+                    },
+                    {
+                        "scope":  "observe",
+                        "result":  {
+                                       "message":  "Offline",
+                                       "cpu":  0,
+                                       "ok":  false,
+                                       "uptime":  "0s",
+                                       "status":  "FAIL",
+                                       "pid":  0
+                                   },
+                        "name":  "TMS Server",
+                        "id":  "tms-server"
+                    },
+                    {
+                        "scope":  "error",
+                        "result":  {
+                                       "message":  "\"op_Subtraction\" 및 인수 개수(\"2\")에 대한 오버로드가 없습니다.",
+                                       "cpu":  0,
+                                       "ok":  false,
+                                       "uptime":  "0s",
+                                       "status":  "ERROR",
+                                       "pid":  0
+                                   },
+                        "name":  "PMS Server",
+                        "id":  "pms-server"
+                    },
+                    {
+                        "scope":  "error",
+                        "result":  {
+                                       "message":  "\"op_Subtraction\" 및 인수 개수(\"2\")에 대한 오버로드가 없습니다.",
+                                       "cpu":  0,
+                                       "ok":  false,
+                                       "uptime":  "0s",
+                                       "status":  "ERROR",
+                                       "pid":  0
+                                   },
+                        "name":  "Workstation",
+                        "id":  "workstation-monitor"
+                    }
+                ],
+    "timestamp":  "2026-02-12 02:25:18",
+    "memory":  55,
+    "cpu":  16
+}

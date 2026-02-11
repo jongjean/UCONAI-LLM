@@ -1,0 +1,24 @@
+# UCONAI Sovereign Zones Definition (Constitutional Policy)
+# Defines isolated zones and allowed actions within the empire.
+
+zones:
+  imperial_core:
+    description: "The heart of the empire. Full control."
+    allowed_ips: ["127.0.0.1", "::1"]
+    scopes: ["*"]
+    auth_level: "supreme_commander"
+
+  public_sector:
+    description: "External access zone. Read-only."
+    allowed_ips: ["*"]
+    scopes: ["status_check", "report_generation", "chat"]
+    auth_level: "citizen"
+
+access_rules:
+  - role: "supreme_commander"
+    zones: ["imperial_core", "public_sector"]
+    
+  - role: "citizen"
+    zones: ["public_sector"]
+
+default_policy: "deny"
