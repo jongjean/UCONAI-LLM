@@ -1,4 +1,4 @@
-{
+﻿{
     "version": "2.0.0",
     "tasks": [
         // ============================================================
@@ -316,7 +316,7 @@
                 "build"
             ],
             "options": {
-                "cwd": "C:\\home\\ucon\\UCONAI_gpt-ISO\\frontend"
+                "cwd": "C:\\UCONAI-LLM\\frontend"
             },
             "problemMatcher": [
                 "$tsc"
@@ -335,7 +335,7 @@
                 "dev"
             ],
             "options": {
-                "cwd": "C:\\home\\ucon\\UCONAI_gpt-ISO\\frontend"
+                "cwd": "C:\\UCONAI-LLM\\frontend"
             },
             "problemMatcher": [],
             "isBackground": true
@@ -346,7 +346,7 @@
             "command": "powershell",
             "args": [
                 "-Command",
-                "Get-Content C:\\home\\ucon\\UCONAI_gpt-ISO\\frontend\\build-error.log"
+                "Get-Content C:\\UCONAI-LLM\\frontend\\build-error.log"
             ],
             "problemMatcher": []
         },
@@ -358,7 +358,7 @@
                 "install"
             ],
             "options": {
-                "cwd": "C:\\home\\ucon\\UCONAI_gpt-ISO\\frontend"
+                "cwd": "C:\\UCONAI-LLM\\frontend"
             },
             "problemMatcher": []
         },

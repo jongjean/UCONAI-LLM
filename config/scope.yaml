@@ -1,4 +1,4 @@
-# DCP Unified Control - Scope Definition
+﻿# DCP Unified Control - Scope Definition
 # 운영 범위 및 안전 경계 정의
 # Version: 1.0
 # Created: 2026-02-10
@@ -87,7 +87,7 @@ scope:
 
   observe:
     # Frontend / UI (View Layer)
-    - path: "C:\\home\\ucon\\UCONAI_gpt-ISO\\frontend"
+    - path: "C:\\UCONAI-LLM\\frontend"
       reason: "UCONAI Frontend - View Layer (비핵심)"
       category: "view"
       auto_recovery: false
@@ -174,17 +174,17 @@ scope:
       severity: "critical"
     
     # DCP 관리 영역 (읽기 전용)
-    - path: "C:\\DCP_Development\\config"
+    - path: "C:\\UCONAI-LLM\\config"
       reason: "DCP 설정 파일 - 수동 변경만"
       severity: "high"
       note: "systems.yaml, rbac_policy.yaml 등 런타임 계약서"
     
-    - path: "C:\\DCP_Development\\ml_data\\lake\\gold_training_set"
+    - path: "C:\\UCONAI-LLM\\ml_data\\lake\\gold_training_set"
       reason: "Gold 학습 데이터 - 재생성 비용 높음"
       severity: "high"
     
     # 백업 및 복구 지점
-    - path: "C:\\DCP_Development\\backups"
+    - path: "C:\\UCONAI-LLM\\backups"
       reason: "백업 데이터 - 보존 필수"
       severity: "high"
 
@@ -233,7 +233,7 @@ validation:
 # systems.yaml과의 정합성 체크
 
 cross_reference:
-  systems_yaml: "C:\\DCP_Development\\config\\systems.yaml"
+  systems_yaml: "C:\\UCONAI-LLM\\config\\systems.yaml"
   
   # 필수 검증 항목
   checks:
@@ -260,7 +260,7 @@ cross_reference:
 # Scope 위반 로그
 
 logging:
-  violation_log: "C:\\DCP_Development\\logs\\scope_violations.log"
+  violation_log: "C:\\UCONAI-LLM\\logs\\scope_violations.log"
   format: "jsonl"
   retention_days: 90
   
