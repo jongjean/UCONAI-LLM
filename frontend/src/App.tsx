@@ -1,12 +1,10 @@
 ﻿import { useState, useEffect, useRef } from 'react'
-import { Activity, MessageSquare } from 'lucide-react';
+import { MessageSquare, Shield, Code, FileText, Brain } from 'lucide-react';
 import Dashboard from './components/dashboard/Dashboard';
+import LPD from './components/lpd/LPD';
+import Documents from './components/documents/Documents';
+import Intelligence from './components/intelligence/Intelligence';
 import './App.css'
-
-interface LogEntry {
-  time: string;
-  msg: string;
-}
 
 interface ChatMessage {
   role: 'user' | 'ai';
@@ -14,8 +12,9 @@ interface ChatMessage {
 }
 
 function App() {
-  const [activeTab, setActiveTab] = useState<'chat' | 'dashboard'>('chat');
-
+  const [activeScreen, setActiveScreen] = useState<'UCONAI' | 'LPD' | 'DOCS' | 'INTEL'>(() => {
+    return (localStorage.getItem('uconai_active_screen') as any) || 'UCONAI';
+  });
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>(() => {
     const saved = localStorage.getItem('uconai_chat_history');
     return saved ? JSON.parse(saved) : [{ role: 'ai', text: '강박사님, 무엇을 도와드릴까요?' }];
@@ -29,8 +28,15 @@ function App() {
   };
 
   useEffect(() => {
-    if (activeTab === 'chat') scrollToBottom();
-  }, [chatMessages, activeTab]);
+    // Only scroll to bottom when new messages appear, not on every screen switch
+    if (chatMessages.length > 1) {
+      scrollToBottom();
+    }
+  }, [chatMessages]);
+
+  useEffect(() => {
+    localStorage.setItem('uconai_active_screen', activeScreen);
+  }, [activeScreen]);
 
   const handleSendMessage = async () => {
     if (!userInput.trim()) return;
@@ -55,30 +61,95 @@ function App() {
   };
 
   useEffect(() => {
+    const syncHistory = async () => {
+      try {
+        const resp = await fetch('http://localhost:18081/api/history');
+        const data = await resp.json();
+        if (data.history && data.history.length > 0) {
+          const synced = data.history.map((h: any) => ({
+            role: h.role === 'USER' ? 'user' : 'ai',
+            text: h.content
+          }));
+          setChatMessages(synced);
+        }
+      } catch (err) { console.error("History sync failed:", err); }
+    };
+    syncHistory();
+  }, []);
+
+  useEffect(() => {
     localStorage.setItem('uconai_chat_history', JSON.stringify(chatMessages));
   }, [chatMessages]);
 
   return (
     <div className="app-container" style={{ display: 'flex', flexDirection: 'column', height: '100vh', backgroundColor: '#0a0a0a', color: 'white' }}>
       {/* Unified Header */}
-      <nav style={{ display: 'flex', borderBottom: '2px solid #00ff9d33', padding: '10px 25px', alignItems: 'center', backgroundColor: '#050505', justifyContent: 'space-between' }}>
-        <h1 style={{ margin: 0, fontSize: '1.4rem', color: '#00ff9d', fontWeight: 'bold', letterSpacing: '2px' }}>UCONAI 2.0 TACTICAL COMMAND</h1>
-        <div style={{ color: '#888', fontSize: '0.8rem', fontFamily: 'monospace' }}>SECURE LINK ESTABLISHED // {new Date().toLocaleDateString()}</div>
+      <nav style={{ display: 'flex', borderBottom: '2px solid #00ff9d33', padding: '0 25px', alignItems: 'center', backgroundColor: '#050505', justifyContent: 'space-between', height: '60px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '30px', height: '100%' }}>
+          <h1 style={{ margin: 0, fontSize: '1.2rem', color: '#00ff9d', fontWeight: 'bold', letterSpacing: '2px', borderRight: '1px solid #333', paddingRight: '30px' }}>UCONAI 2.0</h1>
+
+          <div style={{ display: 'flex', height: '100%', gap: '5px' }}>
+            <button
+              onClick={() => setActiveScreen('UCONAI')}
+              style={{
+                background: 'transparent', border: 'none', color: activeScreen === 'UCONAI' ? '#00ff9d' : '#666',
+                padding: '0 20px', cursor: 'pointer', fontSize: '0.9rem', fontWeight: 'bold', letterSpacing: '1px',
+                borderBottom: activeScreen === 'UCONAI' ? '3px solid #00ff9d' : '3px solid transparent',
+                display: 'flex', alignItems: 'center', gap: '8px', transition: 'all 0.3s'
+              }}>
+              <Shield size={16} /> UCONAI
+            </button>
+            <button
+              onClick={() => setActiveScreen('LPD')}
+              style={{
+                background: 'transparent', border: 'none', color: activeScreen === 'LPD' ? '#00ff9d' : '#666',
+                padding: '0 20px', cursor: 'pointer', fontSize: '0.9rem', fontWeight: 'bold', letterSpacing: '1px',
+                borderBottom: activeScreen === 'LPD' ? '3px solid #00ff9d' : '3px solid transparent',
+                display: 'flex', alignItems: 'center', gap: '8px', transition: 'all 0.3s'
+              }}>
+              <Code size={16} /> LPD
+            </button>
+            <button
+              onClick={() => setActiveScreen('DOCS')}
+              style={{
+                background: 'transparent', border: 'none', color: activeScreen === 'DOCS' ? '#00ff9d' : '#666',
+                padding: '0 20px', cursor: 'pointer', fontSize: '0.9rem', fontWeight: 'bold', letterSpacing: '1px',
+                borderBottom: activeScreen === 'DOCS' ? '3px solid #00ff9d' : '3px solid transparent',
+                display: 'flex', alignItems: 'center', gap: '8px', transition: 'all 0.3s'
+              }}>
+              <FileText size={16} /> DOCUMENTS
+            </button>
+            <button
+              onClick={() => setActiveScreen('INTEL')}
+              style={{
+                background: 'transparent', border: 'none', color: activeScreen === 'INTEL' ? '#00ff9d' : '#666',
+                padding: '0 20px', cursor: 'pointer', fontSize: '0.9rem', fontWeight: 'bold', letterSpacing: '1px',
+                borderBottom: activeScreen === 'INTEL' ? '3px solid #00ff9d' : '3px solid transparent',
+                display: 'flex', alignItems: 'center', gap: '8px', transition: 'all 0.3s'
+              }}>
+              <Brain size={16} /> NEURAL GUIDE
+            </button>
+          </div>
+        </div>
+        <div style={{ color: '#888', fontSize: '0.7rem', fontFamily: 'monospace', opacity: 0.6 }}>SYSTEM_REV: 1.2 // SECURE_LINK_ACTIVE</div>
       </nav>
 
       {/* Main Unified Content Area */}
       <main style={{ flex: 1, overflow: 'hidden', display: 'flex' }}>
 
-        {/* Left: Tactical Console (Dashboard) */}
+        {/* Left: Component Area */}
         <div style={{ flex: '1.2', borderRight: '1px solid #333', overflowY: 'auto', backgroundColor: '#0a0a0a' }}>
-          <Dashboard />
+          {activeScreen === 'UCONAI' && <Dashboard />}
+          {activeScreen === 'LPD' && <LPD />}
+          {activeScreen === 'DOCS' && <Documents />}
+          {activeScreen === 'INTEL' && <Intelligence />}
         </div>
 
         {/* Right: Neural Link (Chat) */}
         <div style={{ flex: '0.8', display: 'flex', flexDirection: 'column', backgroundColor: '#0c0c0c' }}>
           <div style={{ padding: '15px 20px', borderBottom: '1px solid #222', display: 'flex', alignItems: 'center', gap: '10px', color: '#00ff9d' }}>
             <MessageSquare size={18} />
-            <span style={{ fontSize: '0.9rem', fontWeight: 'bold', letterSpacing: '1px' }}>NEURAL_LINK.EXE</span>
+            <span style={{ fontSize: '0.9rem', fontWeight: 'bold', letterSpacing: '1px' }}>UCONAI COMMANDER</span>
           </div>
 
           <div className="chat-messages" style={{ flex: 1, overflowY: 'auto', padding: '20px', display: 'flex', flexDirection: 'column', gap: '15px' }}>

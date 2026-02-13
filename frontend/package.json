@@ -5,7 +5,7 @@
   "description": "UCON Unified Control & Operation Systems Console - DCP 통합관제 시스템",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host 0.0.0.0 --port 5500",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"

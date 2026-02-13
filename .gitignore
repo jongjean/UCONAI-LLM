@@ -4,3 +4,20 @@ dist/
 backups/
 *.log
 .DS_Store
+
+# --- UCONAI secrets ---
+.env
+.env.*
+!.env.example
+
+# --- UCONAI vault (never commit) ---
+.audit/
+C:\UCONAI-Vault\
+
+# --- build artifacts ---
+node_modules/
+dist/
+build/
+.next/
+out/
+*.log

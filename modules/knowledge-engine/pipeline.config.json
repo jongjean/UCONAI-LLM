@@ -1,0 +1,32 @@
+{
+    "project_name": "UCONAI Knowledge Pipeline",
+    "version": "2.3.0",
+    "vault_defaults": {
+        "root": "C:\\UCONAI-Vault\\context7",
+        "raw_dir": "raw",
+        "meta_dir": "meta",
+        "index_dir": "index",
+        "snip_dir": "snips",
+        "output_root": "E:\\UCONAI"
+    },
+    "pipeline_settings": {
+        "max_snip_length": 500,
+        "sh256_verification": true,
+        "supported_extensions": [
+            ".json",
+            ".txt",
+            ".md"
+        ],
+        "stop_words": [
+            "a",
+            "an",
+            "the",
+            "and",
+            "or",
+            "but",
+            "if",
+            "then",
+            "else"
+        ]
+    }
+}

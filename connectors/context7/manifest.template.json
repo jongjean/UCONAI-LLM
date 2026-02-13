@@ -1,0 +1,15 @@
+{
+    "project": "/org/repo",
+    "last_synced_at": "2026-02-12T07:18:00Z",
+    "documents": [
+        {
+            "doc_id": "example_id",
+            "title": "Example Document",
+            "path": "docs/example.md",
+            "hash": "sha256_hash_here",
+            "updated_at": "2026-02-12T00:00:00Z",
+            "local_raw_path": "raw/org/repo/example_id.md",
+            "local_meta_path": "meta/org/repo/example_id.json"
+        }
+    ]
+}

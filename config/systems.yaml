@@ -35,7 +35,7 @@ systems:
       endpoint: "http://localhost:17777/health"
     control:
       start: 
-        command: "Start-Process powershell -ArgumentList '-ExecutionPolicy Bypass -File C:\\OpenClaw\\controller\\openclaw_controller.ps1' -WindowStyle Hidden"
+        command: "Start-Process powershell -ArgumentList '-ExecutionPolicy Bypass -File C:\\OpenClaw\\controller\\openclaw_controller.ps1 -Port 17777' -WindowStyle Hidden"
       stop: 
         pattern: "openclaw_controller.ps1"
 
@@ -70,6 +70,38 @@ systems:
         command: "cmd /c \"cd /d C:\\UCONAI-LLM\\frontend && npm run dev\""
       stop: 
         pattern: "vite"
+
+  - id: "adobe-photoshop"
+    name: "Adobe Photoshop 2022"
+    category: "design"
+    priority: 5
+    path: "C:\\Program Files\\Adobe\\Adobe Photoshop 2022"
+    type: "app"
+    status: "active"
+    health:
+      type: "process"
+      pattern: "Photoshop"
+    control:
+      start: 
+        command: "Start-Process 'C:\\Program Files\\Adobe\\Adobe Photoshop 2022\\Photoshop.exe'"
+      stop: 
+        pattern: "Photoshop"
+
+  - id: "adobe-illustrator"
+    name: "Adobe Illustrator 2022"
+    category: "design"
+    priority: 5
+    path: "C:\\Program Files\\Adobe\\Adobe Illustrator 2022\\Support Files\\Contents\\Windows"
+    type: "app"
+    status: "active"
+    health:
+      type: "process"
+      pattern: "Illustrator"
+    control:
+      start: 
+        command: "Start-Process 'C:\\Program Files\\Adobe\\Adobe Illustrator 2022\\Support Files\\Contents\\Windows\\Illustrator.exe'"
+      stop: 
+        pattern: "Illustrator"
 
 # Monitoring items (Simplified)
 monitor:

@@ -1,0 +1,16 @@
+﻿{
+  "next.js": [
+    "app router routing",
+    "server actions",
+    "middleware",
+    "env variables",
+    "deployment vercel",
+    "caching revalidate"
+  ],
+  "react": [
+    "hooks useEffect",
+    "context api",
+    "performance memo",
+    "strict mode"
+  ]
+}

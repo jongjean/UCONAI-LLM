@@ -1,0 +1,9 @@
+{
+    "source": "context7",
+    "mode": "api",
+    "apiBaseUrl": "https://context7.com",
+    "tokenEnv": "CONTEXT7_TOKEN",
+    "vaultRoot": "C:\\UCONAI-Vault\\context7",
+    "rateLimitPerSec": 3,
+    "syncIntervalMin": 60
+}
