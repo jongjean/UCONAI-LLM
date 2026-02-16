@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>UCONAI 2.0 | Unified Governance Command Center</title>
+    <style>
+        :root {
+            --bg: #0a0b10;
+            --panel: #161821;
+            --accent: #00f2ff;
+            --critical: #ff3e3e;
+            --warning: #ffb800;
+            --safe: #00ff85;
+            --text: #e0e6ed;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', system-ui, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--panel);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .status-badge {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--panel);
+            border: 1px solid #ffffff10;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 10px 30px #00000050;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--accent);
+            font-size: 1.1em;
+        }
+
+        .metric-value {
+            font-size: 2.5em;
+            font-weight: 800;
+            margin: 10px 0;
+        }
+
+        .team-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #ffffff05;
+        }
+
+        .risk-bar {
+            height: 8px;
+            background: #ffffff10;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+
+        .risk-fill {
+            height: 100%;
+            transition: width 0.5s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>🛰️ UCONAI <span style="color:var(--accent)">COMMAND CENTER</span></h1>
+        <div id="system-status" class="status-badge" style="background:var(--safe)">GOVERNANCE: HEALTHY</div>
+    </div>
+
+    <div class="grid">
+        <!-- System Vital -->
+        <div class="card">
+            <h3>System Vital</h3>
+            <div id="fail-safe-status" style="color:var(--safe)">FAIL-SAFE: INACTIVE</div>
+            <button onclick="executeOverride(0, 'DISABLE_FAILSAFE')"
+                style="margin-top:10px; background:var(--critical); border:none; color:white; padding:5px 10px; border-radius:4px; cursor:pointer">RESUE
+                GOVERNANCE</button>
+            <div id="heartbeat-info" style="margin-top:10px; font-size:0.9em; opacity:0.7">Heartbeat: Nominal</div>
+        </div>
+
+        <!-- Risk Maps -->
+        <div class="card" style="grid-column: span 2">
+            <h3>Global Risk Map</h3>
+            <div id="team-list">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function executeOverride(teamId, action) {
+            if (!confirm(`Execute ${action}?`)) return;
+            try {
+                await fetch('http://localhost:3001/admin/override', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ teamId, action })
+                });
+                updateData();
+            } catch (e) { alert('Override failed'); }
+        }
+
+        async function updateData() {
+            try {
+                const res = await fetch('http://localhost:3001/admin/gov-status');
+                const data = await res.json();
+
+                // Update Health
+                const healthEl = document.getElementById('system-status');
+                healthEl.innerText = `GOVERNANCE: ${data.governance.health}`;
+                healthEl.style.background = data.governance.health === 'HEALTHY' ? 'var(--safe)' : 'var(--critical)';
+
+                // Update Fail-Safe
+                const fsEl = document.getElementById('fail-safe-status');
+                fsEl.innerText = `FAIL-SAFE: ${data.governance.failSafe ? 'ACTIVE (SURVIVAL)' : 'INACTIVE'}`;
+                fsEl.style.color = data.governance.failSafe ? 'var(--critical)' : 'var(--safe)';
+
+                // Update Risk Map
+                const teamList = document.getElementById('team-list');
+                teamList.innerHTML = '';
+                for (const [tid, info] of Object.entries(data.governance.riskMap)) {
+                    const row = document.createElement('div');
+                    row.className = 'team-row';
+                    const scoreColor = info.score > 80 ? 'var(--critical)' : (info.score > 50 ? 'var(--warning)' : 'var(--safe)');
+
+                    row.innerHTML = `
+                        <div style="flex:1">TEAM ${tid} ${info.cooldown === 'STRICT' ? '❄️' : ''}</div>
+                        <div style="font-weight:bold; color:${scoreColor}">${info.score}</div>
+                        <div style="width:150px; margin-left:20px">
+                            <div class="risk-bar">
+                                <div class="risk-fill" style="width:${info.score}%; background:${scoreColor}"></div>
+                            </div>
+                        </div>
+                        <div style="margin-left:20px">
+                            <button onclick="executeOverride(${tid}, 'RESET_RISK')" style="background:var(--panel); border:1px solid var(--accent); color:var(--accent); padding:2px 8px; border-radius:4px; font-size:0.75em; cursor:pointer">RESET & UNLOCK</button>
+                        </div>
+                    `;
+                    teamList.appendChild(row);
+                }
+            } catch (e) {
+                console.error('Dash fail:', e);
+            }
+        }
+
+        setInterval(updateData, 2000);
+        updateData();
+    </script>
+</body>
+
+</html>

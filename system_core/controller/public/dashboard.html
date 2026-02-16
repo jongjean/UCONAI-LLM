@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UCONAI Security Dashboard</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --accent-red: #ef4444;
+            --accent-yellow: #f59e0b;
+            --accent-green: #10b981;
+            --border: #334155;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        h2 {
+            margin-top: 0;
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            color: var(--text-secondary);
+        }
+
+        .badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        .badge.alert {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--accent-red);
+        }
+
+        .badge.warn {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--accent-yellow);
+        }
+
+        .badge.info {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--accent-green);
+        }
+
+        .refresh-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .refresh-btn:hover {
+            background: #2d3b4e;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>🛡️ UCONAI Security Center</h1>
+        <button class="refresh-btn" onclick="fetchData()">Refresh</button>
+    </div>
+
+    <div class="container">
+        <!-- Quota Usage -->
+        <div class="card">
+            <h2>📊 Daily Quota Usage (By Role)</h2>
+            <table id="quota-table">
+                <thead>
+                    <tr>
+                        <th>Role</th>
+                        <th>Date</th>
+                        <th>Used</th>
+                        <th>Limit</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="5">Loading...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- User Stats -->
+        <div class="card">
+            <h2>👥 User Activity (Total Jobs)</h2>
+            <table id="user-table">
+                <thead>
+                    <tr>
+                        <th>Owner</th>
+                        <th>Total Jobs</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2">Loading...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Team Stats (M5-3) -->
+        <div class="card">
+            <h2>🏢 Team Resource Usage</h2>
+            <table id="team-table">
+                <thead>
+                    <tr>
+                        <th>Team</th>
+                        <th>Used / Limit</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="3">Loading...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- System Status -->
+        <div class="card full-width">
+            <h2>🖥️ System Status</h2>
+            <div id="system-status">
+                <p>Status: <span class="badge info">Active</span> (Mock)</p>
+                <p>Uptime: <span id="uptime">-</span></p>
+                <p>Memory: <span id="memory">-</span></p>
+            </div>
+        </div>
+
+        <!-- Audit Logs -->
+        <div class="card full-width">
+            <h2>🚨 Recent Security Events (Audit Logs)</h2>
+            <table id="audit-table">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Severity</th>
+                        <th>Category</th>
+                        <th>Actor</th>
+                        <th>Action</th>
+                        <th>Target</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="7">Loading...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        async function fetchData() {
+            try {
+                // Fetch Quotas
+                const quotas = await fetch('/api/quotas').then(r => r.json());
+                renderQuotas(quotas);
+
+                // Fetch User Stats
+                const userStats = await fetch('/api/user-stats').then(r => r.json());
+                renderUserStats(userStats);
+
+                // Fetch Team Stats (M5-3)
+                const teamStats = await fetch('/api/team-stats').then(r => r.json());
+                renderTeamStats(teamStats);
+
+                // Fetch Audit Logs
+                const logs = await fetch('/api/audit-logs').then(r => r.json());
+                renderLogs(logs);
+
+                // Fetch System (Mock for now or real if available)
+                document.getElementById('uptime').innerText = 'Running (Soak Test)';
+            } catch (e) {
+                console.error("Fetch error:", e);
+            }
+        }
+
+        function renderQuotas(data) {
+            const tbody = document.querySelector('#quota-table tbody');
+            if (!data || data.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5">No data available today</td></tr>';
+                return;
+            }
+            tbody.innerHTML = data.map(row => {
+                // Hardcoded limits for display logic (since policy is backend)
+                const limit = row.user_role === 'DEV' ? 100 : (row.user_role === 'GUEST' ? 10 : '∞');
+                const percent = typeof limit === 'number' ? Math.round((row.job_count / limit) * 100) : 0;
+                const statusClass = percent >= 90 ? 'alert' : (percent >= 50 ? 'warn' : 'info');
+                return `
+                    <tr>
+                        <td><strong>${row.user_role}</strong></td>
+                        <td>${row.date}</td>
+                        <td>${row.job_count}</td>
+                        <td>${limit}</td>
+                        <td><span class="badge ${statusClass}">${percent}%</span></td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function renderUserStats(data) {
+            const tbody = document.querySelector('#user-table tbody');
+            if (!data || data.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="2">No user data</td></tr>';
+                return;
+            }
+            tbody.innerHTML = data.map(row => `
+                <tr>
+                    <td><strong>${row.owner || 'System/Legacy'}</strong></td>
+                    <td>${row.count}</td>
+                </tr>
+            `).join('');
+        }
+
+        function renderTeamStats(data) {
+            const tbody = document.querySelector('#team-table tbody');
+            if (!data || data.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="3">No team data</td></tr>';
+                return;
+            }
+            tbody.innerHTML = data.map(row => {
+                const percent = Math.round((row.used / row.limit_val) * 100);
+                const status = percent >= 90 ? 'alert' : (percent >= 50 ? 'warn' : 'info');
+                return `
+                    <tr>
+                        <td><strong>${row.team_name}</strong></td>
+                        <td>${row.used} / ${row.limit_val}</td>
+                        <td><span class="badge ${status}">${percent}%</span></td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function renderLogs(data) {
+            const tbody = document.querySelector('#audit-table tbody');
+            if (!data || data.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7">No security events found</td></tr>';
+                return;
+            }
+            tbody.innerHTML = data.map(log => `
+                <tr>
+                    <td>${new Date(log.timestamp).toLocaleTimeString()}</td>
+                    <td><span class="badge ${log.severity.toLowerCase()}">${log.severity}</span></td>
+                    <td>${log.category}</td>
+                    <td>${log.actor}</td>
+                    <td>${log.action}</td>
+                    <td>${log.target}</td>
+                    <td style="font-family: monospace; font-size: 0.8em;">${log.details}</td>
+                </tr>
+            `).join('');
+        }
+
+        // Initial Load
+        fetchData();
+        setInterval(fetchData, 5000); // Auto refresh
+    </script>
+</body>
+
+</html>

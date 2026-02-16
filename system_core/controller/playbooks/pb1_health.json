@@ -1,0 +1,19 @@
+{
+    "id": "pb1_health",
+    "name": "Health Loop Stress",
+    "steps": [
+        {
+            "id": "s1",
+            "tool": "system_status",
+            "args": {},
+            "expected": {
+                "checks": [
+                    {
+                        "type": "status_ok"
+                    }
+                ]
+            }
+        }
+    ],
+    "max_steps": 2
+}

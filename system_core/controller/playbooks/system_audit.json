@@ -1,0 +1,34 @@
+{
+    "id": "playbook_sys_audit_v1",
+    "name": "System Health Audit",
+    "description": "Checks system status and recent logs for errors",
+    "steps": [
+        {
+            "id": "os_status",
+            "tool": "system_status",
+            "args": {},
+            "expected": {
+                "checks": [
+                    {
+                        "type": "status_ok"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "read_logs",
+            "tool": "read_file",
+            "args": {
+                "path": "C:\\OpenClaw\\controller\\package.json"
+            },
+            "expected": {
+                "checks": [
+                    {
+                        "type": "status_ok"
+                    }
+                ]
+            }
+        }
+    ],
+    "max_steps": 5
+}

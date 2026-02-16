@@ -1,0 +1,21 @@
+{
+    "id": "pb_chaos_hang",
+    "name": "Chaos Hang Stress",
+    "steps": [
+        {
+            "id": "hang_step",
+            "tool": "hang_tool",
+            "args": {
+                "duration": 30000
+            },
+            "expected": {
+                "checks": [
+                    {
+                        "type": "status_ok"
+                    }
+                ]
+            }
+        }
+    ],
+    "max_steps": 2
+}

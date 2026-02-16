@@ -1,0 +1,327 @@
+아래는 UCONAI 2.0 v3 최종 아키텍처를 기준으로, 실제 구현·운영에서 빠짐없이 따라갈 수 있도록 장(Chapter)–절(Section)–항(Task) 구조로 정리한 초정밀 마일스톤 계획서입니다.
+
+구성 원칙:
+
+각 장은 Phase에 대응
+
+각 절은 기술적 하위 영역
+
+각 항은 실제 구현 단위(검증 가능)
+
+각 절마다 “완료 기준(DoD)” 포함
+
+운영 관점 체크포인트 포함
+
+📘 제1장 기반 정비 및 세션 내구화 (Foundation & Session Resilience)
+제1절 텔레그램 채널 비지능화
+1.1.1 Slash 명령 파서 도입
+
+입력이 /로 시작하는지 검사
+
+명령어 분리: /module action args
+
+화이트리스트 모듈: host, pipe, review, ops
+
+1.1.2 일반 텍스트 차단
+
+/가 아닌 메시지는 즉시 안내문 반환
+
+모델 호출 절대 금지
+
+로그 기록(시도 횟수)
+
+1.1.3 tool 제거
+
+message tool 삭제
+
+tool_choice 완전 비활성화
+
+텔레그램 전송은 gateway 코드에서만 수행
+
+완료 기준 (Milestone 1-1)
+
+일반 텍스트 입력 시 LLM 호출 로그 0회
+
+message parameter missing 오류 0건
+
+영어 자동 응답 발생 0건
+
+제2절 세션 내구화
+1.2.1 chat_id 기반 인증 구조
+
+Telegram user_id 화이트리스트
+
+chat_id = 인증 토큰 역할만 수행
+
+1.2.2 Idempotent Spawn 구현
+
+세션 조회 → 없으면 자동 생성
+
+세션 생성 실패 시 재시도 1회
+
+생성 성공 로그 기록
+
+1.2.3 세션-작업 분리
+
+job_id는 DB 기반
+
+세션에 상태 저장 금지
+
+완료 기준 (Milestone 1-2)
+
+세션 유실 에러 0건
+
+서버 재시작 후 즉시 명령 수행 가능
+
+📘 제2장 통합 작업 상태머신 구축 (State & Queue Management)
+제1절 SQLite 상태 저장소 구축
+2.1.1 DB 마이그레이션
+
+JSON 파일 폐기
+
+SQLite DB 초기화
+
+트랜잭션 활성화
+
+2.1.2 Job 테이블 설계
+
+필수 컬럼:
+
+job_id (PK)
+
+source
+
+status
+
+retry_count
+
+error_code
+
+created_at
+
+updated_at
+
+idempotency_key
+
+2.1.3 상태 컬럼 정의
+
+RECEIVED
+
+ANALYZED
+
+NEED_REVIEW
+
+APPROVED
+
+PUBLISHED
+
+FAILED
+
+BLOCKED
+
+DLQ
+
+제2절 상태 전이 규칙 고정
+2.2.1 전이 다이어그램 확정
+
+illegal transition 금지
+
+DB constraint 추가
+
+2.2.2 재시도 정책
+
+최대 3회
+
+지수 백오프 (1m → 5m → 15m)
+
+초과 시 DLQ
+
+2.2.3 DLQ 격리
+
+별도 테이블 또는 status=DLQ
+
+수동 재처리 가능
+
+완료 기준 (Milestone 2)
+
+실패 작업이 DLQ로 정확히 이동
+
+중복 job 0건
+
+/review approve가 상태 변경 후 워커 실행 트리거
+
+📘 제3장 정량적 LLM 라우터 및 RAG 최적화
+제1절 LLM Router 정량화
+3.1.1 토큰 예측 기반 전환
+
+예상 토큰 수 > X → 외부 모델
+
+3.1.2 스키마 실패 카운터
+
+JSON 검증 2회 실패 시 점프
+
+3.1.3 오류 로그 길이 조건
+
+로그 길이 > Y → Claude Code
+
+3.1.4 비용 상한선
+
+일일 누적 비용 > Z → 승인 대기 모드
+
+제2절 Context7 RAG 통합
+3.2.1 문서 키 구조화
+
+policy_doc_id
+
+template_id
+
+connector_ref
+
+3.2.2 내부 근거 기록
+
+job_id ↔ reference_key 매핑
+
+3.2.3 Trace API
+
+/ops trace <jobId>
+
+근거 키 + 사용 모델 표시
+
+완료 기준 (Milestone 3)
+
+80% 작업 로컬 처리
+
+외부 모델 자동 점프 성공
+
+근거 추적 가능
+
+📘 제4장 작업 파이프라인 자동화
+제1절 Ingest → Analyze → Publish 파이프라인
+4.1.1 Ingest 워커
+
+새로운 콘텐츠 감지
+
+idempotency_key 생성
+
+job 등록
+
+4.1.2 Analyzer 단계
+
+분류
+
+요약
+
+위험 플래그
+
+decision(AUTO/REVIEW/BLOCK)
+
+4.1.3 Composer 단계
+
+템플릿 기반 작성
+
+태그/카테고리 생성
+
+4.1.4 Publisher 단계
+
+API 우선
+
+성공 시 target_post_id 기록
+
+제2절 승인 게이트
+4.2.1 NEED_REVIEW 알림
+
+jobId 포함
+
+요약 + 위험 사유
+
+4.2.2 승인/거절 명령 처리
+
+/review approve <id>
+
+/review reject <id>
+
+제3절 멱등성(Idempotency)
+4.3.1 idempotency_key unique 제약
+4.3.2 중복 게시 물리 차단
+완료 기준 (Milestone 4)
+
+10건 연속 자동 처리 성공
+
+중복 게시 0건
+
+승인 대기 로직 정상 작동
+
+📘 제5장 자가 치유 및 가시성 확보
+제1절 계층형 Watchdog
+5.1.1 Docker restart policy
+5.1.2 systemd 서비스 감시
+5.1.3 PowerShell 외부 감시
+제2절 에러 가시성
+5.2.1 Error Code 체계
+
+E-LLM-01
+
+E-QUEUE-02
+
+E-DB-03 등
+
+5.2.2 텔레그램 보고 포맷
+
+jobId
+
+error_code
+
+next_action
+
+제3절 운영 리포트
+5.3.1 Daily Metrics
+
+처리 건수
+
+실패율
+
+DLQ 건수
+
+비용
+
+5.3.2 자동 오전 9시 보고
+제4절 Loop Breaker
+5.4.1 동일 오류 3회 감지 시 격리
+5.4.2 관리자 알림
+완료 기준 (Milestone 5)
+
+7일 무중단
+
+장애 복구 자동 90% 이상
+
+DLQ 수동 복구 가능
+
+📘 제6장 확장 및 고도화 (선택)
+
+다중 워커 스케일링
+
+모델 A/B 테스트
+
+비용 최적화 자동 학습
+
+정책 자동 강화
+
+🎯 최종 완료 정의
+
+시스템은 다음을 만족해야 합니다:
+
+텔레그램은 완전한 명령 콘솔
+
+Core는 SSOT
+
+Worker는 Stateless
+
+상태머신은 DB 기반
+
+Router는 정량적
+
+DLQ는 존재
+
+Watchdog은 3중
+
+운영 보고 자동화

@@ -1,0 +1,4008 @@
+﻿{
+    "apps":  [
+                 {
+                     "exec":  "C:\\Program Files\\ESTsoft\\Plugins\\AIPdfSummarizer\\AIPdfSummarizer.exe",
+                     "path":  "C:\\Program Files\\ESTsoft\\Plugins\\AIPdfSummarizer\\",
+                     "name":  "AI PDF 요약 1.4",
+                     "id":  "AIPdfSummarizer_is1"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\AMD\\CIM\\Bin64\\AMDSoftwareConsumer.ico",
+                     "path":  "C:\\Program Files\\AMD\\CIM\\BIN64",
+                     "name":  "AMD Software",
+                     "id":  "AMD Catalyst Install Manager"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\AMD\\RyzenMaster\\bin\\Setup.exe",
+                     "path":  "C:\\Program Files\\AMD\\RyzenMaster\\",
+                     "name":  "AMD Ryzen Master",
+                     "id":  "AMD Ryzen Master"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\Android\\Android Studio\\bin\\studio.exe",
+                     "path":  null,
+                     "name":  "Android Studio",
+                     "id":  "Android Studio"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\Hardcoded Software\\dupeGuru\\dupeGuru.exe",
+                     "path":  "C:\\Program Files\\Hardcoded Software\\dupeGuru",
+                     "name":  "dupeGuru 4.3.1",
+                     "id":  "dupeGuru"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\GIGABYTE\\Control Center\\Lib\\GBT_MB_Update\\GBT_MB_Update.dll",
+                     "path":  null,
+                     "name":  "GBT_MB_Update 23.03.24.01",
+                     "id":  "GBT_MB_Update"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\GIGABYTE\\Control Center\\Lib\\GBT_RGB_Sync_Control\\GBT_RGB_Sync_Control.dll",
+                     "path":  null,
+                     "name":  "GBT_RGB_Sync_Control 23.04.12.01",
+                     "id":  "GBT_RGB_Sync_Control"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\GIGABYTE\\Control Center\\GCC.exe",
+                     "path":  null,
+                     "name":  "GIGABYTE Control Center 23.04.13.01",
+                     "id":  "GIGABYTE Control Center"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\Git\\mingw64\\share\\git\\git-for-windows.ico",
+                     "path":  "C:\\Program Files\\Git\\",
+                     "name":  "Git",
+                     "id":  "Git_is1"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\Raise3D\\ideaMaker-App\\ideaMaker.exe",
+                     "path":  null,
+                     "name":  "ideaMaker 5.2.3.8580",
+                     "id":  "ideaMaker-App"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  null,
+                     "name":  "MarkAny EPSBroker",
+                     "id":  "MarkAny EPSBroker"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  null,
+                     "name":  "MarkAny EPSBrokerIros",
+                     "id":  "MarkAny EPSBrokerIros"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\Mozilla Firefox\\firefox.exe",
+                     "path":  "C:\\Program Files\\Mozilla Firefox",
+                     "name":  "Mozilla Firefox (x64 ko)",
+                     "id":  "Mozilla Firefox"
+                 },
+                 {
+                     "exec":  "C:\\Program Files (x86)\\Mozilla Maintenance Service\\Uninstall.exe",
+                     "path":  null,
+                     "name":  "Mozilla Maintenance Service",
+                     "id":  "MozillaMaintenanceService"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\NAVER Cloud\\NAVER WORKS Drive\\WORKSDriveLauncher_x64_MT.exe",
+                     "path":  null,
+                     "name":  "NAVER WORKS 드라이브",
+                     "id":  "NAVER WORKS Drive"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\NAVER Cloud\\MYBOX\\MYBOXLauncher_x64_MT.exe",
+                     "path":  null,
+                     "name":  "네이버 MYBOX 탐색기 3.0",
+                     "id":  "NaverMybox"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\Notepad++\\notepad++.exe",
+                     "path":  null,
+                     "name":  "Notepad++ (64-bit x64)",
+                     "id":  "Notepad++"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\Common Files\\Microsoft Shared\\ClickToRun\\OfficeClickToRun.exe",
+                     "path":  "C:\\Program Files (x86)\\Microsoft Office",
+                     "name":  "엔터프라이즈용 Microsoft 365 앱 - ko-kr",
+                     "id":  "O365ProPlusRetail - ko-kr"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\Microsoft OneDrive\\26.007.0112.0002\\OneDriveSetup.exe",
+                     "path":  null,
+                     "name":  "Microsoft OneDrive",
+                     "id":  "OneDriveSetup.exe"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\Pinegrow Web Editor\\Pinegrow.exe",
+                     "path":  "C:\\Program Files\\Pinegrow Web Editor\\",
+                     "name":  "Pinegrow Web Editor version 8.62",
+                     "id":  "Pinegrow Web Editor_is1"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\Common Files\\Microsoft Shared\\ClickToRun\\OfficeClickToRun.exe",
+                     "path":  "C:\\Program Files (x86)\\Microsoft Office",
+                     "name":  "Microsoft Office Professional Plus 2019 - ko-kr",
+                     "id":  "ProPlus2019Retail - ko-kr"
+                 },
+                 {
+                     "exec":  "\"C:\\Program Files\\Sider\\sider.exe\"",
+                     "path":  "\"C:\\Program Files\\Sider\"",
+                     "name":  "Sider",
+                     "id":  "Sider"
+                 },
+                 {
+                     "exec":  "C:\\Program Files (x86)\\Steam\\steam\\games\\f6745f2d9bd86c57da8b18aae3c183aaf612149f.ico",
+                     "path":  "C:\\Program Files (x86)\\Steam\\steamapps\\common\\JuiceFX",
+                     "name":  "Juice FX",
+                     "id":  "Steam App 1046770"
+                 },
+                 {
+                     "exec":  "C:\\Program Files (x86)\\Steam\\steam\\games\\2c766c741133c157e0a3c3ac5648a3155fb79f4e.ico",
+                     "path":  "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Blender",
+                     "name":  "Blender",
+                     "id":  "Steam App 365670"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\Synology\\SynologyDrive\\bin\\launcher.exe",
+                     "path":  null,
+                     "name":  "Synology Drive Client (remove only)",
+                     "id":  "Synology Drive"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\TeamViewer\\TeamViewer.exe",
+                     "path":  "C:\\Program Files\\TeamViewer",
+                     "name":  "TeamViewer",
+                     "id":  "TeamViewer"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\Unity\\Hub\\Editor\\6000.3.4f1\\Editor\\Unity.exe",
+                     "path":  null,
+                     "name":  "Unity 6000.3.4f1",
+                     "id":  "Unity 6000.3.4f1"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\Unity Hub\\Unity Hub.exe",
+                     "path":  null,
+                     "name":  "Unity Hub 3.15.4",
+                     "id":  "Unity Technologies - Hub"
+                 },
+                 {
+                     "exec":  "D:\\xampp/install/xampp.ico",
+                     "path":  "D:\\xampp",
+                     "name":  "XAMPP",
+                     "id":  "xampp"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET AppHost Pack - 7.0.20 (x64_arm)",
+                     "id":  "{004C6218-4F46-4ECD-9825-0AF4AB2299A8}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft Visual C++ 2013 x64 Additional Runtime - 12.0.40664",
+                     "id":  "{010792BA-551A-3AC0-A7EF-0FAB4156C382}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NET.Runtime.MonoTargets.Sdk (x64)",
+                     "id":  "{015BDFFC-4085-480B-A0B5-21EBC28EC53C}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "C:\\Program Files\\AMD\\RyzenMaster\\",
+                     "name":  "AMD Ryzen Master",
+                     "id":  "{02247819-03CD-414E-AC8D-FD518BFBA445}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Python 3.10.8 Test Suite (64-bit)",
+                     "id":  "{025F829D-844C-4E80-8C2C-ECBD6FB455BC}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Python 3.10.8 Documentation (64-bit)",
+                     "id":  "{02E2EFF4-C685-4151-9A40-E50DE7A8A5D7}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET Runtime - 9.0.10 (x64)",
+                     "id":  "{05987870-6EDD-4352-ADEA-4A8694040F3E}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK DirectX x64 Remote",
+                     "id":  "{0689BC86-CC14-F6D2-191B-7468ADFF9B3F}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  null,
+                     "name":  "IIS Express Application Compatibility Database for x64",
+                     "id":  "{08274920-8908-45c2-9258-8ad67ff77b09}.sdb"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NETCore.App.Runtime.Mono.android-x64 (x64)",
+                     "id":  "{0951EE57-1B94-44C1-BFEC-758764FE406B}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NETCore.App.Runtime.Mono.maccatalyst-x64 (x64)",
+                     "id":  "{0E89A9F6-4FF0-4224-8C33-13E7C7E4B954}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.Maui.Graphics.Win2D.WinUI.Desktop (x64)",
+                     "id":  "{0EDF52ED-2BF6-46F6-A01C-CB198AC84FD9}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "IIS 10.0 Express",
+                     "id":  "{0F4F67F8-21E1-422D-B31C-B3800F4D6E36}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft ASP.NET Core 9.0.10 Targeting Pack (x64)",
+                     "id":  "{0F934C41-E7A3-3835-B396-B5C73B103095}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Python 3.11.5 Development Libraries (64-bit)",
+                     "id":  "{0FEE67DA-831A-442F-A7B1-D709EF005148}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NET.Sdk.macOS.Manifest-9.0.100 (x64)",
+                     "id":  "{121950B6-0F21-4F0D-BF23-663BD6AA1926}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Python 3.10.8 pip Bootstrap (64-bit)",
+                     "id":  "{12EB4B8C-1F27-4A73-9B33-4545D52637D6}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET 9.0 Templates 9.0.306 (x64)",
+                     "id":  "{13AFE629-5E82-4C66-80B3-79FB8582B5BC}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET AppHost Pack - 9.0.10 (x64_x86)",
+                     "id":  "{143745B1-73F8-4E8C-A6F6-962D71AB9901}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.iOS.Runtime.ios-arm64.net9.0_26.0 (x64)",
+                     "id":  "{14463B32-9C8D-424D-BE6E-D894F0AF6DE3}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  ".NET for Android Templates (x64)",
+                     "id":  "{176AD188-E604-4EA0-9D0F-2B63154E97C9}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET 7.0 Templates 7.0.410 (x64)",
+                     "id":  "{178EDB94-B6ED-4597-94F1-708349DD7B1E}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "AMD DVR64",
+                     "id":  "{185BF6B5-2832-4E5E-97FA-91F96DF726E1}"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\AhnLab\\Safe Transaction\\StSess.exe",
+                     "path":  "C:\\Program Files\\AhnLab\\Safe Transaction",
+                     "name":  "AhnLab Safe Transaction",
+                     "id":  "{19DD1D8D-927F-45DF-ADF4-75D38267848D}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Python 3.11.5 Tcl/Tk Support (64-bit)",
+                     "id":  "{1BA18593-41AB-434B-B31F-EEC8BBA9612A}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  ".NET MAUI Templates (x64)",
+                     "id":  "{1C6A4FAC-74CB-4AA6-94E3-F224DDA45857}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET 8.0 Templates 8.0.415 (x64)",
+                     "id":  "{1CFEB035-D24B-4C38-8F3A-DFD00666C188}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft Visual C++ 2010  x64 Redistributable - 10.0.40219",
+                     "id":  "{1D8E6291-B0D5-35EC-8441-6616F567A0F7}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET AppHost Pack - 7.0.20 (x64)",
+                     "id":  "{1EE86997-97BB-4CC5-A5C9-824D4A8C4C33}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "vs_minshellinteropx64msi",
+                     "id":  "{1F183C8C-D1D4-4E02-BFF4-08C5AB78D674}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Python 3.9.13 Documentation (64-bit)",
+                     "id":  "{1FB094A5-7604-4C0F-A1FB-EAB7ED730DE2}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.iOS.Runtime.iossimulator-arm64.net9.0_26.0 (x64)",
+                     "id":  "{2086EFFA-BDBA-4548-A152-5075CA383FE4}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "AMD User Experience Program Installer",
+                     "id":  "{20B38DC2-3272-4E0C-A8DC-60B19C967BF0}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET Runtime - 7.0.20 (x64)",
+                     "id":  "{221BB52A-B763-4C9D-AA62-4B0B6C9AAD62}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  ".NET MAUI Templates (x64)",
+                     "id":  "{26DEE7FD-89E6-4A89-9B49-3DC02B6833F6}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NET.Workload.Emscripten.net6.Manifest (x64)",
+                     "id":  "{275B5EA4-F533-4B10-91F0-47602EFF6913}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET AppHost Pack - 9.0.10 (x64_arm64)",
+                     "id":  "{28F7E3D1-C8E7-4F9A-BB4B-7782B8A810A4}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NETCore.App.Runtime.Mono.android-x64 (x64)",
+                     "id":  "{29DE929F-1FE3-4814-AEDF-E964C7832697}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.MacCatalyst.Sdk.net9.0_18.0 (x64)",
+                     "id":  "{2A3835B8-EF0A-4A9E-B969-A80AE384FB7B}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NET.Runtime.MonoAOTCompiler.Task (x64)",
+                     "id":  "{2D062509-F4FD-46F8-9412-43B403508ADB}"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\Wizvera\\Veraport20\\veraportmain20.exe",
+                     "path":  "C:\\Program Files\\Wizvera\\Veraport20\\",
+                     "name":  "Veraport(보안모듈 관리 프로그램) G3 - 4,0,0,0 - x64",
+                     "id":  "{2D992E01-604B-472C-A883-1DDA105A24D5}_is1"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NET.Sdk.Aspire.Manifest-8.0.100 (x64)",
+                     "id":  "{2E5C5364-621F-4F22-8B81-18524D6F0361}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Python 3.11.5 Documentation (64-bit)",
+                     "id":  "{2EB6BD56-25CA-49CB-8CFD-B03D872B8239}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft ASP.NET Core 8.0.21 Targeting Pack (x64)",
+                     "id":  "{2EE6955C-2315-3E18-8D14-C968A697401D}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET SDK 9.0.306 (x64) from Visual Studio",
+                     "id":  "{2F38A089-CBC1-44DF-8561-08C0A3D80710}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "icecap_collection_x64",
+                     "id":  "{31A90F24-89E9-427E-8FA7-C02F37CA2300}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "SQL Server 2019용 Microsoft System CLR Types",
+                     "id":  "{322213FF-4D88-4462-8269-6CBE9D945183}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NET.Workload.Mono.Toolchain.net6.Manifest (x64)",
+                     "id":  "{342CFDA8-6A1A-44BB-8251-CC5B4C7F7631}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET AppHost Pack - 8.0.21 (x64)",
+                     "id":  "{34CB02AA-BC82-4F8F-B139-8540ECFB543A}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Python 3.10.8 Executables (64-bit)",
+                     "id":  "{361761A0-847E-4A8B-B375-1F77E475321E}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.Maui.Controls.Compatibility (x64)",
+                     "id":  "{379C41F7-321D-4A84-812D-86F72708D22E}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft Visual C++ 2012 x64 Additional Runtime - 11.0.61030",
+                     "id":  "{37B8F9C7-03FB-3253-8781-2517C99D7C00}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET Toolset 9.0.306 (x64)",
+                     "id":  "{39188582-EA3A-4077-B0D3-BC7ED082291F}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.MacCatalyst.Runtime.maccatalyst-arm64.net9.0_26.0 (x64)",
+                     "id":  "{39B5A6C0-EA1B-4E95-8ACE-D3AE6B4C9ABE}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft Visual C++ 2022 X64 Minimum Runtime - 14.50.35615",
+                     "id":  "{3A7BC5D3-9123-4946-BA51-E7AFDBE8FEA2}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Universal CRT Tools x64",
+                     "id":  "{3BD4B78F-2170-3F3A-584B-43CE01648DFE}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET Toolset 7.0.410 (x64)",
+                     "id":  "{3BD81D32-906F-47B9-8653-ED55C039340A}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Python 3.9.13 Executables (64-bit symbols)",
+                     "id":  "{3D1C9D81-340E-45DD-8752-88593113B332}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NETCore.App.Runtime.Mono.android-arm (x64)",
+                     "id":  "{3D4F9216-D893-449A-91C7-E4615A3F4EF8}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Python 3.9.13 Tcl/Tk Support (64-bit symbols)",
+                     "id":  "{408D42FD-EC5F-47EC-929B-5BE3B9EFEDCD}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NET.Runtime.MonoAOTCompiler.Task (x64)",
+                     "id":  "{4092E621-0239-4135-8AAC-436AAD619618}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft ODBC Driver 17 for SQL Server",
+                     "id":  "{413DE74C-2A41-4B28-A696-9F1102808F1F}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft Command Line Utilities 15 for SQL Server",
+                     "id":  "{41C0DB18-1790-465E-B0DD-D9CAA35CACBE}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "C:\\Program Files\\OBSBOT Center\\",
+                     "name":  "OBSBOT Center version 2.0.10.18",
+                     "id":  "{42AD749C-9CE3-4431-951A-15901A7DE525}_is1"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NETCore.App.Runtime.AOT.win-x64.Cross.android-x86 (x64)",
+                     "id":  "{4432AF2C-97EE-4F44-AC24-F1B886EAA4B2}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Python 3.9.13 Core Interpreter (64-bit symbols)",
+                     "id":  "{44BCBD6F-228D-456F-8F26-52EF9B205A4D}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Branding64",
+                     "id":  "{492AEFBE-1B81-4C20-A111-E6974BB98EC5}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NET.Workload.Mono.Toolchain.net7.Manifest (x64)",
+                     "id":  "{49BAD91E-DFD0-4247-B885-CADC2EADC2D4}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NETCore.App.Runtime.Mono.android-arm64 (x64)",
+                     "id":  "{501BB568-F8B8-4A0A-8204-06D74561529F}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.Maui.Graphics (x64)",
+                     "id":  "{50822380-D006-4F3A-9639-2E4F656845D0}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft Visual C++ 2013 x64 Minimum Runtime - 12.0.40664",
+                     "id":  "{53CF6934-A98D-3D84-9146-FC4EDF3D5641}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NET.Sdk.iOS.Manifest-7.0.100 (x64)",
+                     "id":  "{543E585A-87D5-4F29-A914-7953B2F13EF2}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "RyzenMasterSDK",
+                     "id":  "{5467C923-A222-4AAB-AE3A-61BC0D8E4FAA}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NET.Workload.Emscripten.Current.Manifest (x64)",
+                     "id":  "{55E05528-C196-4338-B0CC-7CB9546E620C}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.iOS.Sdk.net9.0_26.0 (x64)",
+                     "id":  "{563D5B36-07B1-4BFA-B96E-9B4D60FF2F22}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "AMD Install Manager",
+                     "id":  "{569DDC87-94F9-4D4E-BC04-270227EC8828}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Python 3.11.5 pip Bootstrap (64-bit)",
+                     "id":  "{57527742-12D9-4E19-ACFF-6A7B0A88D23A}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NET.Sdk.macOS.Manifest-7.0.100 (x64)",
+                     "id":  "{57816DD5-505C-46E5-A8F5-4BC85E3A7D2C}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Python 3.10.8 Tcl/Tk Support (64-bit)",
+                     "id":  "{5ADA7829-A477-4BE0-8112-7C0C720F7093}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "DiagnosticsHub_CollectionService",
+                     "id":  "{5B46695A-06E3-47AD-BD0B-7C0A7192FF79}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft ASP.NET Core 8.0.21 Shared Framework (x64)",
+                     "id":  "{5ED5DA89-C1DB-33A7-9BC3-821E1FA7E330}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NETCore.App.Runtime.AOT.win-x64.Cross.android-arm64 (x64)",
+                     "id":  "{6161D4F2-4E09-4A85-8C84-727DFF79E351}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Python 3.9.13 Utility Scripts (64-bit)",
+                     "id":  "{618E9DD0-9212-486C-AB4A-023ACAB7CD36}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft Windows Desktop Targeting Pack - 7.0.20 (x64)",
+                     "id":  "{644C2637-F41C-49AF-97A5-C7BE2979BB88}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Python 3.10.8 Core Interpreter (64-bit)",
+                     "id":  "{6463E43B-54B1-4407-818D-DD90D11CDD06}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "AMD Settings",
+                     "id":  "{64AAA903-5CA7-4166-A070-6ACDC957DF75}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NET.Workload.Emscripten.net7.Manifest (x64)",
+                     "id":  "{67D45AA8-63D5-46BA-AA33-29B973FF21DA}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "VS JIT Debugger",
+                     "id":  "{6C1EDC0A-E71D-44D2-821C-213A5CD15498}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NET.Runtime.MonoTargets.Sdk (x64)",
+                     "id":  "{6C5414C2-03B0-4DF5-926B-C3BB91CAE2C7}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NET.Sdk.Android.Manifest-9.0.100 (x64)",
+                     "id":  "{6C7D2654-26BF-4029-809E-2E018404BA4E}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Python 3.11.5 Test Suite (64-bit)",
+                     "id":  "{6D4BE933-74FA-43A6-B654-CC1BCEF568D5}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NET.Sdk.tvOS.Manifest-7.0.100 (x64)",
+                     "id":  "{6DAE2F44-C521-4219-8BE0-D72979F8C18E}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "icecap_collection_x64",
+                     "id":  "{6DE9FE72-8A86-45DE-A689-049D43CBBF0B}"
+                 },
+                 {
+                     "exec":  "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\Installer\\setup.exe\"",
+                     "path":  "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\Installer\"",
+                     "name":  "Microsoft Visual Studio Installer",
+                     "id":  "{6F320B93-EE3C-4826-85E0-ADF79F8D4C61}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "C:\\Program Files\\Java\\jre1.8.0_481\\",
+                     "name":  "Java 8 Update 481 (64-bit)",
+                     "id":  "{71024AE4-039E-4CA4-87B4-2F64180481F0}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "C:\\Program Files\\Blender Foundation\\Blender 4.5\\",
+                     "name":  "Blender",
+                     "id":  "{7235D282-ADB4-49A0-A1F7-DDA11477453C}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Python 3.9.13 pip Bootstrap (64-bit)",
+                     "id":  "{72964D30-1BFE-459F-B218-D267EBE0D5B2}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft Windows Desktop Runtime - 7.0.20 (x64)",
+                     "id":  "{72C29BED-666F-4E5E-BC49-DF44C890742E}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.Android.Runtime.35.android-x64 (x64)",
+                     "id":  "{73A84A03-AE9B-4C54-A2E2-FFDC4B1D9C29}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Python 3.9.13 Test Suite (64-bit)",
+                     "id":  "{7491B488-F171-4A97-935A-9098E7CE2A26}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Python 3.11.5 Executables (64-bit)",
+                     "id":  "{798A2965-0FFA-4061-AE86-FCD98A4FBB4A}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET 7.0 Templates 8.0.302 (x64)",
+                     "id":  "{79B7FCE2-368F-420E-905A-50F474F33E63}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NET.Sdk.MacCatalyst.Manifest-7.0.100 (x64)",
+                     "id":  "{7C190DE4-5808-421D-9C41-89ED1FBE95CC}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET Targeting Pack - 7.0.20 (x64)",
+                     "id":  "{7C8005BF-9A78-4548-9680-1C04500D689D}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.Android.Sdk.Windows (x64)",
+                     "id":  "{7CE1E50C-1629-46E8-B455-3BAEEC1B5E46}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft Visual C++ 2022 X64 Additional Runtime - 14.50.35615",
+                     "id":  "{7D75D67A-F71E-48E4-975D-71EB43D821CF}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.Maui.Essentials (x64)",
+                     "id":  "{7E3BC190-DB31-4C56-8C67-A5D5BBA2887C}"
+                 },
+                 {
+                     "exec":  "C:\\Program Files (x86)\\HitPaw\\HitPaw Edimakor\\HitPawEdimakor.exe",
+                     "path":  "C:\\Program Files (x86)\\HitPaw\\HitPaw Edimakor\\",
+                     "name":  "HitPaw Edimakor 4.4.1.5",
+                     "id":  "{7F13418C-2758-4F02-8F7B-94DF62E34147}_is1"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NETCore.App.Runtime.Mono.ios-arm64 (x64)",
+                     "id":  "{7F6074CF-1B07-407E-B0FF-9144E76054AD}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  ".NET MAUI SDK (x64)",
+                     "id":  "{800FC5DD-B6BB-4D86-B85E-27EFC73CA0A7}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.iOS.Ref.net9.0_26.0 (x64)",
+                     "id":  "{816F1AD2-943F-4986-8F21-8FF973649A48}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Quick Share",
+                     "id":  "{818DAD3E-909E-406D-9A87-A4F67C26EE7A}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft Visual C++ 2008 Redistributable - x64 9.0.30729.17",
+                     "id":  "{8220EEFE-38CD-377E-8595-13398D740ACE}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.Android.Runtime.35.android-x86 (x64)",
+                     "id":  "{83010A3A-B815-4489-A142-6654B778DF7D}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft Windows Desktop Runtime - 9.0.10 (x64)",
+                     "id":  "{8466C2EB-71A6-4529-A615-0E8FE0CCCBED}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET AppHost Pack - 7.0.20 (x64_arm64)",
+                     "id":  "{866F4150-A781-40E0-80E7-5DF0E4F36BDD}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NET.Sdk.tvOS.Manifest-9.0.100 (x64)",
+                     "id":  "{86975E52-FB78-4CFF-9D23-E4DEA2F26F8A}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "AMD WVR64",
+                     "id":  "{869DC52A-FDB3-4100-8CAA-FCAFD21F516E}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "vs_communityx64msi",
+                     "id":  "{869F4189-7A4C-4BC6-ABC8-A3FB7B561C2E}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft ASP.NET Core 7.0.20 Targeting Pack (x64)",
+                     "id":  "{87DB9F7C-C794-39A6-93FE-D72AF734237A}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Python 3.11.5 Utility Scripts (64-bit)",
+                     "id":  "{896CE1B5-5393-426C-A466-4465EEAE1363}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NET.Sdk.Maui.Manifest-9.0.100 (x64)",
+                     "id":  "{899DB162-0A4A-407D-BF87-7C6D65F15610}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.MacCatalyst.Ref.net9.0_26.0 (x64)",
+                     "id":  "{8A5929CF-B606-4C63-BB03-CE16F64CC496}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NET.Sdk.MacCatalyst.Manifest-9.0.100 (x64)",
+                     "id":  "{8B045548-527C-4D2A-8A42-44713C3DBA15}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NET.Sdk.Maui.Manifest-7.0.100 (x64)",
+                     "id":  "{8B3894C0-B5D2-4DDF-9732-75A96EE9A834}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET Targeting Pack - 8.0.21 (x64)",
+                     "id":  "{8CDA22CF-530B-4F1C-AC79-1DE3DF6D2937}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.Maui.Core (x64)",
+                     "id":  "{8DBF70ED-EEEB-4BA1-9BA7-23B42816296E}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Office 16 Click-to-Run Licensing Component",
+                     "id":  "{90160000-008F-0000-1000-0000000FF1CE}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Office 16 Click-to-Run Extensibility Component 64-bit Registration",
+                     "id":  "{90160000-00DD-0000-1000-0000000FF1CE}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Python 3.9.13 Standard Library (64-bit)",
+                     "id":  "{90A30DAB-6FD8-4CF8-BB8B-C0DB21C69F20}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.iOS.Windows.Sdk.net9.0_18.0 (x64)",
+                     "id":  "{916AB5D9-C368-4822-830E-72BBC6B2AE82}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NETCore.App.Runtime.AOT.win-x64.Cross.android-x64 (x64)",
+                     "id":  "{926F1746-167D-4C94-8143-C87F2EDEC255}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NET.Runtime.MonoTargets.Sdk (x64)",
+                     "id":  "{92F6AF00-D9F6-4127-963B-601F040F60DA}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "vs_minshellx64msi",
+                     "id":  "{9317F80D-F1E2-4723-B5FD-98B8502E2D40}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Samsung SL-T1670 민원서류",
+                     "id":  "{968A4FD3-9B33-4589-B50F-120AA3AE9AD5}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Python 3.10.8 Standard Library (64-bit)",
+                     "id":  "{9D731829-C401-4DFE-8906-79EBFAD18AF7}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NETCore.App.Runtime.AOT.win-x64.Cross.android-x86 (x64)",
+                     "id":  "{9E26A274-4BF5-4839-AA41-627DAC732FB4}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET AppHost Pack - 8.0.21 (x64_x86)",
+                     "id":  "{A0436559-5F3B-4EEB-9A85-672E94CAF89E}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.iOS.Sdk.net9.0_18.0 (x64)",
+                     "id":  "{A1482205-2BF9-411C-A9BE-FD0227CB02A3}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NETCore.App.Runtime.Mono.android-x86 (x64)",
+                     "id":  "{A2510BF5-58C1-4265-B7A4-FDEB0C6DE067}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NETCore.App.Runtime.Mono.android-arm (x64)",
+                     "id":  "{A2BFF4C3-700A-4F9C-BE5C-797E131D6A00}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.Android.Runtime.35.android-arm (x64)",
+                     "id":  "{A2F00E17-2825-43B9-919D-AF59F19B193E}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft Windows Desktop Runtime - 8.0.21 (x64)",
+                     "id":  "{A32777AD-F93A-4F26-BEE6-9C5961EA71D6}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft ASP.NET Core 9.0.10 Shared Framework (x64)",
+                     "id":  "{A3C9E067-0A4D-31A2-8961-950444D2D67C}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.Android.Ref.35 (x64)",
+                     "id":  "{A3EA05E8-2BBB-4ADC-8B9E-023E6B0CC159}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Python 3.9.13 Development Libraries (64-bit)",
+                     "id":  "{A621340A-3F22-40D3-9CCD-50B048EBB48E}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET Standard Targeting Pack - 2.1.0 (x64)",
+                     "id":  "{A7036CFB-B403-4598-85FF-D397ABB88173}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NETCore.App.Runtime.Mono.iossimulator-x64 (x64)",
+                     "id":  "{A71A67F7-82E1-41AC-B702-686EE85C6966}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.AspNetCore.Components.WebView.Maui (x64)",
+                     "id":  "{AA05F9E9-29CE-4324-AADE-A1F95B410B3C}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Application Verifier x64 External Package (DesktopEditions)",
+                     "id":  "{AAD4ECCF-69C7-CA36-E72C-BB00821FB9FA}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Application Verifier x64 External Package (DesktopEditions)",
+                     "id":  "{ACB8119F-54A6-C93C-CA2F-3A1476EE8869}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  null,
+                     "name":  "IIS Express Application Compatibility Database for x86",
+                     "id":  "{ad846bae-d44b-4722-abad-f7420e08bcd9}.sdb"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "C:\\Users\\user\\AppData\\Local\\PowerToys\\",
+                     "name":  "PowerToys (Preview)",
+                     "id":  "{AF2B4F8F-4F55-42E5-8208-9623B1AFA833}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NET.Workload.Mono.Toolchain.net6.Manifest (x64)",
+                     "id":  "{AF39D638-E302-468D-A71E-D4F100AB5773}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.iOS.Runtime.iossimulator-x64.net9.0_26.0 (x64)",
+                     "id":  "{AFA9CFD9-EB65-4A0E-B233-F0E59FF5B59C}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.Maui.Resizetizer (x64)",
+                     "id":  "{B02B36F1-BFF3-4E96-9978-3A4AA94C2EA2}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.Maui.Controls.Build.Tasks (x64)",
+                     "id":  "{B0A0D89C-0E16-4AF2-ADAC-76D8AC3FAA63}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NET.Workload.Mono.Toolchain.net7.Manifest (x64)",
+                     "id":  "{B0E3E87D-C8BC-4B05-8B55-A85A7FABBD8E}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET Host FX Resolver - 7.0.20 (x64)",
+                     "id":  "{B0FC828F-678C-4868-9B5B-99639758E6F3}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Python 3.11.5 Add to Path (64-bit)",
+                     "id":  "{B1D86A26-1D57-45EE-AAAD-2E19018A6376}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET AppHost Pack - 7.0.20 (x64_x86)",
+                     "id":  "{B241FC20-E3D2-4597-8B98-9B784C6526A0}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.MacCatalyst.Runtime.maccatalyst-x64.net9.0_26.0 (x64)",
+                     "id":  "{B24F772C-A91D-4C79-BFD7-12BEA9421312}"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\InstallerCore\\NVI2.dll",
+                     "path":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\Display.Driver.{3CD67D82-13AE-4BF8-8548-A88BB9E0B77E}",
+                     "name":  "NVIDIA 그래픽 드라이버 560.94",
+                     "id":  "{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_Display.Driver"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\InstallerCore\\NVI2.dll",
+                     "path":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\Display.GFExperience.{4D9F61C6-1510-4991-B341-6AD92385B743}",
+                     "name":  "NVIDIA GeForce Experience 3.27.0.112",
+                     "id":  "{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_Display.GFExperience"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\InstallerCore\\NVI2.dll",
+                     "path":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\Display.Optimus.{B5752A8F-0D96-4D1B-AC5D-52106EAFC542}",
+                     "name":  "NVIDIA Optimus Update 39.5.0.0",
+                     "id":  "{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_Display.Optimus"
+                 },
+                 {
+                     "exec":  "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Engine\\A_Ball_Trans.ico",
+                     "path":  "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX",
+                     "name":  "NVIDIA PhysX 시스템 소프트웨어 9.21.0713",
+                     "id":  "{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_Display.PhysX"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\InstallerCore\\NVI2.dll",
+                     "path":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\Display.Update.{892D3E3F-068F-43F1-A6A1-94C1DAC05D45}",
+                     "name":  "NVIDIA 업데이트 39.5.0.0",
+                     "id":  "{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_Display.Update"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\InstallerCore\\NVI2.dll",
+                     "path":  "C:\\Program Files\\NVIDIA Corporation\\FrameViewSDK",
+                     "name":  "NVIDIA FrameView SDK 1.3.8513.32290073",
+                     "id":  "{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_FrameViewSdk"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\InstallerCore\\NVI2.dll",
+                     "path":  "C:\\Program Files\\NVIDIA Corporation\\NvStreamSrv",
+                     "name":  "NVIDIA SHIELD Streaming",
+                     "id":  "{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_GFExperience.NvStreamSrv"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\InstallerCore\\NVI2.dll",
+                     "path":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\GpxCommon.Oss.{15BF6EC9-15B3-44FE-A821-BD4DBBB2AEDF}",
+                     "name":  "NVIDIA GPX Common OSS binaries (POCO, OpenSSL, libprotobuf)",
+                     "id":  "{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_GpxCommon.Oss"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\InstallerCore",
+                     "name":  "NVIDIA Install Application",
+                     "id":  "{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_installer"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\InstallerCore\\NVI2.dll",
+                     "path":  "C:\\Program Files (x86)\\NVIDIA Corporation\\Update Core",
+                     "name":  "NVIDIA Backend",
+                     "id":  "{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_NvBackend"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\InstallerCore\\NVI2.dll",
+                     "path":  "C:\\Program Files\\NVIDIA Corporation\\NvContainer",
+                     "name":  "NVIDIA Container",
+                     "id":  "{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_NvContainer"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\InstallerCore\\NVI2.dll",
+                     "path":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\NvContainer.ContainerTelemetryApiHelper.{FCA24FE9-E445-443F-AF54-10EE76EA728D}",
+                     "name":  "NVIDIA TelemetryApi helper for NvContainer",
+                     "id":  "{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_NvContainer.ContainerTelemetryApiHelper"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\InstallerCore\\NVI2.dll",
+                     "path":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\NvContainer.LocalSystem.{5EFF9EC4-91AE-444E-8061-E9F2B3C01717}",
+                     "name":  "NVIDIA LocalSystem Container",
+                     "id":  "{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_NvContainer.LocalSystem"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\InstallerCore\\NVI2.dll",
+                     "path":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\NvContainer.MessageBus.{20EC43A6-C1CD-4090-A2F2-D981EE5ACD44}",
+                     "name":  "NVIDIA Message Bus for NvContainer",
+                     "id":  "{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_NvContainer.MessageBus"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\InstallerCore\\NVI2.dll",
+                     "path":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\NvContainer.NvapiMonitor.{C286858E-BDD4-429E-8F9F-62B1A3A9C34E}",
+                     "name":  "NVIDIA NVAPI Monitor plugin for NvContainer",
+                     "id":  "{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_NvContainer.NvapiMonitor"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\InstallerCore\\NVI2.dll",
+                     "path":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\NvContainer.ServiceUser.{3E6D1A55-78C0-4369-9B2B-3B7A4575275B}",
+                     "name":  "NVIDIA NetworkService Container",
+                     "id":  "{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_NvContainer.ServiceUser"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\InstallerCore\\NVI2.dll",
+                     "path":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\NvContainer.Session.{7B0828E7-6EE8-417A-955A-2B8E81784538}",
+                     "name":  "NVIDIA Session Container",
+                     "id":  "{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_NvContainer.Session"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\InstallerCore\\NVI2.dll",
+                     "path":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\NvContainer.User.{135DB640-BA12-48F5-99B7-AD23B33A82FD}",
+                     "name":  "NVIDIA User Container",
+                     "id":  "{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_NvContainer.User"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\InstallerCore\\NVI2.dll",
+                     "path":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\NvModuleTracker.Driver.{F794ADD5-8177-4E2C-8322-F94580E9D182}",
+                     "name":  "NVIDIA NvModuleTracker",
+                     "id":  "{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_NvModuleTracker.Driver"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\InstallerCore\\NVI2.dll",
+                     "path":  "C:\\Program Files (x86)\\NVIDIA Corporation\\NvNode",
+                     "name":  "NVIDIA NodeJS",
+                     "id":  "{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_NvNodejs"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\InstallerCore\\NVI2.dll",
+                     "path":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\NvPlugin.Watchdog.{8DCC8806-2C20-4B3F-96EB-B987DDB6BF79}",
+                     "name":  "NVIDIA Watchdog Plugin for NvContainer",
+                     "id":  "{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_NvPlugin.Watchdog"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\InstallerCore\\NVI2.dll",
+                     "path":  "C:\\Program Files\\NVIDIA Corporation\\NvTelemetry",
+                     "name":  "NVIDIA Telemetry Client",
+                     "id":  "{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_NvTelemetry"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\InstallerCore\\NVI2.dll",
+                     "path":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\NvVHCI.{BE0437F0-DB74-4C71-82F1-10AC867FD76B}",
+                     "name":  "NVIDIA Virtual Host Controller",
+                     "id":  "{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_NvVHCI"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\InstallerCore\\NVI2.dll",
+                     "path":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\OSC.{1CBB0840-7196-4150-BE96-001AF7511661}",
+                     "name":  "Nvidia Share",
+                     "id":  "{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_OSC"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\InstallerCore\\NVI2.dll",
+                     "path":  "C:\\Program Files\\NVIDIA Corporation\\ShadowPlay",
+                     "name":  "NVIDIA ShadowPlay 3.27.0.112",
+                     "id":  "{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_ShadowPlay"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\InstallerCore\\NVI2.dll",
+                     "path":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\ShieldWirelessController.{A44C65E4-4E70-473C-83E3-44A32C57E277}",
+                     "name":  "NVIDIA SHIELD Wireless Controller Driver",
+                     "id":  "{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_ShieldWirelessController"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\InstallerCore\\NVI2.dll",
+                     "path":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\Update.Core.{24F1D389-FBE9-4840-9CFB-2BC857E2CFC8}",
+                     "name":  "NVIDIA Update Core",
+                     "id":  "{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_Update.Core"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\InstallerCore\\NVI2.dll",
+                     "path":  "C:\\Program Files\\NVIDIA Corporation\\Installer2\\VirtualAudio.Driver.{F8A4F115-2C82-4511-84D7-A4F2000742FF}",
+                     "name":  "NVIDIA Virtual Audio 4.49.0.0",
+                     "id":  "{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_VirtualAudio.Driver"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NET.Runtime.MonoAOTCompiler.Task (x64)",
+                     "id":  "{B78FABEA-49CF-4B10-BB1A-00381695FD2E}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Python 3.10.8 Development Libraries (64-bit)",
+                     "id":  "{B7DEC02E-E147-40A2-86C9-1F910DC43D1C}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NETCore.App.Runtime.AOT.win-x64.Cross.android-arm (x64)",
+                     "id":  "{BA346458-EF4A-42B2-8A44-450AE502D1E0}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NETCore.App.Runtime.AOT.win-x64.Cross.android-arm64 (x64)",
+                     "id":  "{BB34DE3F-1E01-4AA7-B955-94D6111FC780}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Python 3.10.8 Utility Scripts (64-bit)",
+                     "id":  "{BBF729BB-B0D3-4180-A4A7-3A713F0BE254}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft ASP.NET Core 7.0.20 Shared Framework (x64)",
+                     "id":  "{BD401329-F877-391C-9E5A-FEB423C5A196}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NETCore.App.Runtime.Mono.android-arm64 (x64)",
+                     "id":  "{BF48E91D-7B10-4A7B-8B53-2473C0A98C38}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET AppHost Pack - 8.0.21 (x64_arm64)",
+                     "id":  "{BF650E91-6280-47B3-88CD-9BC281C360B3}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.Maui.Controls (x64)",
+                     "id":  "{C04EF7DA-2C7E-47B9-B2A6-2EF617EB5B6A}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NETCore.App.Runtime.Mono.android-x86 (x64)",
+                     "id":  "{C381176B-C636-433B-BB9A-3C5505C2FD05}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.MacCatalyst.Templates (x64)",
+                     "id":  "{C3B24928-58FE-446F-A9FC-9AD7A4CB8E9B}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Application Verifier x64 External Package (OnecoreUAP)",
+                     "id":  "{C53ECC06-72B1-FEBF-D241-038A4BC83E57}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET Targeting Pack - 9.0.10 (x64)",
+                     "id":  "{C55EE1DF-44DC-4007-86E7-85F3C22F6922}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows App Certification Kit Native Components",
+                     "id":  "{C5A16AA0-28AA-9B67-DBCC-F99C7DA59638}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Python 3.11.5 Core Interpreter (64-bit)",
+                     "id":  "{C62CE14B-8E3D-4A41-8671-405CA705DDF2}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft Update Health Tools",
+                     "id":  "{C6FD611E-7EFE-488C-A0E0-974C09EF6473}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft Windows Desktop Targeting Pack - 8.0.21 (x64)",
+                     "id":  "{C7E4AEA8-82D7-4B64-97DE-87DAE2D73964}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.iOS.Templates (x64)",
+                     "id":  "{C98932CF-54AD-4BA9-9496-B86EE6FB30B7}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.Maui.Controls.Core (x64)",
+                     "id":  "{CC102B09-E925-4E8C-910B-C6159B5C000F}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Python 3.11.5 Standard Library (64-bit)",
+                     "id":  "{CDE4410B-99CE-46EB-B88B-9881AE7E7438}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft Visual C++ 2012 x64 Minimum Runtime - 11.0.61030",
+                     "id":  "{CF2BEA3C-26EA-32F8-AA9B-331F7E34BA97}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  ".NET MAUI SDK (x64)",
+                     "id":  "{CFD1EB57-2D9C-41C4-B1AE-E08A51440320}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Samsung SL-T1670 장치 소프트웨어",
+                     "id":  "{D1E2494F-BDA1-493A-B569-C07A41814A68}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.MacCatalyst.Sdk.net9.0_26.0 (x64)",
+                     "id":  "{D2443D4A-8ECB-4BFD-81F1-9654EAAD5DD7}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "vs_devenx64vmsi",
+                     "id":  "{D287EC1B-60A7-43A9-ADE5-D37EDE93565B}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NETCore.App.Runtime.Mono.maccatalyst-arm64 (x64)",
+                     "id":  "{D46B2E86-CC19-4EA2-9CCC-316C64C8519D}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Python 3.9.13 Executables (64-bit)",
+                     "id":  "{D497CDAE-43AC-4397-A1C6-B66A7A8F8010}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Application Verifier x64 External Package",
+                     "id":  "{D5419286-34A7-E062-1C25-013A7FA94E9C}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Python 3.9.13 Core Interpreter (64-bit)",
+                     "id":  "{D7536B55-7339-436F-A2B3-8B8C0240DF32}"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\cursor\\Cursor.exe",
+                     "path":  "C:\\Program Files\\cursor\\",
+                     "name":  "Cursor",
+                     "id":  "{D7D7D7D7-7D7D-7D7D-7D7D-7D7D7D7D7D7D}}_is1"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Python 3.9.13 Test Suite (64-bit symbols)",
+                     "id":  "{D99D5931-E427-4388-9D0F-B11EF72C9D66}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NET.Sdk.iOS.Manifest-9.0.100 (x64)",
+                     "id":  "{DCB49BE7-CAB9-4AF2-9CB5-C3F0567771AE}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft Web Deploy 4.0",
+                     "id":  "{DE4FFB86-1944-4273-B040-92E920BD6861}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "C:\\Program Files\\Blender Foundation\\Blender 4.3\\",
+                     "name":  "Blender",
+                     "id":  "{DE735DFE-88BD-4470-A889-605A6D86B037}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NETCore.App.Runtime.Mono.iossimulator-arm64 (x64)",
+                     "id":  "{E0B6E71B-BC9C-4CED-A344-08CCA59A51B9}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NET.Workload.Emscripten.net8.Manifest (x64)",
+                     "id":  "{E150B9CB-9D18-4CE1-8E28-27AAE1FD74D2}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NETCore.App.Runtime.AOT.win-x64.Cross.android-x64 (x64)",
+                     "id":  "{E1CC7735-D87E-433E-9927-60CAA4602513}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Python 3.9.13 Standard Library (64-bit symbols)",
+                     "id":  "{E40CC2FD-4435-4AEB-95DC-47B017999C90}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft SQL Server 2019 LocalDB ",
+                     "id":  "{E5B3A478-C4C3-49E3-8384-A12D4B2008D4}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Python 3.9.13 Tcl/Tk Support (64-bit)",
+                     "id":  "{E7233E87-1712-40E0-8207-17C8D0157FCC}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft Windows Desktop Targeting Pack - 9.0.10 (x64)",
+                     "id":  "{E903E2BB-B553-4FA5-BBEA-576567917184}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NET.Workload.Emscripten.net6.Manifest (x64)",
+                     "id":  "{EA6C5082-36F1-402A-9B52-8B941A5EC778}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET Host - 9.0.10 (x64)",
+                     "id":  "{EB00D346-1FB5-46E0-89C0-93F056F5ACF4}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET Host - 7.0.20 (x64)",
+                     "id":  "{EE5EB03B-D65C-4991-848E-2C6E024326DB}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET Runtime - 8.0.21 (x64)",
+                     "id":  "{EEFB29A5-3E62-4DCE-8527-0DF45D780126}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NET.Workload.Emscripten.net7.Manifest (x64)",
+                     "id":  "{EF1C90F7-C253-491B-814C-712A5B5AF4DA}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.Maui.Controls.Xaml (x64)",
+                     "id":  "{F0A39D22-0ED3-45ED-A018-95B32C0846A0}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Application Verifier x64 External Package (OnecoreUAP)",
+                     "id":  "{F0B26EED-55C0-CCDD-F474-34FFFD3F3AB2}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft ASP.NET Core Module V2 for IIS Express",
+                     "id":  "{F0E9CE77-BF19-4BBE-B228-A42F782F82E4}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "C:\\Program Files\\Microsoft\\jdk-11.0.16.101-hotspot\\",
+                     "name":  "Microsoft Build of OpenJDK with Hotspot 11.0.16.1+1 (x64)",
+                     "id":  "{F207B40D-1DB3-42FB-9DB7-D761C4F1076E}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NET.Workload.Mono.Toolchain.net8.Manifest (x64)",
+                     "id":  "{F2B4E34F-2279-415E-B0CD-13A2C41780ED}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.Android.Runtime.35.android-arm64 (x64)",
+                     "id":  "{F440B0AD-B096-48B6-AF48-FBAE37920DD2}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NETCore.App.Runtime.AOT.win-x64.Cross.android-arm (x64)",
+                     "id":  "{F462B6A1-F814-4D87-9154-A420725FA156}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Node.js",
+                     "id":  "{F4937DE9-DA3D-4B72-9930-F3028D671956}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "VS Script Debugging Common",
+                     "id":  "{F5796163-6EC6-488A-B2DE-E1E94477F6AD}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET AppHost Pack - 9.0.10 (x64)",
+                     "id":  "{F80DDB5A-1463-4D63-929F-7944A4E33890}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "IntelliTraceProfilerProxy",
+                     "id":  "{F8B9E8C8-61E8-4E9E-879D-F3F498AD0230}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Epic Games Launcher Prerequisites (x64)",
+                     "id":  "{F9C5C994-F6B9-4D75-B3E7-AD01B84073E9}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft ASP.NET Core Module for IIS Express",
+                     "id":  "{FAFEE5E3-E00A-4CE8-B495-8F66A5FAB236}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.iOS.Windows.Sdk.net9.0_26.0 (x64)",
+                     "id":  "{FC0C9B1C-7072-4A6D-BE17-A3EDC7FF7829}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NET.Workload.Mono.Toolchain.Current.Manifest (x64)",
+                     "id":  "{FC677256-EC6A-460C-84BC-2511A6EA2EE6}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET Host FX Resolver - 9.0.10 (x64)",
+                     "id":  "{FDC862D8-5CDD-4FC6-8E9A-873A689600BC}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.Android.Sdk.Windows (x64)",
+                     "id":  "{FDFF02EB-C51B-4071-A985-EE0F0B98A717}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft.NET.Sdk.Android.Manifest-7.0.100 (x64)",
+                     "id":  "{FE768F65-89B5-40E5-9CE5-25D002197AE7}"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\devenv.exe",
+                     "path":  "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community",
+                     "name":  "Visual Studio Community 2022",
+                     "id":  "07a0587c"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\Common Files\\Adobe\\Keyfiles\\AfterEffects\\22\\Icons\\ae_installer.ico",
+                     "path":  "C:\\Program Files\\Adobe",
+                     "name":  "Adobe After Effects 2022",
+                     "id":  "AEFT_22_3"
+                 },
+                 {
+                     "exec":  "C:\\Program Files (x86)\\ESTsoft\\ALToolsManager\\ALToolsManager.exe",
+                     "path":  "C:\\Program Files (x86)\\ESTsoft\\ALToolsManager\\",
+                     "name":  "알매니저",
+                     "id":  "ALToolsManager_is1"
+                 },
+                 {
+                     "exec":  "C:\\Program Files (x86)\\ESTsoft\\ALZip\\ALZip.exe",
+                     "path":  "C:\\Program Files (x86)\\ESTsoft\\ALZip\\",
+                     "name":  "알집 12.29",
+                     "id":  "ALZip_is1"
+                 },
+                 {
+                     "exec":  "C:\\Program Files (x86)\\AMD\\Chipset_Software\\QT_Dependencies\\Setup.exe",
+                     "path":  null,
+                     "name":  "AMD Chipset Software",
+                     "id":  "AMD_Chipset_IODrivers"
+                 },
+                 {
+                     "exec":  "\"C:\\Program Files (x86)\\AnyDesk\\AnyDesk.exe\"",
+                     "path":  "\"C:\\Program Files (x86)\\AnyDesk\"",
+                     "name":  "AnyDesk",
+                     "id":  "AnyDesk"
+                 },
+                 {
+                     "exec":  "C:\\Program Files (x86)\\SoftForum\\XecureWeb\\AnySign\\dll\\AnySign4PC.exe",
+                     "path":  null,
+                     "name":  "AnySign4PC 1.1.4.6",
+                     "id":  "AnySign4PC"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\Autodesk\\FBX\\FBX Converter\\2013.3\\FBXConverter.ico",
+                     "path":  null,
+                     "name":  "Autodesk FBX Converter x64 2013.3",
+                     "id":  "Autodesk FBX Converter x64 2013.3"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  null,
+                     "name":  "인증서 로밍 클라이언트 오픈뱅킹 (1.08)",
+                     "id":  "CertLoamingOpen"
+                 },
+                 {
+                     "exec":  "C:\\Program Files (x86)\\clipdown\\clipdown.exe",
+                     "path":  null,
+                     "name":  "CLIPDOWN 1.0",
+                     "id":  "CLIPDOWN"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  null,
+                     "name":  "CROSSCERT UniCRSV3 2.0.17.0",
+                     "id":  "CROSSCERT UniCRSV3"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  null,
+                     "name":  "DPRTSetup",
+                     "id":  "DPRTSetup"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  null,
+                     "name":  "eISP 2.0",
+                     "id":  "eISP 2.0"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  null,
+                     "name":  "MarkAny Inc. e-PageSafer V2.5 NoAX ( Basic )_2.5.1.69",
+                     "id":  "ePageSafer"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  null,
+                     "name":  "MarkAny Inc. e-PageSafer V2.5 NoAX ( Report )_2.5.1.91",
+                     "id":  "ePageSaferRT"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  null,
+                     "name":  "MarkAny Inc. e-PageSafer V2.5 NoAX ( iros )_2.5.1.21",
+                     "id":  "ePageSafer_iros"
+                 },
+                 {
+                     "exec":  "C:\\Program Files (x86)\\espider\\espiderWin\\espiderWin.exe",
+                     "path":  null,
+                     "name":  "espider 2.3.7",
+                     "id":  "espider"
+                 },
+                 {
+                     "exec":  "c:\\infotech\\common\\iftWinExSvc_v1.exe",
+                     "path":  null,
+                     "name":  "ExAdapter_NxWeb",
+                     "id":  "ExAdapter_NxWeb"
+                 },
+                 {
+                     "exec":  "C:\\Program Files (x86)\\Unidocs\\ezPDFPrintEx\\ezPDFPrintEx.exe",
+                     "path":  null,
+                     "name":  "ezPDFPrintEx",
+                     "id":  "ezPDFPrintEx "
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\FileZilla FTP Client\\FileZilla.exe",
+                     "path":  "C:\\Program Files\\FileZilla FTP Client",
+                     "name":  "FileZilla 3.69.3",
+                     "id":  "FileZilla Client"
+                 },
+                 {
+                     "exec":  "C:\\KED\\FindAgent\\AgentVersion.exe",
+                     "path":  null,
+                     "name":  "FindAgent 1.2",
+                     "id":  "FindAgent"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  null,
+                     "name":  "FPRTSetup",
+                     "id":  "FPRTSetup"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\FreeFileSync\\FreeFileSync.exe",
+                     "path":  "C:\\Program Files\\FreeFileSync\\",
+                     "name":  "FreeFileSync",
+                     "id":  "FreeFileSync_is1"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  null,
+                     "name":  "FSWSS 1.3.0.0",
+                     "id":  "FSWSS"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\GensparkSoftware\\Genspark-Browser\\Application\\genspark.exe",
+                     "path":  "C:\\Program Files\\GensparkSoftware\\Genspark-Browser\\Application",
+                     "name":  "Genspark",
+                     "id":  "GensparkSoftware Genspark-Browser"
+                 },
+                 {
+                     "exec":  "\"C:\\Program Files (x86)\\GOM\\GOMPlayer\\GOM.EXE\"",
+                     "path":  "C:\\Program Files (x86)\\GOM\\GOMPlayer",
+                     "name":  "곰플레이어",
+                     "id":  "GOM Player"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+                     "path":  "C:\\Program Files\\Google\\Chrome\\Application",
+                     "name":  "Google Chrome",
+                     "id":  "Google Chrome"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\Adobe\\Adobe Illustrator 2022\\Support Files\\Contents\\Windows\\AI_Application_Icon.ico",
+                     "path":  "C:\\Program Files\\Adobe\\Adobe Illustrator 2022",
+                     "name":  "Adobe Illustrator 2022",
+                     "id":  "ILST_26_3_1"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  null,
+                     "name":  "휴대폰인증서(보관)서비스",
+                     "id":  "INFovine"
+                 },
+                 {
+                     "exec":  "C:\\Program Files (x86)\\INITECH\\INISAFE MoaSign EX\\INISAFEMoaSignEX.exe",
+                     "path":  null,
+                     "name":  "INISAFE MoaSign EX v1.2",
+                     "id":  "INISAFE MoaSign EX"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  null,
+                     "name":  "INISAFE SmartManagerEX 1.0.0.277",
+                     "id":  "INISAFE SmartManagerEX"
+                 },
+                 {
+                     "exec":  "C:\\Program Files (x86)\\IPinside_LWS\\I3GSvcManager.exe",
+                     "path":  null,
+                     "name":  "IPinside LWS Agent",
+                     "id":  "IPinside LWS Agent"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  null,
+                     "name":  "IPRTSetup",
+                     "id":  "IPRTSetup"
+                 },
+                 {
+                     "exec":  "\"C:\\Program Files (x86)\\ipTIME\\ipTIME NAS\\Utility\\ipTIME_ipDISK_Drive.exe\"",
+                     "path":  null,
+                     "name":  "ipTIME NAS Utility",
+                     "id":  "ipTIMENAS"
+                 },
+                 {
+                     "exec":  "C:\\Program Files (x86)\\Kakao\\KakaoTalk\\KakaoTalk.exe",
+                     "path":  null,
+                     "name":  "카카오톡",
+                     "id":  "KakaoTalk"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  null,
+                     "name":  "KCaseAgent CPP",
+                     "id":  "KCaseAgent"
+                 },
+                 {
+                     "exec":  "C:\\Program Files (x86)\\RaonSecure\\biz\\KSbiz.exe",
+                     "path":  null,
+                     "name":  "KeySharp biz v2.2 For 32bit",
+                     "id":  "KeySharp biz v2.2 For 32bit"
+                 },
+                 {
+                     "exec":  "C:\\Program Files (x86)\\KeySharp\\kscertrelay\\KSCertRelay.exe",
+                     "path":  null,
+                     "name":  "KeySharp CertRelay",
+                     "id":  "KeySharp CertRelay"
+                 },
+                 {
+                     "exec":  "C:\\Program Files (x86)\\Kings Online Security\\KOSinj.exe",
+                     "path":  "C:\\Program Files (x86)\\Kings Online Security",
+                     "name":  "Kings Online Security",
+                     "id":  "KOS"
+                 },
+                 {
+                     "exec":  "C:\\Program Files (x86)\\DreamSecurity\\SmartMobileSign\\MagicMRSPCUninstall.exe",
+                     "path":  null,
+                     "name":  "KT 인증서 관리",
+                     "id":  "kt certificate"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  null,
+                     "name":  "MarkAny Inc. e-PageSafer V2.5 NoAX ( Court )_20.22.09.01",
+                     "id":  "macourtsafer"
+                 },
+                 {
+                     "exec":  "C:\\Program Files (x86)\\DreamSecurity\\MagicLine4NX\\MagicLine4NX_Uninstall.exe",
+                     "path":  null,
+                     "name":  "MagicLine4NX",
+                     "id":  "MagicLine4NX"
+                 },
+                 {
+                     "exec":  "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\141.0.3537.99\\msedge.exe",
+                     "path":  "C:\\Program Files (x86)\\Microsoft\\Edge\\Application",
+                     "name":  "Microsoft Edge",
+                     "id":  "Microsoft Edge"
+                 },
+                 {
+                     "exec":  "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\141.0.3537.99\\msedgewebview2.exe",
+                     "path":  "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application",
+                     "name":  "Microsoft Edge WebView2 런타임",
+                     "id":  "Microsoft EdgeWebView"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\Naver\\Naver Whale\\Application\\whale.exe",
+                     "path":  "C:\\Program Files\\Naver\\Naver Whale\\Application",
+                     "name":  "네이버 웨일",
+                     "id":  "Naver Whale"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "C:\\NIA\\",
+                     "name":  "NIASpeedMeter V2.0.0.6",
+                     "id":  "NIASpeedMeter_is1"
+                 },
+                 {
+                     "exec":  "\"C:\\Program Files (x86)\\INCAInternet UnInstall\\nProtect Online Security\\nProtectUninstaller.exe\"",
+                     "path":  null,
+                     "name":  "nProtect Online Security V1.0(PFS)",
+                     "id":  "nProtect Online Security V1.0(PFS)"
+                 },
+                 {
+                     "exec":  "C:\\Program Files (x86)\\Coocon\\NXiSAS\\iSASNXWS.exe",
+                     "path":  null,
+                     "name":  "NXISAS 2021.2.26.0",
+                     "id":  "NXISAS"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\obs-studio\\bin\\64bit\\obs64.exe",
+                     "path":  null,
+                     "name":  "OBS Studio",
+                     "id":  "OBS Studio"
+                 },
+                 {
+                     "exec":  "C:\\Program Files (x86)\\NCH Software\\PhotoPad\\photopad.exe",
+                     "path":  "C:\\Program Files (x86)\\NCH Software\\PhotoPad",
+                     "name":  "PhotoPad  사진 편집기",
+                     "id":  "PhotoPad"
+                 },
+                 {
+                     "exec":  "C:\\Program Files (x86)\\NCH Software\\PhotoStage\\photostage.exe",
+                     "path":  "C:\\Program Files (x86)\\NCH Software\\PhotoStage",
+                     "name":  "PhotoStage 슬라이드쇼 제작기",
+                     "id":  "PhotoStage"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\Adobe\\Adobe Photoshop 2022\\AMT\\Core key files\\AddRemoveInfo\\ps_installpkg.ico",
+                     "path":  "C:\\Program Files\\Adobe\\Adobe Photoshop 2022",
+                     "name":  "Adobe Photoshop 2022",
+                     "id":  "PHSP_23_1_1"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\Common Files\\Adobe\\Keyfiles\\PremierePro\\22.0\\Icons\\pr_cc_pkg.ico",
+                     "path":  "C:\\Program Files\\Adobe",
+                     "name":  "Adobe Premiere Pro 2022",
+                     "id":  "PPRO_22_3_1"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  null,
+                     "name":  "RPRTSetup",
+                     "id":  "RPRTSetup"
+                 },
+                 {
+                     "exec":  "\"C:\\ProgramData\\secureconnection\\secureconnection.exe\"",
+                     "path":  "C:\\ProgramData\\secureconnection\\",
+                     "name":  "HTTPS Connect SecureConnection",
+                     "id":  "secureconnection"
+                 },
+                 {
+                     "exec":  "C:\\Program Files (x86)\\SignKorea\\skcert\\SKCertService.exe",
+                     "path":  null,
+                     "name":  "SignKorea NA Certification Toolkit(인증 프로그램)",
+                     "id":  "SKCert.{FF902CAB-2018-4036-9CAC-91AAC839021C}"
+                 },
+                 {
+                     "exec":  "C:\\Program Files (x86)\\DreamSecurity\\SmartMobileSign\\MagicMRSPCUninstall.exe",
+                     "path":  null,
+                     "name":  "스마트 모바일 사인(인증서이동)",
+                     "id":  "SmartMobileSign"
+                 },
+                 {
+                     "exec":  "C:\\Program Files (x86)\\SoftCamp\\SCWSSP\\SCWSControl.exe",
+                     "path":  null,
+                     "name":  "SoftCamp Web Standard Security Package",
+                     "id":  "SoftCamp Web Standard Security Package"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  null,
+                     "name":  "Secure KeyStroke 4.0",
+                     "id":  "SoftcampSCSK"
+                 },
+                 {
+                     "exec":  "C:\\Program Files (x86)\\NCH Software\\Spin3D\\spin3d.exe",
+                     "path":  "C:\\Program Files (x86)\\NCH Software\\Spin3D",
+                     "name":  "Spin3D 파일 변환기 소프트웨어",
+                     "id":  "Spin3D"
+                 },
+                 {
+                     "exec":  "C:\\WINDOWS\\SysWOW64\\CKAgentNXE.exe",
+                     "path":  null,
+                     "name":  "TouchEn nxKey with E2E for 32bit",
+                     "id":  "TouchEn nxKey"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "C:\\Program Files (x86)\\TransMac\\",
+                     "name":  "TransMac version 15.4",
+                     "id":  "TransMac_is1"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "C:\\Program Files (x86)\\INITECH\\INISAFE Web EX Client",
+                     "name":  "INISAFE CrossWeb EX V3",
+                     "id":  "UnINISafeWebEX"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\Unity\\Hub\\Editor\\2019.4.33f1\\Editor\\Unity.exe",
+                     "path":  null,
+                     "name":  "Unity 2019.4.33f1",
+                     "id":  "Unity 2019.4.33f1"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\Unity\\Hub\\Editor\\2021.3.16f1\\Editor\\Unity.exe",
+                     "path":  null,
+                     "name":  "Unity 2021.3.16f1",
+                     "id":  "Unity 2021.3.16f1"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\Unity\\Hub\\Editor\\2021.3.25f1\\Editor\\Unity.exe",
+                     "path":  null,
+                     "name":  "Unity 2021.3.25f1",
+                     "id":  "Unity 2021.3.25f1"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.15f1\\Editor\\Unity.exe",
+                     "path":  null,
+                     "name":  "Unity 2022.3.15f1",
+                     "id":  "Unity 2022.3.15f1"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.2f1\\Editor\\Unity.exe",
+                     "path":  null,
+                     "name":  "Unity 2022.3.2f1",
+                     "id":  "Unity 2022.3.2f1"
+                 },
+                 {
+                     "exec":  "C:\\Program Files\\Common Files\\Adobe\\Microsoft\\EdgeWebView/icons/icon_pkg.ico",
+                     "path":  "C:\\Program Files\\Common Files\\Adobe\\Microsoft\\EdgeWebView",
+                     "name":  "UXP WebView Support",
+                     "id":  "UXPW_1_1_0"
+                 },
+                 {
+                     "exec":  "C:\\Program Files (x86)\\VestCert\\VestCert.exe",
+                     "path":  null,
+                     "name":  "VestCert",
+                     "id":  "VestCert.{35C98F4B-AABD-43CB-9E08-B84B70B7FC07}"
+                 },
+                 {
+                     "exec":  "C:\\Program Files (x86)\\NCH Software\\VideoPad\\videopad.exe",
+                     "path":  "C:\\Program Files (x86)\\NCH Software\\VideoPad",
+                     "name":  "VideoPad 비디오 편집기",
+                     "id":  "VideoPad"
+                 },
+                 {
+                     "exec":  "\"C:\\WGear\\Application\\resources\\ico\\WGear.ico\"",
+                     "path":  null,
+                     "name":  "WGear",
+                     "id":  "WGear(SHBCIB Prod)"
+                 },
+                 {
+                     "exec":  "\"C:\\Program Files (x86)\\SoftForum\\Xecure Mobile Relay\\Uninstall.exe\"",
+                     "path":  null,
+                     "name":  "Xecure Mobile Relay",
+                     "id":  "Xecure Mobile Relay"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "WinRT Intellisense PPI - Other Languages",
+                     "id":  "{00406D62-A9D1-3A17-5808-B92632721F1C}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "vs_minshellinteropsharedmsi",
+                     "id":  "{008C4184-6C99-4211-AA94-12E192632A4C}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Desktop Tools x86",
+                     "id":  "{015CCE54-86EA-01A0-7C8C-40492E672AE6}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows IoT Extension SDK Contracts",
+                     "id":  "{026BEA66-9CA6-7971-2B1A-3C2F51F38F99}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK for Windows Store Apps Metadata",
+                     "id":  "{04259A4C-FF76-FAFB-20B2-6BA2FB589796}"
+                 },
+                 {
+                     "exec":  "C:\\ProgramData\\Package Cache\\{042d26ef-3dbe-4c25-95d3-4c1b11b235a7}\\vcredist_x64.exe",
+                     "path":  null,
+                     "name":  "Microsoft Visual C++ 2013 Redistributable (x64) - 12.0.40664",
+                     "id":  "{042d26ef-3dbe-4c25-95d3-4c1b11b235a7}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Desktop Libs arm64",
+                     "id":  "{0503A374-8AB6-5702-BA17-BCE21EE33103}"
+                 },
+                 {
+                     "exec":  "C:\\ProgramData\\Package Cache\\{050d4fc8-5d48-4b8f-8972-47c82c46020f}\\vcredist_x64.exe",
+                     "path":  null,
+                     "name":  "Microsoft Visual C++ 2013 Redistributable (x64) - 12.0.30501",
+                     "id":  "{050d4fc8-5d48-4b8f-8972-47c82c46020f}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK OnecoreUap Headers x64",
+                     "id":  "{05BD386E-7CFC-3B29-1FC5-4468AE6184A9}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "WinRT Intellisense Desktop - en-us",
+                     "id":  "{09DF0CB1-7ED5-524F-A208-A121D90026F2}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Desktop Tools x86",
+                     "id":  "{0A2BCE78-63A3-9F82-AD76-17C310B3EAEF}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "WinRT Intellisense Mobile - en-us",
+                     "id":  "{0C75EFBC-6D0C-7516-AE74-4F9FADE79EA2}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK for Windows Store Apps DirectX x86 Remote",
+                     "id":  "{0CFAF4C8-BBC3-45E6-8E61-9D555852B9C6}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "C:\\Program Files (x86)\\TOBESOFT\\XPLATFORM\\9.1\\",
+                     "name":  "XPLATFORM9.1_SetupEngine",
+                     "id":  "{0D02E53C-704A-4B5D-88FD-353A5AA4202E}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK for Windows Store Apps Contracts",
+                     "id":  "{0E336D71-64EA-A481-76B8-37CB7C5630EE}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "vs_vswebprotocolselectormsires",
+                     "id":  "{0F370EC0-64FD-46EE-943C-1C3887DCEDF5}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK EULA",
+                     "id":  "{0F820399-FFD6-E52F-CFB7-B6A4BD8A9E55}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET Host FX Resolver - 9.0.10 (x86)",
+                     "id":  "{10EF824F-9DF5-4D27-B68B-2717A7C404F7}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "WinRT Intellisense Desktop - Other Languages",
+                     "id":  "{12043D96-C793-7A03-AFEF-B2C627FADE37}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET CoreRuntime SDK",
+                     "id":  "{12702494-9E6A-3F5E-9441-2B7D258A639B}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows IoT Extension SDK",
+                     "id":  "{12A505CB-AA40-378D-854F-E2CF6A7FF75F}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Desktop Libs x86",
+                     "id":  "{13B97594-F764-EC5C-C54A-FDEFD6498016}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK AddOn",
+                     "id":  "{15941C7F-810D-41DF-8C5A-8D0490277AFB}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft Windows Desktop Targeting Pack - 7.0.20 (x86)",
+                     "id":  "{160B3BBA-225E-4939-B0BD-3171D9D68F45}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows Desktop Extension SDK",
+                     "id":  "{16E355AC-58E7-65EE-794A-96ACB540AEA1}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET Framework 4.7.2 Targeting Pack",
+                     "id":  "{1784A8CD-F7FE-47E2-A87D-1F31E7242D0D}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "WinRT Intellisense UAP - en-us",
+                     "id":  "{17FAE644-5409-EA4F-91AE-B4F213FB087B}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft Visual C++ 2022 X86 Additional Runtime - 14.50.35615",
+                     "id":  "{18BD4B1F-0FE7-4386-878E-B1A58B5967B8}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "vs_filehandler_amd64",
+                     "id":  "{1AF289E4-0398-4FB1-9590-F6F4B3CDD8F7}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK EULA",
+                     "id":  "{1B9DE5A3-4B45-E518-3E41-ED155A646D8F}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "C:\\Program Files (x86)\\Wizvera\\Delfino-G3\\",
+                     "name":  "Delfino G3 (x86) 버전 3.7.0.3",
+                     "id":  "{1CBD185A-9CB3-4f30-B7E4-75CC551455F9}_is1"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Desktop Headers x64",
+                     "id":  "{1F079CA3-A855-D075-2DBD-013FDCE1A711}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK for Windows Store Apps Contracts",
+                     "id":  "{1F1145F3-88D0-3ED1-45ED-EA42618F1BB9}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "SDK ARM64 Additions",
+                     "id":  "{1FFDDA3E-FFD5-BFB4-8170-5B243CF0F7B3}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows Team Extension SDK Contracts",
+                     "id":  "{2093A7BD-6CA8-4D9E-5230-D026364B05BB}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Kits Configuration Installer",
+                     "id":  "{22F8AB96-CE42-E9D8-6C64-30BDABE6F988}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Universal General MIDI DLS Extension SDK",
+                     "id":  "{23CBB16D-51D9-4BB9-3B8F-367B4D426387}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK OnecoreUap Headers x86",
+                     "id":  "{24A4E738-C0C7-469B-E822-C54BCE0BF7F9}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Entity Framework 6.5.0 Tools  for Visual Studio 2022",
+                     "id":  "{24B966F3-162C-429F-A075-9B11D89AE721}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Desktop Headers arm64",
+                     "id":  "{27B3D59D-9D54-3EA4-4CCE-AE5E57918284}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Desktop Tools arm64",
+                     "id":  "{2825810D-881C-9FBB-7836-B0117552064F}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft Visual Studio Setup WMI Provider",
+                     "id":  "{284D5429-2F5D-4CA2-9E3C-7E8EDCE33C77}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK for Windows Store Managed Apps Libs",
+                     "id":  "{28AF0D1C-2092-E950-2208-FBB43F8092AD}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft ASP.NET Core 7.0.20 Shared Framework (x86)",
+                     "id":  "{28BDB469-F7EA-3C09-B19E-C533A1D43BD4}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Desktop Headers x86",
+                     "id":  "{293DAAA3-1A33-3825-B6A7-6C9A7FC8F847}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Desktop Tools x64",
+                     "id":  "{2A0C6A0D-A8A7-89B6-AA43-B5DF54E1E837}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Universal CRT Tools x86",
+                     "id":  "{2AB12725-A80E-61F9-9459-59AEB801F8A8}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Signing Tools",
+                     "id":  "{2BCF4E86-E0B2-C9E0-10DC-26935253CF3D}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "vs_clickoncebootstrappermsi",
+                     "id":  "{2C052D9A-C97A-435D-9C30-536758E1C9A3}"
+                 },
+                 {
+                     "exec":  "C:\\ProgramData\\Package Cache\\{2c1d2274-0b9c-437b-8937-60ed881f6678}\\winsdksetup.exe",
+                     "path":  null,
+                     "name":  "Windows Software Development Kit - Windows 10.0.26100.4654",
+                     "id":  "{2c1d2274-0b9c-437b-8937-60ed881f6678}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "WinRT Intellisense Desktop - Other Languages",
+                     "id":  "{2D57E5F2-DE65-816E-0AB4-58E046C34205}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Universal CRT Extension SDK",
+                     "id":  "{2D78CDCA-CE1A-6007-089C-E09908F8B1FD}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Desktop Tools x64",
+                     "id":  "{2DBDB095-D491-1983-F74F-EF988CA60CF7}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK for Windows Store Apps Tools",
+                     "id":  "{2E0F519A-2F00-BEBB-7B70-FA5EE2CDB3FF}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Python Launcher",
+                     "id":  "{2FB71770-2C2E-42A3-9136-5101D1E930F4}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK ARM Desktop Tools",
+                     "id":  "{32F2F158-3261-006E-5AA6-62A927EEBB29}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "vs_communitymsires",
+                     "id":  "{3397DAF9-4193-430E-B173-FB0B63A78806}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Redistributables",
+                     "id":  "{33A4F1D6-2AE5-49CC-C08F-9D46E608F84B}"
+                 },
+                 {
+                     "exec":  "C:\\ProgramData\\Package Cache\\{33d1fd90-4274-48a1-9bc1-97e33d9c2d6f}\\vcredist_x86.exe",
+                     "path":  null,
+                     "name":  "Microsoft Visual C++ 2012 Redistributable (x86) - 11.0.61030",
+                     "id":  "{33d1fd90-4274-48a1-9bc1-97e33d9c2d6f}"
+                 },
+                 {
+                     "exec":  "C:\\ProgramData\\Package Cache\\{34a201b9-cccf-44b1-812c-c9e5443fd8f4}\\dotnet-sdk-7.0.410-win-x64.exe",
+                     "path":  null,
+                     "name":  "Microsoft .NET SDK 7.0.410 (x64)",
+                     "id":  "{34a201b9-cccf-44b1-812c-c9e5443fd8f4}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Universal CRT Headers Libraries and Sources",
+                     "id":  "{35784FD5-AE84-B295-6E2C-50D288D7D7F2}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "C:\\Program Files (x86)\\Printmade3\\",
+                     "name":  "Printmade3",
+                     "id":  "{3579B41E-F823-4D55-849F-6B5753B94160}_is1"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "AMD PPM Provisioning File Driver",
+                     "id":  "{3665A5DE-D07C-46D7-9207-713E8E9FEF32}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Visual C++ Library CRT Desktop Appx Package",
+                     "id":  "{37B06029-62FD-4E88-A484-C9A98A313CD7}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Desktop Tools x64",
+                     "id":  "{381ECDBC-FD58-3C05-FF84-D8D4B8A69A04}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "WinRT Intellisense UAP - en-us",
+                     "id":  "{398A9EE2-B2AF-DC5B-19D0-B6093A861C5A}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows IoT Extension SDK",
+                     "id":  "{39EBF327-9F05-795D-3D71-25F5210D85D4}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Desktop Libs x64",
+                     "id":  "{3ADED24C-8528-C6CA-0BA2-8C75D5618764}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK DirectX x86 Remote",
+                     "id":  "{3DC2FE33-06D0-4158-FD6B-7F27F3E044E0}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK ARM64 Desktop Tools",
+                     "id":  "{3EF890A0-2A4A-9E9E-8DE4-E59083BC92BB}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "vs_devenvsharedmsi",
+                     "id":  "{42D73DDD-2477-4A05-89CC-E3574286BEAD}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "S1670 사용 설명서",
+                     "id":  "{42D883F1-3085-4824-9E8D-9CFC04C473EE}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "WinRT Intellisense Mobile - en-us",
+                     "id":  "{431F8B27-F2A4-B9BC-84BC-35A8C2E62284}"
+                 },
+                 {
+                     "exec":  "C:\\ProgramData\\Package Cache\\{43a03b9c-4770-409c-a999-587b60700b63}\\LauncherPrereqSetup_x64.exe",
+                     "path":  null,
+                     "name":  "Launcher Prerequisites (x64)",
+                     "id":  "{43a03b9c-4770-409c-a999-587b60700b63}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET Framework 4.7.1 문서 리디렉션 타기팅 팩(한국어)",
+                     "id":  "{447BD454-B0C7-4F31-9629-6995E652A4A1}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft ASP.NET Core 8.0.21 Targeting Pack (x86)",
+                     "id":  "{44A60695-0941-3B3E-9190-E1299E95CD4C}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows Desktop Extension SDK Contracts",
+                     "id":  "{46FFB44B-4C97-8231-D3E4-A312D1D4F528}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows Team Extension SDK Contracts",
+                     "id":  "{47B777FC-0E69-8326-B50D-FEAB5995B4D6}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET CoreRuntime For CoreCon",
+                     "id":  "{48A8F171-52F2-372B-8414-EA50617708BE}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET Framework 4.8 SDK(한국어)",
+                     "id":  "{497360B7-C0E2-45F3-881C-B6559097CEFF}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Java Auto Updater",
+                     "id":  "{4A03706F-666A-4037-7777-5F2748764D10}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "MSI Development Tools",
+                     "id":  "{4CDB315B-7D34-AADB-B87D-9C00F56A430D}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET Runtime - 7.0.20 (x86)",
+                     "id":  "{4DAE978C-6175-400D-A508-2403109B89E9}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK for Windows Store Apps Libs",
+                     "id":  "{4E2BDCBD-B9A0-C145-9B48-D6F74E49D54D}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "WinRT Intellisense UAP - Other Languages",
+                     "id":  "{4F720E64-FC62-7226-54E6-E8DC98C959EC}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "WinRT Intellisense IoT - en-us",
+                     "id":  "{4FB9BC8B-7686-D7EF-36C3-CAC0D97B5C9B}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Modern Non-Versioned Developer Tools",
+                     "id":  "{4FF97B6D-FFF4-ED3B-ACBE-EBC54344F2AC}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET Runtime - 9.0.10 (x86)",
+                     "id":  "{51F88F65-CA93-47A3-9C30-587A597C8DE4}"
+                 },
+                 {
+                     "exec":  "C:\\ProgramData\\Package Cache\\{5258c433-a35d-45fa-b2b9-a917813f0264}\\VC_redist.x86.exe",
+                     "path":  null,
+                     "name":  "Microsoft Visual C++ 2015-2022 Redistributable (x86) - 14.50.35615",
+                     "id":  "{5258c433-a35d-45fa-b2b9-a917813f0264}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "WinAppDeploy",
+                     "id":  "{532B792A-577A-C684-3BE0-8266D973A314}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "vs_BlendMsi",
+                     "id":  "{534F07E8-D68E-4883-AC39-CB45959F899F}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET Targeting Pack - 7.0.20 (x86)",
+                     "id":  "{535F2658-B9C6-4CFC-85E9-C025EBE72CB4}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK for Windows Store Apps Libs",
+                     "id":  "{538F2EF7-8807-5E59-3621-E606FE025D15}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "WinRT Intellisense PPI - en-us",
+                     "id":  "{55D6DA01-BE83-67C7-346E-043EA81DC932}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET Framework 4.7.1 Targeting Pack",
+                     "id":  "{5686C5E9-A3B3-451E-A2EA-4C246CDE5CC9}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "vs_CoreEditorFonts",
+                     "id":  "{56FB5923-1A95-4D55-BE78-CD42B50E67AD}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "vs_vswebprotocolselectormsi",
+                     "id":  "{57E735DF-CE88-4C84-90D6-9AE79410CD95}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Desktop Tools arm64",
+                     "id":  "{58A9FF8E-CABC-BE66-9588-78430B054EDA}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET Targeting Pack - 8.0.21 (x86)",
+                     "id":  "{591EAC9D-0A4D-4293-8AA0-54DAC11DA683}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft ASP.NET Core 9.0.10 Shared Framework (x86)",
+                     "id":  "{59D9AA41-8E58-39D2-9B76-EF9C4D31CCD1}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows Mobile Extension SDK",
+                     "id":  "{5A80BAAC-6A9D-B933-3F3E-21E3F90ABCC9}"
+                 },
+                 {
+                     "exec":  "C:\\ProgramData\\Package Cache\\{5ad32f47-3dd0-44db-b0fb-f159b2d28b42}\\VC_redist.x64.exe",
+                     "path":  null,
+                     "name":  "Microsoft Visual C++ 2015-2022 Redistributable (x64) - 14.50.35615",
+                     "id":  "{5ad32f47-3dd0-44db-b0fb-f159b2d28b42}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "vs_tipsmsi",
+                     "id":  "{5B1A624A-64CC-4388-865D-E52D168C7E44}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "icecap_collectionresourcesx64",
+                     "id":  "{5B7512EF-6436-4536-9F21-3E467B668878}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Remoted iOS Simulator for Visual Studio",
+                     "id":  "{5DD0E0E5-A99B-462E-AEC5-603704D63044}"
+                 },
+                 {
+                     "exec":  "C:\\ProgramData\\Package Cache\\{5f4dc51d-f151-4325-8ba1-8b26169529a9}\\winsdksetup.exe",
+                     "path":  null,
+                     "name":  "Windows Software Development Kit - Windows 10.0.19041.5609",
+                     "id":  "{5f4dc51d-f151-4325-8ba1-8b26169529a9}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Desktop Headers arm64",
+                     "id":  "{5FC776BD-E780-F34A-2BCA-F6BABF7699B2}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft Windows Desktop Runtime - 9.0.10 (x86)",
+                     "id":  "{60B761F1-4F7F-47BF-9FC3-B212A7F98ABB}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows Desktop Extension SDK",
+                     "id":  "{61CA8D3B-6426-D9E3-91CB-1706839276BE}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Modern Versioned Developer Tools",
+                     "id":  "{6293EB7C-9B82-5D3F-016A-87D94E8C8E85}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows App Certification Kit SupportedApiList x86",
+                     "id":  "{6374F197-7C18-D78C-D9A6-41DF46AE26C3}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK for Windows Store Managed Apps Libs",
+                     "id":  "{665EAA5C-4A07-4A9F-8B10-2EA6F947917A}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "WinRT Intellisense IoT - en-us",
+                     "id":  "{6913A697-8CFC-15B6-BA9D-F5CD005270F5}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Universal CRT Redistributable",
+                     "id":  "{6B9089CB-51B0-1F55-CED4-B6E0DE9FA6F2}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Universal CRT Headers Libraries and Sources",
+                     "id":  "{6D7ACCE0-E08A-78C8-2EF5-63E9FAEA185C}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "MSI Development Tools",
+                     "id":  "{6F03AE03-2D20-0681-A104-133BEAC8956D}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows Mobile Extension SDK Contracts",
+                     "id":  "{700ED9DF-4DDE-7DAF-C4C5-316330B8971D}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK for Windows Store Apps Headers",
+                     "id":  "{7025A3CE-D707-4FE9-70A2-45C86355278C}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Teams Machine-Wide Installer",
+                     "id":  "{731F6BAA-A986-45A4-8936-7C3AAAAA760B}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft NetStandard SDK",
+                     "id":  "{737FDDA7-B944-4CB5-92D9-3D56373BD301}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Desktop Headers x64",
+                     "id":  "{7653C82A-B136-532B-758E-DFB8DFC4476D}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK",
+                     "id":  "{77D80C7A-4E61-6912-7855-D2517D984829}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "WinRT Intellisense Desktop - en-us",
+                     "id":  "{78F26630-7E77-27FD-1780-651E8B0EF32A}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "vs_githubprotocolhandlermsi",
+                     "id":  "{7A4E6A56-184C-4582-8DC7-C6F3D9BFBE32}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft Windows Desktop Targeting Pack - 9.0.10 (x86)",
+                     "id":  "{7C56C73A-F4B3-48CB-B633-0397314D9977}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft Windows Desktop Runtime - 8.0.21 (x86)",
+                     "id":  "{7D7A1D84-1363-4D33-B366-21F54AC4917D}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "WinRT Intellisense UAP - en-us",
+                     "id":  "{7D88C142-57B2-67B4-FFE0-D9C9251DAB74}"
+                 },
+                 {
+                     "exec":  "C:\\ProgramData\\Package Cache\\{7f51bdb9-ee21-49ee-94d6-90afc321780e}\\vcredist_x64.exe",
+                     "path":  null,
+                     "name":  "Microsoft Visual C++ 2013 Redistributable (x64) - 12.0.21005",
+                     "id":  "{7f51bdb9-ee21-49ee-94d6-90afc321780e}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "WinRT Intellisense Desktop - en-us",
+                     "id":  "{7F7AE4EF-070B-3B5E-D367-A353EA0BFBFB}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft TestPlatform SDK Local Feed",
+                     "id":  "{7F86DEBA-AF7D-43F2-8312-DBCB65F116A9}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "vs_FileTracker_Singleton",
+                     "id":  "{8026396C-E06C-4952-9DC9-6D0A6AFED5AF}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK for Windows Store Apps Metadata",
+                     "id":  "{80A87973-098D-8903-956C-3244FC0461A1}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft Visual C++ 2013 x86 Minimum Runtime - 12.0.40664",
+                     "id":  "{8122DAB1-ED4D-3676-BB0A-CA368196543E}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "C:\\Program Files (x86)\\Epic Games\\",
+                     "name":  "Epic Games Launcher",
+                     "id":  "{81AC1F9D-5340-499B-B4AA-144DB004DCE5}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET Framework 4.8.1 SDK",
+                     "id":  "{81EF376F-C9A1-42A3-8997-22A1DE4687F0}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Desktop Libs x86",
+                     "id":  "{842FBFC4-CCCC-6799-1998-17DED2BCE174}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "vs_SQLClickOnceBootstrappermsi",
+                     "id":  "{850EBDFE-C9CD-444E-A92A-161208B0963D}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "icecap_collection_neutral",
+                     "id":  "{85651DAF-34DB-417F-9FAF-9877F9E7C4D9}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft ASP.NET Core 7.0.20 Targeting Pack (x86)",
+                     "id":  "{85662951-18B2-3C85-A696-D58BDBD16A80}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Universal CRT Redistributable",
+                     "id":  "{86363072-3F48-9EB8-B243-663981EAECDD}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Desktop Tools x86",
+                     "id":  "{884234AF-FE4E-3B81-B758-C38EB045C832}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft Visual C++ 2008 Redistributable - x86 9.0.30729",
+                     "id":  "{887868A2-D6DE-3255-AA92-AA0B5A59B874}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "C:\\Program Files (x86)\\Wizvera\\Common\\wpmsvc\\",
+                     "name":  "WIZVERA Process Manager 1,0,6,1",
+                     "id":  "{8941A397-4065-4F41-92CE-0EB610846EED}_is1"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Desktop Headers arm",
+                     "id":  "{8A4F839F-89EC-EF7E-EE73-07D4E02CC63B}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK for Windows Store Apps Libs",
+                     "id":  "{8A69A3F8-0D09-7AEC-714B-21F63FD4F131}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Desktop Headers arm",
+                     "id":  "{8BE03D0F-0D5D-67F0-B04C-EC13A64C4BAC}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "WinAppDeploy",
+                     "id":  "{8BE9B8AF-6505-24E5-4FB1-374E938EE537}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET Targeting Pack - 9.0.10 (x86)",
+                     "id":  "{8C78E484-7334-451C-8E4B-101440A8F84D}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "windows_toolscorepkg",
+                     "id":  "{8C9C340A-8CE2-40DB-A2DC-06F1D3C897AE}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Desktop Headers x86",
+                     "id":  "{8D61318B-6BC0-E831-52FB-505F6DF22D36}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Universal General MIDI DLS Extension SDK",
+                     "id":  "{8D9EB659-EE43-64F8-B490-F0980DF823A2}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET Framework 4.8.1 Targeting Pack",
+                     "id":  "{8DD67B10-D676-4CCF-B141-E17A6B135016}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Universal CRT Redistributable",
+                     "id":  "{8FB7909F-7079-FECC-1A06-B90A324C11E9}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Office 16 Click-to-Run Extensibility Component",
+                     "id":  "{90160000-008C-0000-0000-0000000FF1CE}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Office 16 Click-to-Run Localization Component",
+                     "id":  "{90160000-008C-0412-0000-0000000FF1CE}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK for Windows Store Apps Contracts",
+                     "id":  "{911F65D7-229E-FDF5-2CDC-7A778E965FAB}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft ASP.NET Core 9.0.10 Targeting Pack (x86)",
+                     "id":  "{91D6B4C6-0DAE-353C-91DB-7AD5342CB033}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft ASP.NET Core 8.0.21 Shared Framework (x86)",
+                     "id":  "{9231D919-325F-35C0-92E4-514BFE1627B9}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK for Windows Store Apps Metadata",
+                     "id":  "{9325F937-C7A3-3ACC-72C2-C11DEB195F0A}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Visual C++ Library CRT Appx Resource Package",
+                     "id":  "{934B13E7-FD3F-4263-A2A8-19B3F86961C2}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Visual C++ Library CRT Appx Package",
+                     "id":  "{9385FC43-14DD-4D12-8AB0-717ED7B67F36}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "SDK ARM64 Redistributables",
+                     "id":  "{939CDAA8-94AF-F1BB-CA31-4E7C8FABCA3A}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET Framework 4.8 SDK",
+                     "id":  "{949C0535-171C-480F-9CF4-D25C9E60FE88}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "vcpp_crt.redist.clickonce",
+                     "id":  "{955B1575-1D56-40E8-B407-74ED5F40316B}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Visual C++ Library CRT Desktop Appx Package",
+                     "id":  "{97C2C13D-45C1-497A-9312-AA9AE43BCEC7}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "AMD PSP Driver",
+                     "id":  "{988F14B8-79A8-475D-BAC7-83F96AD3D821}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET Runtime - 8.0.21 (x86)",
+                     "id":  "{98AB4D4F-FCE3-440A-8F8B-D82826D6A64D}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows App Certification Kit x64",
+                     "id":  "{9A481B47-A1E7-0D36-CFB4-48DE53911B54}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK for Windows Store Apps Headers",
+                     "id":  "{9AE69F25-AAA9-19CA-A490-FD002EF55FB0}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows Team Extension SDK Contracts",
+                     "id":  "{9BB3D482-022F-1105-BE47-84A933EBEE79}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft Visual C++ 2008 Redistributable - x86 9.0.30729.6161",
+                     "id":  "{9BE518E6-ECC6-35A9-88E4-87755C07200F}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Signing Tools",
+                     "id":  "{9C0C4EEA-675F-03DC-445E-3FAF4BEBF678}"
+                 },
+                 {
+                     "exec":  "C:\\ProgramData\\Package Cache\\{9dff3540-fc85-4ed5-ac84-9e3c7fd8bece}\\vcredist_x86.exe",
+                     "path":  null,
+                     "name":  "Microsoft Visual C++ 2013 Redistributable (x86) - 12.0.40664",
+                     "id":  "{9dff3540-fc85-4ed5-ac84-9e3c7fd8bece}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Visual C++ Library CRT Appx Package",
+                     "id":  "{9E65785F-5D6E-4066-AAC2-A4ED1C556997}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET Host - 9.0.10 (x86)",
+                     "id":  "{9F80F494-6D9F-4B85-A5BC-C20153713365}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "WinRT Intellisense IoT - Other Languages",
+                     "id":  "{A16EEBE8-C226-E309-D56D-20FA84819E37}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "MSI Development Tools",
+                     "id":  "{A1960F72-042F-BA17-1501-FCC8AA44197D}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "C:\\Chipset_Software\\",
+                     "name":  "AMD_Chipset_Drivers",
+                     "id":  "{a2c5e97a-dd0d-4a8c-b1fc-dfcaf9a0a4a2}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Desktop Headers x86",
+                     "id":  "{A309246D-0781-212D-1424-4A6505425A44}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Desktop Headers x64",
+                     "id":  "{A3B7C26F-BE21-6D16-77CA-BD5F1394A538}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Modern Versioned Developer Tools",
+                     "id":  "{A5980723-EA0A-9FF0-2F17-D3CA231D037C}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows Team Extension SDK",
+                     "id":  "{A5B25F16-0699-7F93-9154-D749B6037381}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows Mobile Extension SDK",
+                     "id":  "{A7FD5BDD-07E5-963E-B442-0DA8738EF18D}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Desktop Libs x64",
+                     "id":  "{A82C1991-2667-0151-896F-C92C3FCD8AA1}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK for Windows Store Apps Tools",
+                     "id":  "{A8E49937-CC70-12A0-8B88-22A2AE629655}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "AMD SBxxx SMBus Driver",
+                     "id":  "{AAE0E27D-C88A-49BA-8715-77ADCD4286A3}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Modern Versioned Developer Tools",
+                     "id":  "{AB6552BE-E19D-B28A-9AD7-B514F450AA94}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "C:\\Program Files (x86)\\Adobe\\Acrobat DC\\",
+                     "name":  "Adobe Acrobat DC",
+                     "id":  "{AC76BA86-1033-FFFF-7760-0C0F074E4100}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft Visual C++ 2022 X86 Minimum Runtime - 14.50.35615",
+                     "id":  "{AD3ACEA9-A38D-4565-B6A6-6D9C46CEAA6E}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows Mobile Extension SDK Contracts",
+                     "id":  "{ADD6795C-1115-DFF1-3932-E044F98D97CA}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK for Windows Store Apps DirectX x86 Remote",
+                     "id":  "{AF19AD5B-2DF6-9862-B161-26B5BDB6D8EE}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK for Windows Store Apps Headers",
+                     "id":  "{B13573B3-86DE-950D-07DD-71ECE767F8E0}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "vs_filehandler_x86",
+                     "id":  "{B1372A63-C412-48C6-BBCA-1FAD191A47A5}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft Visual C++ 2012 x86 Additional Runtime - 11.0.61030",
+                     "id":  "{B175520C-86A2-35A7-8619-86DC379688B9}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "AMD I2C Driver",
+                     "id":  "{B31D92D9-2914-46B0-9738-F668A563DE73}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Visual Studio용 Microsoft .NET Framework Cumulative Intellisense 팩(한국어)",
+                     "id":  "{B4FE4A12-FBA1-4371-8064-17338B49BE95}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Promontory_GPIO Driver",
+                     "id":  "{B5512BCC-F4CD-4159-86A4-B2AD7D38FFA9}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows Desktop Extension SDK",
+                     "id":  "{B62F22D6-102B-B47F-0FE1-3BB919AFBDF3}"
+                 },
+                 {
+                     "exec":  "C:\\ProgramData\\Package Cache\\{b72d4013-dd88-405a-9f9d-e88c278dcefe}\\winsdksetup.exe",
+                     "path":  null,
+                     "name":  "Windows Software Development Kit - Windows 10.0.22621.5040",
+                     "id":  "{b72d4013-dd88-405a-9f9d-e88c278dcefe}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows Desktop Extension SDK Contracts",
+                     "id":  "{B73B126E-2832-752B-C24D-B50D236DF1CA}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK for Windows Store Apps Headers OnecoreUap",
+                     "id":  "{B808DA9A-28F3-01B6-30AD-D4EDD936C87C}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "WinRT Intellisense UAP - Other Languages",
+                     "id":  "{B9369888-3610-E674-C077-322D40A10123}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "WinAppDeploy",
+                     "id":  "{B9DFA002-E65B-570D-4FB4-70F5D0EE154B}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET Framework 4.8 Targeting Pack",
+                     "id":  "{BAAF5851-0759-422D-A1E9-90061B597188}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "icecap_collection_neutral",
+                     "id":  "{BCC96BA3-E53C-452D-9265-16C7B0D86F89}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft Visual C++ 2012 x86 Minimum Runtime - 11.0.61030",
+                     "id":  "{BD95A8CD-1D9F-35AD-981A-3E7925026EBB}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "ClickOnce Bootstrapper Package for Microsoft .NET Framework",
+                     "id":  "{BDF8C840-5B9A-4D9B-9BCA-CE4163973563}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "VS Immersive Activate Helper",
+                     "id":  "{BE00F49A-2FA1-46E6-B30F-A2653BF7CD75}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows App Certification Kit x64 (OnecoreUAP)",
+                     "id":  "{C07E6D1A-C381-37F8-0EC8-77BD0F71D6D2}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "WinRT Intellisense IoT - Other Languages",
+                     "id":  "{C35E2C10-133A-BA91-B44E-890B88561421}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows IoT Extension SDK Contracts",
+                     "id":  "{C3D2FB47-9403-6F43-621C-5E5141B41EDA}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Facade Windows WinMD Versioned",
+                     "id":  "{C47FC21E-F496-4817-95A3-1A12B51A6E69}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft UniversalWindowsPlatform SDK",
+                     "id":  "{C756420B-C91C-4410-8092-F49C24CEF594}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Universal CRT Extension SDK",
+                     "id":  "{C77D7BE2-B9B7-B6D5-5DFF-35CB6601C91B}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft Windows Desktop Targeting Pack - 8.0.21 (x86)",
+                     "id":  "{C7B97FD8-D083-41DD-84A3-BA2DBE108C67}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Desktop Libs arm64",
+                     "id":  "{C83ABD1D-0EA5-21DF-1614-3D709528A110}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET Framework 4.8.1 타기팅 팩(한국어)",
+                     "id":  "{C86664B0-FAA4-4EDE-8D73-CFD010C406EF}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "IntelliTraceProfilerProxy",
+                     "id":  "{C8891AD2-C223-45CD-A9BE-617A68923B61}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "vs_clickoncebootstrappermsires",
+                     "id":  "{C9B5A801-271A-4364-B2C7-33A5D3CE154A}"
+                 },
+                 {
+                     "exec":  "C:\\ProgramData\\Package Cache\\{ca67548a-5ebe-413a-b50c-4b9ceb6d66c6}\\vcredist_x64.exe",
+                     "path":  null,
+                     "name":  "Microsoft Visual C++ 2012 Redistributable (x64) - 11.0.61030",
+                     "id":  "{ca67548a-5ebe-413a-b50c-4b9ceb6d66c6}"
+                 },
+                 {
+                     "exec":  "C:\\Windows\\Installer\\{CA77DA20-106B-4E9B-A8C1-428C65031BE0}\\Install_UI\\Install_UI.exe",
+                     "path":  "C:\\Program Files (x86)\\Hnc\\Office 2020\\",
+                     "name":  "한컴오피스 2020",
+                     "id":  "{CA77DA20-106B-4E9B-A8C1-428C65031BE0}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Desktop Libs arm64",
+                     "id":  "{CA8A9642-147B-190E-76A3-87A23B97ADF9}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Visual C++ Library CRT ARM64 Appx Package",
+                     "id":  "{CC09E32E-B28D-43D8-B3BB-6E7E2D51A32B}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "C:\\Program Files (x86)\\HNC\\Office NEO\\",
+                     "name":  "한컴오피스 NEO",
+                     "id":  "{CC14FD8C-A183-4AD8-A2D5-D18C08800ACA}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Visual C++ Library CRT Desktop Appx Package",
+                     "id":  "{CC38D1E1-5F0E-4C5A-9FC6-FDA68AA6D618}"
+                 },
+                 {
+                     "exec":  "C:\\ProgramData\\Package Cache\\{ce085a78-074e-4823-8dc1-8a721b94b76d}\\vcredist_x86.exe",
+                     "path":  null,
+                     "name":  "Microsoft Visual C++ 2013 Redistributable (x86) - 12.0.21005",
+                     "id":  "{ce085a78-074e-4823-8dc1-8a721b94b76d}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Desktop Libs arm",
+                     "id":  "{CE78C7EF-312F-35EB-82F9-FDC326F08658}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Desktop Headers arm64",
+                     "id":  "{CFB8CE9D-7C77-6D16-700F-22B96DC388B7}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "icecap_collectionresources",
+                     "id":  "{D02CE62C-24B0-4C90-B415-B1C6F6F2A199}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Universal CRT Extension SDK",
+                     "id":  "{D0471C1F-7F3E-DD17-58EE-4597A0C32095}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "WinRT Intellisense IoT - en-us",
+                     "id":  "{D09F9C76-321B-88B7-316B-E655F86BDB37}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows IoT Extension SDK",
+                     "id":  "{D13307E2-6F2D-EA5B-F8EE-4DB028978314}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft Windows Desktop Runtime - 7.0.20 (x86)",
+                     "id":  "{D21715FE-E342-4744-A499-76ECE655DE5C}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "WinRT Intellisense Mobile - en-us",
+                     "id":  "{D2BB0F30-BAED-4B44-5DBA-4D34B6068C51}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Universal General MIDI DLS Extension SDK",
+                     "id":  "{D2C85BA9-DA49-E2D5-D4C2-351C6C2C616F}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "vs_clickoncesigntoolmsi",
+                     "id":  "{D32D4E78-CD09-4C44-897D-65D150C669F9}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft Visual C++ 2013 x86 Additional Runtime - 12.0.40664",
+                     "id":  "{D401961D-3A20-3AC7-943B-6139D5BD490A}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "WinRT Intellisense UAP - Other Languages",
+                     "id":  "{D4B99AF4-7C7B-6638-CBB0-88259288C0E1}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows Desktop Extension SDK Contracts",
+                     "id":  "{D721DCB8-0930-F41C-6110-A00C41A0D32C}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "vs_minshellmsires",
+                     "id":  "{D809D4B2-C27B-4C6B-9B62-60DF80904CE9}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET Framework 4.8.1 SDK(한국어)",
+                     "id":  "{D9077FD5-671E-4FFF-97B2-B35BCD99B7A4}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows Mobile Extension SDK",
+                     "id":  "{D97824BC-1F9C-9A98-A458-5B0D06ECB755}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK for Windows Store Apps Tools",
+                     "id":  "{DB0A2082-E91C-2D58-7D65-19113BEDB221}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft ASP.NET Diagnostic Pack for Visual Studio",
+                     "id":  "{DB86E6E9-8B33-334C-BCF9-9D91A30124BB}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows Team Extension SDK",
+                     "id":  "{DBDA000B-16C2-B2AF-840C-C5FDA595B968}"
+                 },
+                 {
+                     "exec":  "C:\\ProgramData\\Package Cache\\{dc23f53c-bb52-41f9-b98e-60d02c4cf685}\\winsdksetup.exe",
+                     "path":  null,
+                     "name":  "Windows Software Development Kit - Windows 10.0.26100.6584",
+                     "id":  "{dc23f53c-bb52-41f9-b98e-60d02c4cf685}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Desktop Libs arm",
+                     "id":  "{DD312DEC-9A32-8DB3-6D7B-499F084D4C6B}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Facade Windows WinMD Versioned",
+                     "id":  "{DE56820F-73F3-83D6-DA12-CEF0E7585FDD}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows Mobile Extension SDK Contracts",
+                     "id":  "{DF4C943F-A46A-E489-69CE-189C54B0487E}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows IoT Extension SDK Contracts",
+                     "id":  "{DF85874C-C242-8352-7F7F-AC98ED102311}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Desktop Tools arm64",
+                     "id":  "{E1423DE5-FC68-C2A2-64DF-1B60784C2F2D}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK EULA",
+                     "id":  "{E2037558-0217-B40C-F00C-07FDBB82347B}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Desktop Libs x64",
+                     "id":  "{E22D77C1-306A-C916-15A0-08189F27E575}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK for Windows Store Apps DirectX x86 Remote",
+                     "id":  "{E468D844-27F7-3DFA-23F0-ABDC2CF555D0}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Universal CRT Headers Libraries and Sources",
+                     "id":  "{E46FFDDB-220B-543F-63E4-4C31EAE2B3EA}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET Framework 4.8 타기팅 팩(한국어)",
+                     "id":  "{E484BA79-41D9-4DF5-9BFB-FC471F72BAB8}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "WinFsp 2023",
+                     "id":  "{E4C768C9-0ED1-4E8D-9B05-CC533F7D1B1A}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK OnecoreUap Headers arm64",
+                     "id":  "{E52AAD5B-25CE-B253-13AA-25510DBF7751}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "C:\\Program Files (x86)\\FORCS\\OZWebLauncher",
+                     "name":  "OZWebLauncher",
+                     "id":  "{E57AA2E7-1A7E-47FB-B362-ED04768595E6}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows Team Extension SDK",
+                     "id":  "{E6EE1604-474D-770E-B5FF-C55D709C734E}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "vcpp_crt.redist.clickonce",
+                     "id":  "{E78DEB33-BC60-4B9D-9653-60AD43297510}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET Framework 4.7.2 타기팅 팩(한국어)",
+                     "id":  "{E79DB450-CF38-4E32-8EB4-CC591ADFD5C7}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "vs_communitysharedmsi",
+                     "id":  "{E8E3956F-EAE5-457E-87F7-81312C66E1B6}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "AMD GPIO2 Driver",
+                     "id":  "{E9DD399F-21A3-479E-A7DF-D6CF4B2ADBF3}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Entity Framework 6.5.0 Tools  for Visual Studio 2022",
+                     "id":  "{EBFE5355-EADF-4E33-A6A9-D0A6B1DBD5EF}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "WinRT Intellisense IoT - Other Languages",
+                     "id":  "{EC30B4D9-09E0-D607-CA2D-05EFE8F39C53}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "WinRT Intellisense PPI - en-us",
+                     "id":  "{ED40E403-CBE8-0CA3-5662-E8859CBFA1C0}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Signing Tools",
+                     "id":  "{ED8E386F-E3AB-9A0B-55E5-8BF791D9534B}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "C:\\Program Files (x86)\\ePapyrus\\PrintPlugin\\",
+                     "name":  "PrintPlugin",
+                     "id":  "{edbe44be-0dc9-11e6-a148-3e1d05defe78}_is1"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK for Windows Store Managed Apps Libs",
+                     "id":  "{EDD486C3-91EA-0B4E-2618-4F4885CC6945}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Desktop Libs x86",
+                     "id":  "{EE2F89EC-0FED-CF05-46E5-9EFE9715FC66}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "WinRT Intellisense PPI - Other Languages",
+                     "id":  "{EE47B659-7AF5-9302-D4A4-3204070DB9C6}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft .NET Native SDK",
+                     "id":  "{EF0C772D-F5E3-36D0-BDAB-FD378533CD40}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "WinRT Intellisense PPI - en-us",
+                     "id":  "{EF219A9F-8818-0934-1A77-EFCA297ADB62}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK Facade Windows WinMD Versioned",
+                     "id":  "{EF247486-ED87-384A-7B15-DA112071A2E3}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft Visual C++ 2010  x86 Redistributable - 10.0.40219",
+                     "id":  "{F0C3E5D1-1ADE-321E-8167-68EF0DE699A5}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "WinRT Intellisense Desktop - Other Languages",
+                     "id":  "{F5F3B189-4127-3630-A818-EDA53B73AB63}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Intel(R) C++ Redistributables on Intel(R) 64",
+                     "id":  "{F70BCE36-25F2-4475-A918-6209B3D85BF3}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK for Windows Store Apps",
+                     "id":  "{F72E6C14-6491-E7CC-116A-1D0234B34B32}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "vs_minshellsharedmsi",
+                     "id":  "{FAB898C2-D3D3-4A82-883A-8FBB70C1747D}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Windows SDK ARM Desktop Tools",
+                     "id":  "{FB88CFF1-D06D-72C3-0887-53277E92DAD2}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "WinRT Intellisense PPI - Other Languages",
+                     "id":  "{FDC16C1D-C419-B17F-1634-887E3C26C1A0}"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "",
+                     "name":  "Microsoft Visual Studio Setup Configuration",
+                     "id":  "{FE0F3D75-53F4-417A-97FD-58466C7E7328}"
+                 },
+                 {
+                     "exec":  "C:\\Program Files (x86)\\스팟 마우스\\SpotMouse_64x64_Tray.ico",
+                     "path":  null,
+                     "name":  "스팟 마우스 2.8.7",
+                     "id":  "스팟 마우스"
+                 },
+                 {
+                     "exec":  "C:\\Users\\user\\AppData\\Local\\Programs\\Arduino IDE\\uninstallerIcon.ico",
+                     "path":  null,
+                     "name":  "Arduino IDE 2.3.6",
+                     "id":  "459fc68c-eb53-59f8-8957-9913bc627af3"
+                 },
+                 {
+                     "exec":  "C:\\Users\\user\\AppData\\Local\\Programs\\Notion\\Notion.exe",
+                     "path":  null,
+                     "name":  "Notion 7.3.4",
+                     "id":  "661f0cc6-343a-59cb-a5e8-8f6324cc6998"
+                 },
+                 {
+                     "exec":  "C:\\Users\\user\\AppData\\Local\\Google\\Chrome\\User Data\\Profile 1\\Web Applications\\_crx_fhihpiojkbmbpdjeoajapmgkhlnakfjf\\Sheets.ico",
+                     "path":  null,
+                     "name":  "Sheets",
+                     "id":  "72d85fad23c04a1ff335ace493f50bf3"
+                 },
+                 {
+                     "exec":  "C:\\Users\\user\\AppData\\Local\\Google\\Chrome\\User Data\\Profile 1\\Web Applications\\_crx_aghbiahbpaijignceidepookljebhfak\\Google Drive.ico",
+                     "path":  null,
+                     "name":  "Google Drive",
+                     "id":  "734f8bd570b380c400541d845aeaf45a"
+                 },
+                 {
+                     "exec":  "C:\\Users\\user\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Web Applications\\_crx_aghbiahbpaijignceidepookljebhfak\\Google Drive.ico",
+                     "path":  null,
+                     "name":  "Google Drive",
+                     "id":  "7ab2b4759b35052c966ea86381ef3085"
+                 },
+                 {
+                     "exec":  "C:\\Users\\user\\AppData\\Local\\Google\\Chrome\\User Data\\Profile 1\\Web Applications\\_crx_mpnpojknpmmopombnjdcgaaiekajbnjb\\Docs.ico",
+                     "path":  null,
+                     "name":  "Docs",
+                     "id":  "8317e87d4a37a540cb200d88a9fc2c59"
+                 },
+                 {
+                     "exec":  "C:\\Users\\user\\AppData\\Local\\AnthropicClaude\\app.ico",
+                     "path":  "C:\\Users\\user\\AppData\\Local\\AnthropicClaude",
+                     "name":  "Claude",
+                     "id":  "AnthropicClaude"
+                 },
+                 {
+                     "exec":  "C:\\Users\\user\\AppData\\Local\\CapCut\\Apps\\uninst.exe",
+                     "path":  null,
+                     "name":  "CapCut",
+                     "id":  "CapCut"
+                 },
+                 {
+                     "exec":  "C:\\Users\\user\\AppData\\Local\\Google\\Chrome\\User Data\\Profile 1\\Web Applications\\_crx_ndknmdiddlbklnlcopfiljcckafjpced\\Trip.com.ico",
+                     "path":  null,
+                     "name":  "Trip.com",
+                     "id":  "e9681735c47b2e6e7dc6041bf2b03756"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "C:\\Users\\user\\AppData\\Roaming\\winfavorites\\",
+                     "name":  "Smart Windows Favorite",
+                     "id":  "favoriteurls"
+                 },
+                 {
+                     "exec":  "C:\\Users\\user\\AppData\\Local\\Framer\\app.ico",
+                     "path":  "C:\\Users\\user\\AppData\\Local\\Framer",
+                     "name":  "Framer",
+                     "id":  "Framer"
+                 },
+                 {
+                     "exec":  "C:\\Users\\user\\AppData\\Local\\GitHubDesktop\\app.ico",
+                     "path":  "C:\\Users\\user\\AppData\\Local\\GitHubDesktop",
+                     "name":  "GitHub Desktop",
+                     "id":  "GitHubDesktop"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  "C:\\Users\\user\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe",
+                     "name":  "FFmpeg",
+                     "id":  "Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe"
+                 },
+                 {
+                     "exec":  "",
+                     "path":  null,
+                     "name":  "iniLINE CrossEX Service",
+                     "id":  "iniLINE_CrossEX"
+                 },
+                 {
+                     "exec":  "C:\\Users\\user\\AppData\\Local\\Coocon\\iSASService\\uninst.exe",
+                     "path":  null,
+                     "name":  "iSAS Service",
+                     "id":  "iSAS Service"
+                 },
+                 {
+                     "exec":  "\"C:\\Users\\user\\AppData\\Local\\Programs\\Opera\\opera.exe\"",
+                     "path":  "C:\\Users\\user\\AppData\\Local\\Programs\\Opera",
+                     "name":  "Opera Stable 126.0.5750.59",
+                     "id":  "Opera 126.0.5750.59"
+                 },
+                 {
+                     "exec":  "C:\\Users\\user\\AppData\\Local\\Perplexity\\Comet\\Application\\comet.exe",
+                     "path":  "C:\\Users\\user\\AppData\\Local\\Perplexity\\Comet\\Application",
+                     "name":  "Comet",
+                     "id":  "Perplexity Comet"
+                 },
+                 {
+                     "exec":  "C:\\Users\\user\\AppData\\Local\\Programs\\WinSCP\\WinSCP.exe",
+                     "path":  "C:\\Users\\user\\AppData\\Local\\Programs\\WinSCP\\",
+                     "name":  "WinSCP 6.5.3",
+                     "id":  "winscp3_is1"
+                 },
+                 {
+                     "exec":  "C:\\Users\\user\\AppData\\Roaming\\Zoom\\bin\\Zoom.exe",
+                     "path":  "C:\\Users\\user\\AppData\\Roaming\\Zoom\\bin",
+                     "name":  "Zoom Workplace",
+                     "id":  "ZoomUMX"
+                 },
+                 {
+                     "exec":  "C:\\Users\\user\\AppData\\Local\\Package Cache\\{2001d062-3b62-4fc6-a275-e9fa5ad9c809}\\python-3.11.5-amd64.exe",
+                     "path":  null,
+                     "name":  "Python 3.11.5 (64-bit)",
+                     "id":  "{2001d062-3b62-4fc6-a275-e9fa5ad9c809}"
+                 },
+                 {
+                     "exec":  "C:\\Users\\user\\AppData\\Local\\Package Cache\\{371d0d73-d418-4ffe-b280-58c3e7987525}\\python-3.10.8-amd64.exe",
+                     "path":  null,
+                     "name":  "Python 3.10.8 (64-bit)",
+                     "id":  "{371d0d73-d418-4ffe-b280-58c3e7987525}"
+                 },
+                 {
+                     "exec":  "C:\\Users\\user\\AppData\\Local\\Programs\\Ollama\\unins000.exe",
+                     "path":  "C:\\Users\\user\\AppData\\Local\\Programs\\Ollama\\",
+                     "name":  "Ollama version 0.15.6",
+                     "id":  "{44E83376-CE68-45EB-8FC1-393500EB558C}_is1"
+                 },
+                 {
+                     "exec":  "C:\\Users\\user\\AppData\\Roaming\\Telegram Desktop\\Telegram.exe",
+                     "path":  "C:\\Users\\user\\AppData\\Roaming\\Telegram Desktop\\",
+                     "name":  "Telegram Desktop",
+                     "id":  "{53F49750-6209-4FBF-9CA8-7A333C87D1ED}_is1"
+                 },
+                 {
+                     "exec":  "C:\\Users\\user\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+                     "path":  "C:\\Users\\user\\AppData\\Local\\Programs\\Microsoft VS Code\\",
+                     "name":  "Microsoft Visual Studio Code (User)",
+                     "id":  "{771FD6B0-FA20-440A-A002-3B3BAC16DC50}_is1"
+                 },
+                 {
+                     "exec":  "C:\\Users\\user\\AppData\\Local\\Programs\\Antigravity\\Antigravity.exe",
+                     "path":  "C:\\Users\\user\\AppData\\Local\\Programs\\Antigravity\\",
+                     "name":  "Antigravity (User)",
+                     "id":  "{AA73B3E3-C6C8-45C8-B1DC-4AE56C751432}_is1"
+                 },
+                 {
+                     "exec":  "C:\\Users\\user\\AppData\\Local\\Package Cache\\{C3B34D50-AF22-4686-8CFE-4E88F2A73B39}\\PowerToysUserSetup-0.94.2-wix5-x64.exe",
+                     "path":  null,
+                     "name":  "PowerToys (Preview) x64",
+                     "id":  "{C3B34D50-AF22-4686-8CFE-4E88F2A73B39}"
+                 },
+                 {
+                     "exec":  "C:\\Users\\user\\AppData\\Local\\Package Cache\\{f599560c-4808-4daa-85d8-15f363099f67}\\python-3.9.13-amd64.exe",
+                     "path":  null,
+                     "name":  "Python 3.9.13 (64-bit)",
+                     "id":  "{f599560c-4808-4daa-85d8-15f363099f67}"
+                 }
+             ],
+    "total_apps":  667,
+    "last_sync":  "2026-02-12 23:48:11"
+}

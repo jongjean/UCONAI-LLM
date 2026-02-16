@@ -7,9 +7,11 @@ param(
 
 $systems = @{
     "dcp-control-plane"   = @{ name = "DCP Gateway"; start = "node C:\Users\user\AppData\Roaming\npm\node_modules\openclaw\openclaw.mjs gateway run --port 18789"; pattern = "*openclaw*gateway*" }
+    "openclaw-gateway"    = @{ name = "DCP Gateway"; start = "node C:\Users\user\AppData\Roaming\npm\node_modules\openclaw\openclaw.mjs gateway run --port 18789"; pattern = "*openclaw*gateway*" }
     "dcp-execution-plane" = @{ name = "DCP Controller"; start = "powershell -NoProfile -ExecutionPolicy Bypass -File C:\OpenClaw\controller\openclaw_controller.ps1 -Port 17777"; pattern = "*openclaw_controller.ps1*" }
+    "openclaw-controller" = @{ name = "DCP Controller"; start = "powershell -NoProfile -ExecutionPolicy Bypass -File C:\OpenClaw\controller\openclaw_controller.ps1 -Port 17777"; pattern = "*openclaw_controller.ps1*" }
     "uconai-bridge"       = @{ name = "UCONAI AI Bridge"; start = "node C:\OpenClaw\controller\ai-bridge.js"; pattern = "*ai-bridge.js*" }
-    "uconai-frontend"     = @{ name = "UCONAI Frontend"; start = "cmd /c npm run dev"; pattern = "*vite*" }
+    "uconai-frontend"     = @{ name = "UCONAI Frontend"; start = "node node_modules\vite\bin\vite.js --host 0.0.0.0 --port 5500"; pattern = "*vite*"; cwd = "C:\UCONAI-LLM\frontend" }
     "adobe-photoshop"     = @{ name = "Adobe Photoshop 2022"; start = "Start-Process 'C:\Program Files\Adobe\Adobe Photoshop 2022\Photoshop.exe'"; pattern = "Photoshop.exe" }
     "adobe-illustrator"   = @{ name = "Adobe Illustrator 2022"; start = "Start-Process 'C:\Program Files\Adobe\Adobe Illustrator 2022\Support Files\Contents\Windows\Illustrator.exe'"; pattern = "Illustrator.exe" }
     "ms-word"             = @{ name = "Microsoft Word"; start = "Start-Process 'winword.exe'"; pattern = "WINWORD.EXE" }
@@ -62,13 +64,20 @@ if ($Action -eq "Restart" -or $Action -eq "Start") {
         $path = $sys.start.Replace("DETACHED:", "")
         $dir = Split-Path $path -Parent
         $WshShell = New-Object -ComObject WScript.Shell
-        $WshShell.Run("cmd /c start /d `"$dir`" `"$path`"", 0, $false)
+        # start command requires a title string "" before the path if path is quoted
+        $WshShell.Run("cmd /c start `"`" /d `"$dir`" `"$path`"", 0, $false)
     }
     elseif ($sys.start -match "Start-Process") {
         Invoke-Expression $sys.start
     }
     else {
-        Start-Process powershell -ArgumentList "-NoProfile -Command `"$($sys.start)`"" -WindowStyle Hidden
+        $startParams = @{
+            FilePath     = "powershell"
+            ArgumentList = "-NoProfile -Command `"$($sys.start)`""
+            WindowStyle  = "Hidden"
+        }
+        if ($sys.cwd) { $startParams.WorkingDirectory = $sys.cwd }
+        Start-Process @startParams
     }
 }
 

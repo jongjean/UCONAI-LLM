@@ -138,7 +138,7 @@ function App() {
       <main style={{ flex: 1, overflow: 'hidden', display: 'flex' }}>
 
         {/* Left: Component Area */}
-        <div style={{ flex: '1.2', borderRight: '1px solid #333', overflowY: 'auto', backgroundColor: '#0a0a0a' }}>
+        <div style={{ flex: '1.1', borderRight: '1px solid #333', overflowY: 'auto', backgroundColor: '#0a0a0a' }}>
           {activeScreen === 'UCONAI' && <Dashboard />}
           {activeScreen === 'LPD' && <LPD />}
           {activeScreen === 'DOCS' && <Documents />}
@@ -146,7 +146,7 @@ function App() {
         </div>
 
         {/* Right: Neural Link (Chat) */}
-        <div style={{ flex: '0.8', display: 'flex', flexDirection: 'column', backgroundColor: '#0c0c0c' }}>
+        <div style={{ flex: '0.9', display: 'flex', flexDirection: 'column', backgroundColor: '#0c0c0c' }}>
           <div style={{ padding: '15px 20px', borderBottom: '1px solid #222', display: 'flex', alignItems: 'center', gap: '10px', color: '#00ff9d' }}>
             <MessageSquare size={18} />
             <span style={{ fontSize: '0.9rem', fontWeight: 'bold', letterSpacing: '1px' }}>UCONAI COMMANDER</span>
@@ -173,15 +173,20 @@ function App() {
 
           <div className="input-area" style={{ padding: '15px', borderTop: '1px solid #222', backgroundColor: '#050505' }}>
             <div style={{ display: 'flex', gap: '10px', marginBottom: '10px' }}>
-              <input
-                type="text"
-                placeholder="지시를 입력하십시오, 강박사님..."
+              <textarea
+                placeholder="지시를 입력하십시오, 강박사님... (Shift+Enter: 줄바꿈)"
                 value={userInput}
                 onChange={(e) => setUserInput(e.target.value)}
-                onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    handleSendMessage();
+                  }
+                }}
                 style={{
                   flex: 1, padding: '12px', borderRadius: '4px', border: '1px solid #00ff9d44',
-                  backgroundColor: '#111', color: '#00ff9d', fontFamily: 'monospace', outline: 'none'
+                  backgroundColor: '#111', color: '#00ff9d', fontFamily: 'monospace', outline: 'none',
+                  minHeight: '50px', resize: 'vertical'
                 }}
               />
               <button

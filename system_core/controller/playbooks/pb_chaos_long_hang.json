@@ -1,0 +1,15 @@
+{
+    "id": "pb_chaos_long_hang",
+    "name": "Chaos Long Hang (C9 Test)",
+    "steps": [
+        {
+            "id": "long_hang",
+            "tool": "hang_tool",
+            "args": {
+                "duration": 400000
+            },
+            "expected": null
+        }
+    ],
+    "max_steps": 2
+}

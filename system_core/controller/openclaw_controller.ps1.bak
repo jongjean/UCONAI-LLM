@@ -1,0 +1,81 @@
+﻿param(
+  [int]$Port = 17777
+)
+
+$prefix = "http://127.0.0.1:$Port/"
+$listener = [System.Net.HttpListener]::new()
+$listener.Prefixes.Add($prefix)
+$listener.Start()
+
+Write-Host "OpenClaw Local Controller listening on $prefix"
+
+function Read-Body($req) {
+  $reader = New-Object System.IO.StreamReader($req.InputStream, $req.ContentEncoding)
+  $body = $reader.ReadToEnd()
+  $reader.Close()
+  return $body
+}
+
+function Write-Json($res, $obj, $status=200) {
+  $json = ($obj | ConvertTo-Json -Depth 6)
+  $bytes = [Text.Encoding]::UTF8.GetBytes($json)
+  $res.StatusCode = $status
+  $res.ContentType = "application/json; charset=utf-8"
+  $res.OutputStream.Write($bytes, 0, $bytes.Length)
+  $res.OutputStream.Close()
+}
+
+while ($listener.IsListening) {
+  $ctx = $listener.GetContext()
+  $req = $ctx.Request
+  $res = $ctx.Response
+
+  try {
+    if ($req.HttpMethod -eq "GET" -and $req.Url.AbsolutePath -eq "/health") {
+      Write-Json $res @{ ok=$true; time=(Get-Date).ToString("s") }
+      continue
+    }
+
+    if ($req.HttpMethod -eq "POST" -and $req.Url.AbsolutePath -eq "/exec") {
+      $body = Read-Body $req
+      $payload = $body | ConvertFrom-Json
+
+      # payload: { "cmd": "...", "args": ["..."], "timeoutSec": 30 }
+      $cmd = $payload.cmd
+      $args = @()
+      if ($payload.args) { $args = @($payload.args) }
+      $timeout = 30
+      if ($payload.timeoutSec) { $timeout = [int]$payload.timeoutSec }
+
+      # 최소 안전장치(나중에 allowlist로 강화)
+      if (-not $cmd) { Write-Json $res @{ ok=$false; error="cmd required" } 400; continue }
+
+      $psi = New-Object System.Diagnostics.ProcessStartInfo
+      $psi.FileName = $cmd
+      $psi.Arguments = ($args -join " ")
+      $psi.RedirectStandardOutput = $true
+      $psi.RedirectStandardError  = $true
+      $psi.UseShellExecute = $false
+      $psi.CreateNoWindow = $true
+
+      $p = New-Object System.Diagnostics.Process
+      $p.StartInfo = $psi
+      [void]$p.Start()
+
+      if (-not $p.WaitForExit($timeout * 1000)) {
+        try { $p.Kill() } catch {}
+        Write-Json $res @{ ok=$false; error="timeout"; stdout=""; stderr="" } 408
+        continue
+      }
+
+      $stdout = $p.StandardOutput.ReadToEnd()
+      $stderr = $p.StandardError.ReadToEnd()
+      Write-Json $res @{ ok=$true; code=$p.ExitCode; stdout=$stdout; stderr=$stderr }
+      continue
+    }
+
+    Write-Json $res @{ ok=$false; error="not found" } 404
+  } catch {
+    Write-Json $res @{ ok=$false; error=$_.Exception.Message } 500
+  }
+}

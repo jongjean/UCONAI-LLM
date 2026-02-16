@@ -1,0 +1,22 @@
+{
+    "id": "pb_chaos_sync",
+    "name": "Chaos Sync Stress",
+    "steps": [
+        {
+            "id": "sync_step",
+            "tool": "hang_tool",
+            "args": {
+                "duration": 5000,
+                "sync": true
+            },
+            "expected": {
+                "checks": [
+                    {
+                        "type": "status_ok"
+                    }
+                ]
+            }
+        }
+    ],
+    "max_steps": 2
+}

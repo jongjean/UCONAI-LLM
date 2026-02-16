@@ -40,8 +40,77 @@ const Dashboard: React.FC = () => {
     const [selectedMonitor, setSelectedMonitor] = useState(0);
     const [isPipelineRunning, setIsPipelineRunning] = useState(false);
     const [pipelineProject, setPipelineProject] = useState("context7-main");
+    const [searchResults, setSearchResults] = useState<any[]>([]);
     const [commanderMsg, setCommanderMsg] = useState("");
     const [isSending, setIsSending] = useState(false);
+
+    // --- Independent Resizing System ---
+    const [terminalWidth, setTerminalWidth] = useState(550);  // Top Right
+    const [commanderWidth, setCommanderWidth] = useState(850); // Bottom Right
+    const [tacticalWidth, setTacticalWidth] = useState(220);   // Top Left
+    const [topLayerHeight, setTopLayerHeight] = useState(650); // Vertical Split
+
+    const dragRef = React.useRef<{
+        type: 'terminal' | 'commander' | 'tactical' | 'vertical' | null,
+        startX: number,
+        startY: number,
+        startWidth: number,
+        startHeight: number
+    }>({ type: null, startX: 0, startY: 0, startWidth: 0, startHeight: 0 });
+
+    const startResizing = (type: 'terminal' | 'commander' | 'tactical' | 'vertical', e: React.MouseEvent) => {
+        let startWidth = 0;
+        let startHeight = 0;
+        if (type === 'terminal') startWidth = terminalWidth;
+        else if (type === 'commander') startWidth = commanderWidth;
+        else if (type === 'tactical') startWidth = tacticalWidth;
+        else if (type === 'vertical') startHeight = topLayerHeight;
+
+        dragRef.current = { type, startX: e.clientX, startY: e.clientY, startWidth, startHeight };
+        document.body.style.cursor = type === 'vertical' ? 'row-resize' : 'col-resize';
+        document.body.style.userSelect = 'none';
+
+        const handleMouseMove = (me: MouseEvent) => {
+            if (!dragRef.current.type) return;
+
+            if (dragRef.current.type === 'vertical') {
+                const deltaY = me.clientY - dragRef.current.startY;
+                const newHeight = dragRef.current.startHeight + deltaY;
+                if (newHeight > 300 && newHeight < 900) setTopLayerHeight(newHeight);
+            } else {
+                const deltaX = me.clientX - dragRef.current.startX;
+                if (dragRef.current.type === 'terminal') {
+                    const newWidth = dragRef.current.startWidth - deltaX;
+                    if (newWidth > 250 && newWidth < 800) setTerminalWidth(newWidth);
+                } else if (dragRef.current.type === 'commander') {
+                    const newWidth = dragRef.current.startWidth - deltaX;
+                    if (newWidth > 250 && newWidth < 800) setCommanderWidth(newWidth);
+                } else if (dragRef.current.type === 'tactical') {
+                    const newWidth = dragRef.current.startWidth + deltaX;
+                    if (newWidth > 250 && newWidth < 800) setTacticalWidth(newWidth);
+                }
+            }
+        };
+
+        const handleMouseUp = () => {
+            dragRef.current.type = null;
+            document.body.style.cursor = 'default';
+            document.body.style.userSelect = 'auto';
+            window.removeEventListener('mousemove', handleMouseMove);
+            window.removeEventListener('mouseup', handleMouseUp);
+        };
+
+        window.addEventListener('mousemove', handleMouseMove);
+        window.addEventListener('mouseup', handleMouseUp);
+    };
+
+    useEffect(() => {
+        // Cleanup global listeners on unmount
+        return () => {
+            document.body.style.cursor = 'default';
+            document.body.style.userSelect = 'auto';
+        };
+    }, []);
 
     // ... (runAction, sendCommanderMsg, etc. remain unchanged)
 
@@ -144,7 +213,7 @@ const Dashboard: React.FC = () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     cmd: 'powershell.exe',
-                    args: ['C:\\UCONAI-LLM\\scripts\\core\\Standard-Wrapper.ps1', '-SystemId', 'all', '-Action', action]
+                    args: ['-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', 'C:\\UCONAI-LLM\\scripts\\core\\Standard-Wrapper.ps1', '-SystemId', 'all', '-Action', action]
                 })
             });
         } catch (e) {
@@ -300,12 +369,27 @@ const Dashboard: React.FC = () => {
                 </div>
             </header>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 350px', gap: '25px', marginTop: '30px' }}>
+            <div style={{
+                display: 'grid',
+                gridTemplateColumns: `${tacticalWidth}px 1fr ${terminalWidth}px`,
+                gap: '15px',
+                marginTop: '30px',
+                alignItems: 'stretch'
+            }}>
 
-                {/* Tactical Units (Services) */}
-                <div style={{ border: '1px solid #00ff9d33', padding: '20px', borderRadius: '4px', backgroundColor: '#111' }}>
-                    <h3 style={{ marginTop: 0, color: '#888', fontSize: '0.9rem' }}>TACTICAL_UNITS.YAML</h3>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                {/* Tactical Units (Services) - Top Left (Scrollable) */}
+                <div style={{
+                    border: '1px solid #00ff9d33',
+                    padding: '20px',
+                    borderRadius: '4px',
+                    backgroundColor: '#111',
+                    minHeight: `${topLayerHeight}px`,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    position: 'relative'
+                }}>
+                    <h3 style={{ marginTop: 0, color: '#888', fontSize: '0.9rem', flexShrink: 0 }}>TACTICAL_UNITS.YAML</h3>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', overflowY: 'auto', flex: 1, paddingRight: '10px' }}>
                         {status.services.map((svc: any) => (
                             <div key={svc.id} style={{
                                 display: 'flex',
@@ -313,7 +397,8 @@ const Dashboard: React.FC = () => {
                                 alignItems: 'center',
                                 padding: '8px 12px',
                                 background: '#1a1a1a',
-                                borderLeft: `3px solid ${svc.status === 'ONLINE' ? '#00ff9d' : '#ff4d4d'}`
+                                borderLeft: `3px solid ${svc.status === 'ONLINE' ? '#00ff9d' : '#ff4d4d'}`,
+                                flexShrink: 0
                             }}>
                                 <div
                                     onClick={() => setSelectedUnit({ ...svc, ...unitDetails[svc.id] })}
@@ -351,7 +436,7 @@ const Dashboard: React.FC = () => {
                                             setIsResetting(true);
                                             const payload = {
                                                 cmd: 'powershell.exe',
-                                                args: ['C:\\UCONAI-LLM\\scripts\\core\\Standard-Wrapper.ps1', '-SystemId', systemMap[svc.id], '-Action', 'Restart']
+                                                args: ['-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', 'C:\\UCONAI-LLM\\scripts\\core\\Standard-Wrapper.ps1', '-SystemId', systemMap[svc.id], '-Action', 'Restart']
                                             };
                                             setStatus((prev: any) => ({
                                                 ...prev,
@@ -399,357 +484,367 @@ const Dashboard: React.FC = () => {
                             </div>
                         ))}
                     </div>
+                    {/* Tactical Width Resizer Handle */}
+                    <div
+                        onMouseDown={(e) => startResizing('tactical', e)}
+                        style={{
+                            position: 'absolute',
+                            right: '-8px',
+                            top: '10px',
+                            bottom: '10px',
+                            width: '16px',
+                            cursor: 'col-resize',
+                            zIndex: 100,
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            transition: '0.2s',
+                            borderRadius: '4px'
+                        }}
+                        onMouseEnter={(e: any) => e.currentTarget.style.background = 'rgba(0, 255, 157, 0.1)'}
+                        onMouseLeave={(e: any) => e.currentTarget.style.background = 'transparent'}
+                    >
+                        <div style={{ width: '2px', height: '30px', backgroundColor: '#333', borderRadius: '1px' }} />
+                    </div>
                 </div>
 
-                {/* Resource Core */}
-                <div style={{
-                    border: '1px solid #00ff9d33',
-                    padding: '20px',
-                    borderRadius: '4px',
-                    backgroundColor: '#111',
-                    opacity: isResetting ? 0.3 : 1,
-                    transition: 'opacity 0.2s',
-                    position: 'relative'
-                }}>
-                    {isResetting && <div style={{ position: 'absolute', top: '10px', right: '10px', fontSize: '0.7rem', color: '#ff4d4d' }}>REBOOTING...</div>}
-                    <h3 style={{ marginTop: 0, color: '#888', fontSize: '0.9rem' }}>NEURAL_LOAD.LOG</h3>
-                    <div style={{ marginBottom: '20px' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between' }}><span>CPU_CORES</span><span>{status.cpu}%</span></div>
-                        <div style={{ height: '4px', background: '#222', marginTop: '5px' }}>
-                            <div style={{ width: `${status.cpu}%`, height: '100%', background: '#00ff9d', boxShadow: '0 0 10px #00ff9d' }} />
+                {/* Resource Core & Vision Feed - Top Middle */}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '25px', flex: 1 }}>
+                    {/* Metrics */}
+                    <div style={{
+                        border: '1px solid #00ff9d33',
+                        padding: '20px',
+                        borderRadius: '4px',
+                        backgroundColor: '#111',
+                        opacity: isResetting ? 0.3 : 1,
+                        transition: 'opacity 0.2s',
+                        position: 'relative'
+                    }}>
+                        {isResetting && <div style={{ position: 'absolute', top: '10px', right: '10px', fontSize: '0.7rem', color: '#ff4d4d' }}>REBOOTING...</div>}
+                        <h3 style={{ marginTop: 0, color: '#888', fontSize: '0.9rem' }}>RESOURCE_TELEMETRY.LOG</h3>
+                        <div style={{ marginBottom: '20px' }}>
+                            <div style={{ display: 'flex', justifyContent: 'space-between' }}><span>CPU_CORES</span><span>{status.cpu}%</span></div>
+                            <div style={{ height: '4px', background: '#222', marginTop: '5px' }}>
+                                <div style={{ width: `${status.cpu}%`, height: '100%', background: '#00ff9d', boxShadow: '0 0 10px #00ff9d' }} />
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <div style={{ display: 'flex', justifyContent: 'space-between' }}><span>MEM_ARRAY</span><span>{status.mem}%</span></div>
-                        <div style={{ height: '4px', background: '#222', marginTop: '5px' }}>
-                            <div style={{ width: `${status.mem}%`, height: '100%', background: '#4dabf7', boxShadow: '0 0 10px #4dabf7' }} />
+                        <div>
+                            <div style={{ display: 'flex', justifyContent: 'space-between' }}><span>MEM_ARRAY</span><span>{status.mem}%</span></div>
+                            <div style={{ height: '4px', background: '#222', marginTop: '5px' }}>
+                                <div style={{ width: `${status.mem}%`, height: '100%', background: '#4dabf7', boxShadow: '0 0 10px #4dabf7' }} />
+                            </div>
+                        </div>
+
+                        <div style={{ marginTop: '20px', display: 'flex', gap: '10px' }}>
+                            <button onClick={() => runAction('Restart')} style={{ flex: '1', background: 'transparent', border: '1px solid #00ff9d', color: '#00ff9d', padding: '8px', cursor: 'pointer', transition: '0.3s', fontSize: '0.8rem' }}>REBOOT CORE</button>
+                            <button onClick={() => runAction('Start')} style={{ flex: '1', background: 'transparent', border: '1px solid #4dabf7', color: '#4dabf7', padding: '8px', cursor: 'pointer', fontSize: '0.8rem' }}>ENGAGE MESH</button>
                         </div>
                     </div>
 
-                    <div style={{ marginTop: '30px', display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-                        <button onClick={() => runAction('Restart')} style={{ flex: '1', background: 'transparent', border: '1px solid #00ff9d', color: '#00ff9d', padding: '10px', cursor: 'pointer', transition: '0.3s' }}>REBOOT CORE</button>
-                        <button onClick={() => runAction('Start')} style={{ flex: '1', background: 'transparent', border: '1px solid #4dabf7', color: '#4dabf7', padding: '10px', cursor: 'pointer' }}>ENGAGE MESH</button>
-                    </div>
-
-                    {/* Unit Info Box */}
-                    <div style={{ marginTop: '25px', border: '1px solid #00ff9d66', padding: '15px', background: '#050505', minHeight: '120px' }}>
+                    {/* Unit Info Box (Optional, kept nested) */}
+                    <div style={{ border: '1px solid #00ff9d66', padding: '15px', background: '#050505', minHeight: '120px' }}>
                         <h4 style={{ margin: '0 0 10px 0', fontSize: '0.75rem', color: '#00ff9d', borderBottom: '1px solid #00ff9d33' }}>UNIT_INTELLIGENCE_REPORT</h4>
                         {selectedUnit ? (
                             <div style={{ fontSize: '0.8rem', color: '#ccc', lineHeight: '1.6' }}>
                                 <div><span style={{ color: '#00ff9d' }}>[ROLE]:</span> {selectedUnit.role}</div>
                                 <div><span style={{ color: '#00ff9d' }}>[PERF]:</span> {selectedUnit.perf}</div>
                                 <div><span style={{ color: '#00ff9d' }}>[PATH]:</span> {selectedUnit.loc}</div>
-                                <div style={{ marginTop: '5px', fontSize: '0.7rem', color: '#555' }}>LINK_STABILITY_SCAN: PASS // 128-BIT ENCRYPTION</div>
                             </div>
                         ) : (
                             <div style={{ fontSize: '0.8rem', color: '#444' }}>좌측 작전 유닛을 선택하여 상세 제원을 확인하십시오.</div>
                         )}
                     </div>
 
-                    {/* NEURAL_LOAD.LOG (Moved Terminal Logs) */}
+                    {/* Vision Feed (Elite) */}
                     <div style={{
-                        marginTop: '25px',
-                        border: '1px solid #00ff9d33',
-                        padding: '15px',
-                        background: 'rgba(0,10,0,0.5)',
-                        height: '350px',
-                        overflowY: 'auto',
-                        fontFamily: '"JetBrains Mono", monospace'
+                        border: '1px solid #4dabf7',
+                        padding: '20px',
+                        borderRadius: '4px',
+                        backgroundColor: '#000',
+                        flex: 1,
+                        display: 'flex',
+                        flexDirection: 'column'
                     }}>
-                        <div style={{ display: 'flex', gap: '10px', color: '#00ff9d', fontSize: '0.75rem', marginBottom: '10px', borderBottom: '1px solid #00ff9d33' }}>
-                            <Terminal size={14} /> <span>NEURAL_LOAD.LOG</span>
-                        </div>
-                        <div style={{ color: '#00ff9d', fontSize: '0.8rem', lineHeight: '1.4', whiteSpace: 'pre-wrap' }}>
-                            {status.logs.map((log: string, i: number) => (
-                                <div key={i} style={{ marginBottom: '4px' }}>
-                                    {log.startsWith('[USER]') ? (
-                                        <span style={{ color: '#fff' }}>{log.replace('[USER]', '> ')}</span>
-                                    ) : log.startsWith('[AI]') ? (
-                                        <span style={{ color: '#4dabf7' }}>{log.replace('[AI]', '🤖 ')}</span>
-                                    ) : (
-                                        <span>{log}</span>
-                                    )}
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px', flexShrink: 0 }}>
+                            <span style={{ color: '#4dabf7', fontSize: '0.8rem' }}>VISION_FEED_01</span>
+                            <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                                <div style={{ display: 'flex', gap: '4px', marginRight: '10px' }}>
+                                    {[0, 1, 2, 3].map(m => (
+                                        <button key={m} onClick={() => setSelectedMonitor(m)}
+                                            style={{
+                                                background: selectedMonitor === m ? '#4dabf7' : '#002',
+                                                border: '1px solid #4dabf7',
+                                                color: selectedMonitor === m ? '#000' : '#4dabf7',
+                                                fontSize: '0.6rem', padding: '2px 6px', cursor: 'pointer'
+                                            }}>M{m + 1}</button>
+                                    ))}
                                 </div>
-                            ))}
+                                <button onClick={captureScreen} style={{ background: '#003', border: '1px solid #0af', color: '#0af', fontSize: '0.6rem', padding: '2px 8px', cursor: 'pointer' }}>CAPTURE</button>
+                                <Eye size={16} color="#4dabf7" />
+                            </div>
+                        </div>
+                        <div style={{
+                            width: '100%',
+                            flex: 1,
+                            minHeight: '180px',
+                            background: '#050505',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            border: '1px solid #333',
+                            overflow: 'hidden',
+                            position: 'relative'
+                        }}>
+                            <img src={`/vision_capture.jpg?t=${visionKey}`} alt="Vision Feed" style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: isResetting ? 0.5 : 1 }}
+                                onError={(e: any) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
+                                onLoad={(e: any) => { e.target.style.display = 'block'; e.target.nextSibling.style.display = 'none'; }} />
+                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'absolute' }}><Zap size={48} color="#333" /></div>
+                        </div>
+                        <div style={{ marginTop: '10px', fontSize: '0.7rem', color: '#4dabf7', fontFamily: 'monospace' }}>
+                            {isResetting ? "--- CAPTURING FEED ---" : "LINK STATUS: SECURE_VISION_ACTIVE"}
+                        </div>
+
+                        {/* AI Vision Analysis Box */}
+                        <div style={{ marginTop: '20px', border: '1px solid #4dabf766', padding: '15px', background: '#000a0f', minHeight: '130px' }}>
+                            <h4 style={{ margin: '0 0 10px 0', fontSize: '0.75rem', color: '#4dabf7', borderBottom: '1px solid #4dabf733' }}>AI_VISION_DEEP_SCAN</h4>
+                            <div style={{ fontSize: '0.85rem', color: '#88b4ff', lineHeight: '1.6', fontFamily: '"JetBrains Mono", monospace' }}>
+                                {visionAnalysis || "STANDBY... NO ANOMALIES DETECTED IN SECTOR_01"}
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                {/* Vision Feed (Elite) */}
-                <div style={{ border: '1px solid #4dabf7', padding: '20px', borderRadius: '4px', backgroundColor: '#000' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-                        <span style={{ color: '#4dabf7', fontSize: '0.8rem' }}>VISION_FEED_01</span>
-                        <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-                            {/* Monitor Selectors */}
-                            <div style={{ display: 'flex', gap: '4px', marginRight: '10px' }}>
-                                {[0, 1, 2, 3].map(m => (
-                                    <button
-                                        key={m}
-                                        onClick={() => setSelectedMonitor(m)}
-                                        style={{
-                                            background: selectedMonitor === m ? '#4dabf7' : '#002',
-                                            border: '1px solid #4dabf7',
-                                            color: selectedMonitor === m ? '#000' : '#4dabf7',
-                                            fontSize: '0.6rem',
-                                            padding: '2px 6px',
-                                            cursor: 'pointer'
-                                        }}
-                                    >
-                                        M{m + 1}
-                                    </button>
+                {/* Persistent Terminal Log - Top Right (FIXED width replaced by terminalWidth) */}
+                <div style={{
+                    border: '1px solid #00ff9d33',
+                    padding: '20px',
+                    borderRadius: '4px',
+                    backgroundColor: '#050a05',
+                    boxShadow: 'inset 0 0 10px #00ff9d11',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    minHeight: `${topLayerHeight}px`,
+                    position: 'relative'
+                }}>
+                    {/* Sidebar Width Resizer Handle (Top) */}
+                    <div
+                        onMouseDown={(e) => startResizing('terminal', e)}
+                        style={{
+                            position: 'absolute',
+                            left: '-8px',
+                            top: '10px',
+                            bottom: '10px',
+                            width: '16px',
+                            cursor: 'col-resize',
+                            zIndex: 100,
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            transition: '0.2s'
+                        }}
+                        onMouseEnter={(e: any) => e.currentTarget.style.background = 'rgba(0, 255, 157, 0.1)'}
+                        onMouseLeave={(e: any) => e.currentTarget.style.background = 'transparent'}
+                    >
+                        <div style={{ width: '2px', height: '30px', backgroundColor: '#333', borderRadius: '1px' }} />
+                    </div>
+                    <h3 style={{ marginTop: 0, color: '#00ff9d', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
+                        <Terminal size={16} /> NEURAL_LOAD.LOG
+                    </h3>
+                    <div style={{
+                        flex: 1,
+                        overflowY: 'auto',
+                        color: '#00ff9d',
+                        fontSize: '0.8rem',
+                        lineHeight: '1.4',
+                        whiteSpace: 'pre-wrap',
+                        fontFamily: '"JetBrains Mono", monospace',
+                        paddingRight: '5px'
+                    }}>
+                        {status.logs.map((log: string, i: number) => (
+                            <div key={i} style={{ marginBottom: '6px' }}>
+                                {log.startsWith('[USER]') ? (
+                                    <span style={{ color: '#fff' }}>{log.replace('[USER]', '> ')}</span>
+                                ) : log.startsWith('[AI]') ? (
+                                    <span style={{ color: '#4dabf7' }}>{log.replace('[AI]', '🤖 ')}</span>
+                                ) : (
+                                    <span>{log}</span>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                    {/* Vision Feed Integrated at Bottom of Sidebar OR Separate? Let's follow user: 3 blocks top. */}
+                </div>
+
+            </div>
+
+            {/* Vertical Resizer Handle (Between Top and Bottom Layer) */}
+            <div
+                onMouseDown={(e) => startResizing('vertical', e)}
+                style={{
+                    height: '24px',
+                    margin: '5px 0',
+                    cursor: 'row-resize',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    zIndex: 100,
+                    transition: '0.2s',
+                    borderRadius: '4px'
+                }}
+                onMouseEnter={(e: any) => e.currentTarget.style.background = 'rgba(0, 255, 157, 0.05)'}
+                onMouseLeave={(e: any) => e.currentTarget.style.background = 'transparent'}
+            >
+                <div style={{ width: '40px', height: '2px', backgroundColor: '#333', borderRadius: '1px' }} />
+            </div>
+
+            {/* Bottom Operation Layer */}
+            <div style={{ display: 'flex', gap: '25px', alignItems: 'stretch' }}>
+
+                {/* Left Side: Knowledge Operations (Stacked) */}
+                <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '25px' }}>
+
+                    {/* Knowledge Pipeline */}
+                    <div style={{ border: '1px solid #ff00ff33', padding: '20px', borderRadius: '4px', backgroundColor: '#0a000a', boxShadow: '0 0 15px #ff00ff11' }}>
+                        <h3 style={{ marginTop: 0, color: '#ff00ff', fontSize: '1rem', display: 'flex', alignItems: 'center', gap: '10px', letterSpacing: '2px' }}>
+                            <Zap size={20} /> DATA_KNOWLEDGE_PIPELINE.v2.3
+                        </h3>
+                        <div style={{ display: 'flex', gap: '20px', alignItems: 'flex-end' }}>
+                            <div style={{ flex: 1 }}>
+                                <label style={{ fontSize: '0.75rem', color: '#888', display: 'block', marginBottom: '8px', fontFamily: 'monospace' }}>TARGET_PROJECT_KEY</label>
+                                <input type="text" value={pipelineProject} onChange={(e) => setPipelineProject(e.target.value)} placeholder="e.g. context7-legal-docs"
+                                    style={{ width: '100%', background: '#000', border: '1px solid #ff00ff66', color: '#ff00ff', padding: '10px 15px', fontSize: '0.9rem', outline: 'none', fontFamily: 'monospace' }} />
+                            </div>
+                            <button onClick={() => runPipeline('Full')} disabled={isPipelineRunning} style={{ background: isPipelineRunning ? '#333' : '#ff00ff22', border: '1px solid #ff00ff', color: '#ff00ff', padding: '10px 30px', fontSize: '0.9rem', fontWeight: 'bold', cursor: isPipelineRunning ? 'not-allowed' : 'pointer' }}>
+                                {isPipelineRunning ? 'PROCESSING...' : 'ENGAGE PIPELINE'}
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Knowledge Expansion Center */}
+                    <div style={{ border: '1px solid #4dabf733', padding: '20px', borderRadius: '4px', backgroundColor: '#000a1a', boxShadow: '0 0 15px #4dabf711' }}>
+                        <h3 style={{ marginTop: 0, color: '#4dabf7', fontSize: '1rem', display: 'flex', alignItems: 'center', gap: '10px', letterSpacing: '2px' }}>
+                            <Brain size={20} /> KNOWLEDGE_EXPANSION_CENTER (EXPERT_WINGS)
+                        </h3>
+                        <div style={{ display: 'flex', gap: '15px', alignItems: 'flex-end' }}>
+                            <div style={{ flex: 1 }}>
+                                <label style={{ fontSize: '0.75rem', color: '#888', display: 'block', marginBottom: '8px', fontFamily: 'monospace' }}>INTEL_PROBE (SEARCH_KEYWORD)</label>
+                                <div style={{ display: 'flex', gap: '10px' }}>
+                                    <input type="text" id="expansionSearch" placeholder="e.g. ISO 9001, ESG, ISSB..."
+                                        style={{ flex: 1, background: '#000', border: '1px solid #4dabf766', color: '#4dabf7', padding: '10px 15px', fontSize: '0.9rem', outline: 'none', fontFamily: 'monospace' }} />
+                                    <button onClick={async () => {
+                                        const query = (document.getElementById('expansionSearch') as HTMLInputElement).value;
+                                        if (!query) return;
+                                        setIsPipelineRunning(true);
+                                        try {
+                                            const res = await fetch('http://localhost:18081/api/search-external', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ query }) });
+                                            const data = await res.json();
+                                            setSearchResults(data.results || []);
+                                        } catch (err) { console.error(err); }
+                                        setIsPipelineRunning(false);
+                                    }} style={{ background: '#4dabf722', border: '1px solid #4dabf7', color: '#4dabf7', padding: '0 20px', cursor: 'pointer' }}>PROBE</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        {searchResults.length > 0 && (
+                            <div style={{ marginTop: '20px', display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '15px', maxHeight: '200px', overflowY: 'auto' }}>
+                                {searchResults.slice(0, 4).map((res: any) => (
+                                    <div key={res.id} style={{ border: '1px solid #4dabf733', padding: '15px', background: '#051015', borderRadius: '4px' }}>
+                                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
+                                            <span style={{ color: '#fff', fontWeight: 'bold', fontSize: '0.9rem' }}>{res.name}</span>
+                                            <span style={{ color: '#ffcc00', fontSize: '0.75rem' }}>★ {res.stars}</span>
+                                        </div>
+                                        <button onClick={async () => {
+                                            setIsPipelineRunning(true);
+                                            try {
+                                                const expandRes = await fetch('http://localhost:18081/api/expand-knowledge', {
+                                                    method: 'POST',
+                                                    headers: { 'Content-Type': 'application/json' },
+                                                    body: JSON.stringify({ libraryId: res.id, libraryName: res.name || res.id })
+                                                });
+                                                const data = await expandRes.json();
+                                                if (data.ok) setPipelineProject(data.projectKey);
+                                            } catch (err) { console.error(err); }
+                                            setIsPipelineRunning(false);
+                                        }} style={{ width: '100%', background: '#4dabf722', border: '1px solid #4dabf7', color: '#4dabf7', padding: '8px', fontSize: '0.8rem', cursor: 'pointer' }}>IMPLANT EXPERTISE</button>
+                                    </div>
                                 ))}
                             </div>
-                            <button
-                                onClick={captureScreen}
-                                style={{ background: '#003', border: '1px solid #0af', color: '#0af', fontSize: '0.6rem', padding: '2px 8px', cursor: 'pointer' }}
-                            >
-                                CAPTURE
-                            </button>
-                            <Eye size={16} color="#4dabf7" />
-                        </div>
-                    </div>
-                    <div style={{
-                        width: '100%',
-                        height: '200px',
-                        background: '#050505',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        border: '1px solid #333',
-                        overflow: 'hidden',
-                        position: 'relative'
-                    }}>
-                        <img
-                            src={`/vision_capture.jpg?t=${visionKey}`}
-                            alt="Vision Feed"
-                            style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: isResetting ? 0.5 : 1 }}
-                            onError={(e: any) => {
-                                e.target.style.display = 'none';
-                                e.target.nextSibling.style.display = 'flex';
-                            }}
-                            onLoad={(e: any) => {
-                                e.target.style.display = 'block';
-                                e.target.nextSibling.style.display = 'none';
-                            }}
-                        />
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'absolute' }}>
-                            <Zap size={48} color="#333" />
-                        </div>
-                    </div>
-                    <div style={{ marginTop: '10px', fontSize: '0.7rem', color: '#4dabf7', fontFamily: 'monospace' }}>
-                        {isResetting ? "--- CAPTURING FEED ---" : "LINK STATUS: SECURE_VISION_ACTIVE"}
-                    </div>
-
-                    {/* AI Vision Analysis Box */}
-                    <div style={{ marginTop: '20px', border: '1px solid #4dabf766', padding: '15px', background: '#000a0f', minHeight: '150px' }}>
-                        <h4 style={{ margin: '0 0 10px 0', fontSize: '0.75rem', color: '#4dabf7', borderBottom: '1px solid #4dabf733' }}>AI_VISION_DEEP_SCAN</h4>
-                        <div style={{ fontSize: '0.85rem', color: '#88b4ff', lineHeight: '1.6', fontFamily: '"JetBrains Mono", monospace' }}>
-                            {visionAnalysis}
-                        </div>
+                        )}
                     </div>
                 </div>
 
-            </div>
-
-            {/* Knowledge Pipeline Section (Left) */}
-            <div style={{
-                marginTop: '25px',
-                border: '1px solid #ff00ff33',
-                padding: '20px',
-                borderRadius: '4px',
-                backgroundColor: '#0a000a',
-                boxShadow: '0 0 15px #ff00ff11'
-            }}>
-                <h3 style={{ marginTop: 0, color: '#ff00ff', fontSize: '1rem', display: 'flex', alignItems: 'center', gap: '10px', letterSpacing: '2px' }}>
-                    <Zap size={20} /> DATA_KNOWLEDGE_PIPELINE.v2.3
-                </h3>
-                <div style={{ display: 'flex', gap: '20px', alignItems: 'flex-end' }}>
-                    <div style={{ flex: 1 }}>
-                        <label style={{ fontSize: '0.75rem', color: '#888', display: 'block', marginBottom: '8px', fontFamily: 'monospace' }}>TARGET_PROJECT_KEY</label>
-                        <input
-                            type="text"
-                            value={pipelineProject}
-                            onChange={(e) => setPipelineProject(e.target.value)}
-                            placeholder="e.g. context7-legal-docs"
-                            style={{
-                                width: '100%',
-                                background: '#000',
-                                border: '1px solid #ff00ff66',
-                                color: '#ff00ff',
-                                padding: '10px 15px',
-                                fontSize: '0.9rem',
-                                outline: 'none',
-                                fontFamily: 'monospace'
-                            }}
-                        />
-                    </div>
-                    <div style={{ display: 'flex', gap: '15px' }}>
-                        <button
-                            onClick={() => runPipeline('Full')}
-                            disabled={isPipelineRunning}
-                            style={{
-                                background: isPipelineRunning ? '#333' : '#ff00ff22',
-                                border: '1px solid #ff00ff',
-                                color: '#ff00ff',
-                                padding: '10px 30px',
-                                fontSize: '0.9rem',
-                                fontWeight: 'bold',
-                                cursor: isPipelineRunning ? 'not-allowed' : 'pointer',
-                                transition: '0.3s'
-                            }}
-                        >
-                            {isPipelineRunning ? 'PROCESSING...' : 'ENGAGE FULL PIPELINE'}
-                        </button>
-                    </div>
-                </div>
-                <div style={{ marginTop: '12px', fontSize: '0.7rem', color: '#666', fontFamily: 'monospace' }}>
-                    STATUS: {isPipelineRunning ? 'PIPELINE_ENGAGED' : 'IDLE'} // RAG_SYNC_READY
-                </div>
-            </div>
-
-            {/* Knowledge Expansion Center (New Wings Section) */}
-            <div style={{
-                marginTop: '25px',
-                border: '1px solid #4dabf733',
-                padding: '20px',
-                borderRadius: '4px',
-                backgroundColor: '#000a1a',
-                boxShadow: '0 0 15px #4dabf711'
-            }}>
-                <h3 style={{ marginTop: 0, color: '#4dabf7', fontSize: '1rem', display: 'flex', alignItems: 'center', gap: '10px', letterSpacing: '2px' }}>
-                    <Brain size={20} /> KNOWLEDGE_EXPANSION_CENTER (EXPERT_WINGS)
-                </h3>
-                <div style={{ display: 'flex', gap: '15px', alignItems: 'flex-end' }}>
-                    <div style={{ flex: 1 }}>
-                        <label style={{ fontSize: '0.75rem', color: '#888', display: 'block', marginBottom: '8px', fontFamily: 'monospace' }}>EXPERT_FIELD (CATEGORY)</label>
-                        <input
-                            type="text"
-                            id="expansionField"
-                            placeholder="e.g. ISO 9001, ESG, Next.js"
-                            style={{
-                                width: '100%', background: '#000', border: '1px solid #4dabf766',
-                                color: '#4dabf7', padding: '10px 15px', fontSize: '0.9rem', outline: 'none', fontFamily: 'monospace'
-                            }}
-                        />
-                    </div>
-                    <div style={{ flex: 2 }}>
-                        <label style={{ fontSize: '0.75rem', color: '#888', display: 'block', marginBottom: '8px', fontFamily: 'monospace' }}>SPECIFIC_TOPIC (SEARCH_QUERY)</label>
-                        <input
-                            type="text"
-                            id="expansionTopic"
-                            placeholder="e.g. CSRD Disclosure, Audit Checklist, Performance Memo"
-                            style={{
-                                width: '100%', background: '#000', border: '1px solid #4dabf766',
-                                color: '#4dabf7', padding: '10px 15px', fontSize: '0.9rem', outline: 'none', fontFamily: 'monospace'
-                            }}
-                        />
-                    </div>
-                    <button
-                        onClick={async () => {
-                            const field = (document.getElementById('expansionField') as HTMLInputElement).value;
-                            const topic = (document.getElementById('expansionTopic') as HTMLInputElement).value;
-                            if (!field || !topic) return;
-
-                            setIsPipelineRunning(true);
-                            setStatus((prev: any) => ({
-                                ...prev,
-                                logs: [`[EXPANSION] Deploying Expert Wings: ${field} > ${topic}...`, ...prev.logs.slice(0, 10)]
-                            }));
-
-                            try {
-                                const res = await fetch('http://localhost:18081/api/expand-knowledge', {
-                                    method: 'POST',
-                                    headers: { 'Content-Type': 'application/json' },
-                                    body: JSON.stringify({ field, topic })
-                                });
-                                const data = await res.json();
-                                if (data.ok) {
-                                    setStatus((prev: any) => ({
-                                        ...prev,
-                                        logs: [`[SUCCESS] Brain Expanded with specialization: ${data.projectKey}`, ...prev.logs.slice(0, 10)]
-                                    }));
-                                    setPipelineProject(data.projectKey);
-                                } else {
-                                    throw new Error(data.error);
-                                }
-                            } catch (err) {
-                                setStatus((prev: any) => ({
-                                    ...prev,
-                                    logs: [`[ERROR] Expansion Failed: ${err}`, ...prev.logs.slice(0, 10)]
-                                }));
-                            }
-                            setIsPipelineRunning(false);
-                        }}
-                        disabled={isPipelineRunning}
+                {/* Right Side: UCONAI COMMANDER (Replaced fixed 350px with commanderWidth) */}
+                <div style={{
+                    width: `${commanderWidth}px`,
+                    border: '1px solid #00ff9d66',
+                    padding: '30px',
+                    borderRadius: '4px',
+                    backgroundColor: '#050a05',
+                    boxShadow: '0 0 20px #00ff9d11',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    position: 'relative',
+                    minHeight: '350px'
+                }}>
+                    {/* Sidebar Resizer Handle (Bottom) */}
+                    <div
+                        onMouseDown={(e) => startResizing('commander', e)}
                         style={{
-                            background: isPipelineRunning ? '#333' : '#4dabf722',
-                            border: '1px solid #4dabf7',
-                            color: '#4dabf7',
-                            padding: '10px 30px',
-                            fontSize: '0.9rem',
-                            fontWeight: 'bold',
-                            cursor: isPipelineRunning ? 'not-allowed' : 'pointer',
-                            transition: '0.3s'
+                            position: 'absolute',
+                            left: '-8px',
+                            top: '10px',
+                            bottom: '10px',
+                            width: '16px',
+                            cursor: 'col-resize',
+                            zIndex: 100,
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            transition: '0.2s'
                         }}
+                        onMouseEnter={(e: any) => e.currentTarget.style.background = 'rgba(0, 255, 157, 0.1)'}
+                        onMouseLeave={(e: any) => e.currentTarget.style.background = 'transparent'}
                     >
-                        {isPipelineRunning ? 'EVOLVING...' : 'SUMMON EXPERT KNOWLEDGE'}
-                    </button>
-                </div>
-            </div>
-
-            {/* UCONAI COMMANDER (Natural Language Control) */}
-            <div style={{
-                marginTop: '25px',
-                border: '1px solid #00ff9d66',
-                padding: '20px',
-                borderRadius: '4px',
-                backgroundColor: '#050a05',
-                boxShadow: '0 0 10px #00ff9d11'
-            }}>
-                <h3 style={{ marginTop: 0, color: '#00ff9d', fontSize: '1rem', display: 'flex', alignItems: 'center', gap: '10px', letterSpacing: '2px' }}>
-                    <Activity size={20} /> UCONAI_COMMANDER.v2.3
-                </h3>
-                <div style={{ display: 'flex', gap: '15px' }}>
-                    <input
-                        type="text"
+                        <div style={{ width: '2px', height: '30px', backgroundColor: '#333', borderRadius: '1px' }} />
+                    </div>
+                    <h3 style={{ marginTop: 0, color: '#00ff9d', fontSize: '1.2rem', display: 'flex', alignItems: 'center', gap: '10px', letterSpacing: '3px' }}>
+                        <Activity size={24} /> UCONAI_COMMANDER.v2.3
+                    </h3>
+                    <textarea
                         value={commanderMsg}
                         onChange={(e) => setCommanderMsg(e.target.value)}
-                        onKeyDown={(e) => e.key === 'Enter' && sendCommanderMsg()}
-                        placeholder="전술 명령을 입력하십시오. (예: 포토샵으로 간판 제작 개시...)"
+                        onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendCommanderMsg(); } }}
+                        placeholder="전술 명령을 입력하십시오..."
                         disabled={isSending}
                         style={{
-                            flex: 1,
-                            background: '#000',
-                            border: '1px solid #00ff9d33',
-                            color: '#00ff9d',
-                            padding: '12px 20px',
-                            fontSize: '1rem',
-                            outline: 'none',
-                            fontFamily: '"JetBrains Mono", monospace'
+                            flex: 1, background: '#000', border: '1px solid #00ff9d33', color: '#00ff9d',
+                            padding: '15px', fontSize: '1.1rem', outline: 'none', margin: '20px 0',
+                            fontFamily: '"JetBrains Mono", monospace', resize: 'none',
+                            lineHeight: '1.6'
                         }}
                     />
-                    <button
-                        onClick={sendCommanderMsg}
-                        disabled={isSending}
+                    <button onClick={sendCommanderMsg} disabled={isSending}
                         style={{
                             background: isSending ? '#222' : '#00ff9d',
                             color: '#000',
                             border: 'none',
-                            padding: '0 30px',
+                            padding: '15px',
                             fontWeight: 'bold',
                             cursor: 'pointer',
-                            fontSize: '0.9rem',
-                            letterSpacing: '1px'
-                        }}
-                    >
-                        {isSending ? 'SENDING...' : 'EXECUTE'}
+                            fontSize: '1.1rem',
+                            letterSpacing: '2px',
+                            transition: '0.3s'
+                        }}>
+                        {isSending ? 'PROCESSING...' : 'EXECUTE_COMMAND'}
                     </button>
+                    <div style={{ marginTop: '12px', fontSize: '0.75rem', color: '#00ff9d44', textAlign: 'center', letterSpacing: '1px' }}>
+                        NEURAL_LINK: ACTIVE // READY_FOR_DEPLOYMENT
+                    </div>
                 </div>
-                <div style={{ marginTop: '10px', fontSize: '0.7rem', color: '#00ff9d44', fontFamily: 'monospace' }}>
-                    NEURAL_LINK: ACTIVE // DIRECT_ACCESS_LEVEL: 5 // READY_FOR_DEPLOYMENT
-                </div>
+
             </div>
-        </div >
+        </div>
     );
 };
 

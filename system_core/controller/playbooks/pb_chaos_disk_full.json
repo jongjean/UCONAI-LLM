@@ -1,0 +1,15 @@
+{
+    "id": "pb_chaos_disk_full",
+    "name": "Chaos Disk Full (ENOSPC Test)",
+    "steps": [
+        {
+            "id": "disk_fail",
+            "tool": "failure_sim_tool",
+            "args": {
+                "error": "ENOSPC"
+            },
+            "expected": null
+        }
+    ],
+    "max_steps": 2
+}

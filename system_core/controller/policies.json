@@ -1,0 +1,41 @@
+{
+    "schema_version": "1.0",
+    "system_policy": {
+        "circuit_breaker": {
+            "max_latency_ms": 200,
+            "max_db_fail": 3
+        },
+        "global_lockdown": false
+    },
+    "default_tenant_policy": {
+        "risk_thresholds": {
+            "watch": 30,
+            "throttle": 60,
+            "lockdown": 85
+        },
+        "limits": {
+            "max_steps_per_job": 5,
+            "cloud_escalation_allowed": true
+        }
+    },
+    "tenant_overrides": [
+        {
+            "team_id": 1,
+            "rules": [
+                {
+                    "id": "COST_GUARD_01",
+                    "target": "cloud_access",
+                    "condition": "daily_cost > 50.0",
+                    "action": "DENY"
+                },
+                {
+                    "id": "THROTTLE_READ",
+                    "target": "tool:read_file",
+                    "condition": "risk_score > 50",
+                    "action": "THROTTLE",
+                    "delay_ms": 1000
+                }
+            ]
+        }
+    ]
+}

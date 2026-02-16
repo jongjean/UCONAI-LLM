@@ -1,0 +1,35 @@
+{
+    "id": "pb2_io_stress",
+    "name": "IO Stress Playbook",
+    "steps": [
+        {
+            "id": "read_pkg",
+            "tool": "read_file",
+            "args": {
+                "path": "package.json"
+            },
+            "expected": {
+                "checks": [
+                    {
+                        "type": "status_ok"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "read_cfg",
+            "tool": "read_file",
+            "args": {
+                "path": "modules/config.js"
+            },
+            "expected": {
+                "checks": [
+                    {
+                        "type": "status_ok"
+                    }
+                ]
+            }
+        }
+    ],
+    "max_steps": 5
+}
