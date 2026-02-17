@@ -132,6 +132,130 @@ function startServer(guard) {
             } catch (e) { return sendJson(500, { error: e.message }); }
         }
 
+        // [Dashboard v2.0] Real-time Job Stream
+        if (req.method === 'GET' && req.url === '/admin/jobs/recent') {
+            try {
+                db.all(`SELECT job_id, action, status, created_at, team_id FROM jobs ORDER BY created_at DESC LIMIT 20`, [], (err, rows) => {
+                    if (err) return sendJson(500, { error: err.message });
+                    sendJson(200, { jobs: rows });
+                });
+            } catch (e) { return sendJson(500, { error: e.message }); }
+            return;
+        }
+
+        // [Dashboard v2.0] Performance Metrics Timeline
+        if (req.method === 'GET' && req.url === '/admin/metrics/performance') {
+            try {
+                db.all(`SELECT created_at, duration_ms FROM job_logs WHERE span_type = 'GOVERNANCE' ORDER BY created_at DESC LIMIT 50`, [], (err, rows) => {
+                    if (err) return sendJson(500, { error: err.message });
+                    sendJson(200, { metrics: rows });
+                });
+            } catch (e) { return sendJson(500, { error: e.message }); }
+            return;
+        }
+
+        // [Dashboard v2.0] Audit Log Stream
+        if (req.method === 'GET' && req.url === '/admin/logs/stream') {
+            try {
+                db.all(`SELECT level, message, created_at, meta FROM job_logs WHERE level IN ('WARN', 'ERROR', 'ALERT') ORDER BY created_at DESC LIMIT 30`, [], (err, rows) => {
+                    if (err) return sendJson(500, { error: err.message });
+                    sendJson(200, { logs: rows });
+                });
+            } catch (e) { return sendJson(500, { error: e.message }); }
+            return;
+        }
+
+        // [Dashboard v2.0] Drift & Vital Stats
+        if (req.method === 'GET' && req.url === '/admin/vitals') {
+            try {
+                const FailSafe = require('./modules/emergency-mode');
+                const HealthPulse = require('./modules/health-pulse');
+
+                sendJson(200, {
+                    drift: {
+                        index: FailSafe.getDriftIndex(),
+                        failSafeCount: FailSafe.failSafeCounter,
+                        degradeCount: FailSafe.policyDegradeCount
+                    },
+                    health: {
+                        status: HealthPulse.getStatus(),
+                        uptime: process.uptime()
+                    }
+                });
+            } catch (e) { return sendJson(500, { error: e.message }); }
+            return;
+        }
+
+        // [Dashboard v2.5] Real 24H Activity Timeline
+        if (req.method === 'GET' && req.url === '/admin/metrics/timeline') {
+            try {
+                db.all(`
+                    SELECT 
+                        strftime('%H', created_at) as hour, 
+                        COUNT(*) as count 
+                    FROM jobs 
+                    WHERE created_at >= datetime('now', '-24 hours')
+                    GROUP BY hour
+                    ORDER BY hour DESC
+                `, [], (err, rows) => {
+                    if (err) return sendJson(500, { error: err.message });
+                    sendJson(200, { timeline: rows });
+                });
+            } catch (e) { return sendJson(500, { error: e.message }); }
+            return;
+        }
+
+        // [Dashboard v2.5] Real Avg Latency from Governance Logs
+        if (req.method === 'GET' && req.url === '/admin/metrics/latency') {
+            try {
+                db.get(`
+                    SELECT AVG(duration_ms) as avg_latency 
+                    FROM job_logs 
+                    WHERE span_type = 'GOVERNANCE' AND duration_ms > 0
+                    LIMIT 100
+                `, [], (err, row) => {
+                    if (err) return sendJson(500, { error: err.message });
+                    sendJson(200, { avg_latency: Math.round(row?.avg_latency || 0) });
+                });
+            } catch (e) { return sendJson(500, { error: e.message }); }
+            return;
+        }
+
+        // [Step 2.1] Real-time System Telemetry (RSS/Heap/Lag)
+        if (req.method === 'GET' && req.url === '/api/telemetry/live') {
+            try {
+                const usage = process.memoryUsage();
+                sendJson(200, {
+                    rss: (usage.rss / 1024 / 1024).toFixed(2),
+                    heap: (usage.heapUsed / 1024 / 1024).toFixed(2),
+                    uptime: process.uptime(),
+                    active_handle: process._getActiveHandles().length
+                });
+            } catch (e) { return sendJson(500, { error: e.message }); }
+            return;
+        }
+
+        // [Step 2.3] Alert & Event Stream (SSE)
+        if (req.method === 'GET' && req.url === '/api/alerts/stream') {
+            res.writeHead(200, {
+                'Content-Type': 'text/event-stream',
+                'Cache-Control': 'no-cache',
+                'Connection': 'keep-alive',
+                'Access-Control-Allow-Origin': '*'
+            });
+
+            const sendEvent = (data) => res.write(`data: ${JSON.stringify(data)}\n\n`);
+
+            const interval = setInterval(() => {
+                db.all(`SELECT level, message, created_at FROM job_logs WHERE level IN ('WARN', 'ERROR', 'ALERT') ORDER BY created_at DESC LIMIT 10`, [], (err, rows) => {
+                    if (!err) sendEvent({ type: 'alerts', data: rows });
+                });
+            }, 5000);
+
+            req.on('close', () => clearInterval(interval));
+            return;
+        }
+
         // [M6-1] Core Job Execution Logic
         if (req.method === 'POST' && req.url === '/job') {
             const apiKey = req.headers['x-api-key'];

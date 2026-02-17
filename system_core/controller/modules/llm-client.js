@@ -14,7 +14,7 @@ const ERRORS = {
 };
 
 const CONFIG = {
-    LOCAL_URL: 'http://localhost:11434/api/generate',
+    LOCAL_URL: 'http://127.0.0.1:11434/api/generate',
     CLOUD_API_KEY: process.env.OPENCLAW_API_KEY,
     TIMEOUT_LOCAL: 60000,
     TIMEOUT_CLOUD: 30000,
@@ -100,50 +100,31 @@ class LLMClient {
 
         const startTime = Date.now();
 
-        // Acquire semaphore
-        const roleSemaphore = SEMAPHORES[role] || SEMAPHORES.EXECUTOR;
-        const globalSemaphore = SEMAPHORES.GLOBAL;
-        let roleSlot = null;
-        let globalSlot = null;
-
         try {
-            roleSlot = await roleSemaphore.acquire(CONFIG.SEMAPHORE_WAIT_TIMEOUT);
-            if (!roleSlot.acquired) {
-                const error = new Error(`Semaphore timeout: ${role} queue full`);
-                error.code = ERRORS.OVERLOAD;
-                error.llm_context = role;
-                error.llm_queue_wait_ms = roleSlot.waitMs;
-                throw error;
+            // [Step 1.6] Apply Markdown-Free Policy for Chat
+            let finalPrompt = prompt;
+            if (role === 'CHAT') {
+                finalPrompt = `[DIRECTIVE: NO_MARKDOWN] 대답에 마크다운 기호(**, #, -, \` 등)를 절대 사용하지 마세요. 오직 순수 텍스트로만 대답하세요.\n\n질문: ${prompt}`;
             }
-
-            globalSlot = await globalSemaphore.acquire(CONFIG.SEMAPHORE_WAIT_TIMEOUT);
-            if (!globalSlot.acquired) {
-                const error = new Error(`Global semaphore timeout: system overloaded`);
-                error.code = ERRORS.OVERLOAD;
-                error.llm_context = role;
-                error.llm_queue_wait_ms = globalSlot.waitMs;
-                throw error;
-            }
-
-            const queueWaitMs = Math.max(roleSlot.waitMs, globalSlot.waitMs);
 
             // Execute request with role-specific model
             const payload = {
                 model: modelInfo.model,
-                prompt: prompt,
+                prompt: finalPrompt,
                 stream: false
             };
 
             const result = await this._executeRequest('LOCAL', payload, role, modelInfo.timeout, signal);
             const latency = Date.now() - startTime;
 
-            this._recordMetrics(role, modelInfo.model, latency, 'SUCCESS', queueWaitMs, attempt);
+            this._recordMetrics(role, modelInfo.model, latency, 'SUCCESS', 0, attempt);
 
             return result;
 
         } catch (error) {
+            console.error(`[LLM_GEN_ERR] role=${role} attempt=${attempt} error=${error.message}`);
             const latency = Date.now() - startTime;
-            const queueWaitMs = roleSlot ? roleSlot.waitMs : 0;
+            const queueWaitMs = 0;
 
             // Check if we should fallback to next model
             const shouldFallback = (
@@ -173,9 +154,9 @@ class LLMClient {
             throw error;
 
         } finally {
-            if (roleSlot && roleSlot.acquired) roleSemaphore.release();
-            if (globalSlot && globalSlot.acquired) globalSemaphore.release();
+            // Semaphores disabled
         }
+
     }
 
     /**
@@ -244,17 +225,16 @@ class LLMClient {
         return [ERRORS.TIMEOUT, ERRORS.TIMEOUT_LOCAL, ERRORS.NETWORK, ERRORS.RATE_LIMIT].includes(error.code);
     }
 
-    _executeRequest(type, payload, context, timeoutOverride = null, signal = null) {
-        return new Promise((resolve, reject) => {
-            if (signal && signal.aborted) return reject(new Error('E_ABORTED_BY_SIGNAL'));
-            const isLocal = type === 'LOCAL';
-            const url = new URL(isLocal ? CONFIG.LOCAL_URL : 'https://api.anthropic.com/v1/messages');
-            const lib = isLocal ? http : https;
+    async _executeRequest(type, payload, context, timeoutOverride = null, signal = null) {
+        const isLocal = type === 'LOCAL';
+        const url = isLocal ? CONFIG.LOCAL_URL : 'https://api.anthropic.com/v1/messages';
+        const timeoutMs = timeoutOverride || (isLocal ? CONFIG.TIMEOUT_LOCAL : CONFIG.TIMEOUT_CLOUD);
 
-            // Use override if provided (Gate 2 Policy), otherwise default
-            const timeoutMs = timeoutOverride || (isLocal ? CONFIG.TIMEOUT_LOCAL : CONFIG.TIMEOUT_CLOUD);
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
 
-            const opts = {
+        try {
+            const response = await fetch(url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -263,51 +243,32 @@ class LLMClient {
                         'anthropic-version': '2023-06-01'
                     })
                 },
-                timeout: timeoutMs,
-                signal: signal // [M5.5] Pass signal to http/https request
-            };
-
-            const req = lib.request(url, opts, (res) => {
-                let data = '';
-                if (res.statusCode !== 200) {
-                    res.on('data', chunk => data += chunk);
-                    res.on('end', () => {
-                        const err = new Error(`Provider Error ${res.statusCode}`);
-                        err.code = res.statusCode === 429 ? ERRORS.RATE_LIMIT : ERRORS.PROVIDER;
-                        reject(err);
-                    });
-                    return;
-                }
-                res.on('data', chunk => data += chunk);
-                res.on('end', () => {
-                    try {
-                        const json = JSON.parse(data);
-                        if (isLocal) resolve(json.response);
-                        else resolve(json.content[0].text);
-                    } catch (e) {
-                        const err = new Error('Invalid JSON');
-                        err.code = ERRORS.PROVIDER;
-                        reject(err);
-                    }
-                });
+                body: JSON.stringify(payload),
+                signal: signal || controller.signal
             });
 
-            req.on('error', (e) => {
-                const err = new Error(e.message);
-                err.code = ERRORS.NETWORK;
-                reject(err);
-            });
+            clearTimeout(timeoutId);
 
-            req.on('timeout', () => {
-                req.destroy();
+            if (!response.ok) {
+                const errorBody = await response.text();
+                const err = new Error(`Provider Error ${response.status}: ${errorBody.slice(0, 100)}`);
+                err.code = response.status === 429 ? ERRORS.RATE_LIMIT : ERRORS.PROVIDER;
+                throw err;
+            }
+
+            const json = await response.json();
+            const result = isLocal ? json.response : json.content[0].text;
+            return result;
+
+        } catch (e) {
+            clearTimeout(timeoutId);
+            if (e.name === 'AbortError') {
                 const err = new Error(`${type} Request Timeout`);
                 err.code = isLocal ? ERRORS.TIMEOUT_LOCAL : ERRORS.TIMEOUT_CLOUD;
-                reject(err);
-            });
-
-            req.write(JSON.stringify(payload));
-            req.end();
-        });
+                throw err;
+            }
+            throw e;
+        }
     }
 
     _recordMetrics(context, model, latency, status, queueWaitMs = 0) {
