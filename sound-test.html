@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>효과음 테스트</title>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            padding: 50px;
+            background: #f5f5f5;
+        }
+        .test-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1e7e34;
+            margin-bottom: 30px;
+        }
+        .test-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            font-size: 16px;
+            font-weight: 600;
+            border: 2px solid #1e7e34;
+            background: white;
+            color: #1e7e34;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .test-btn:hover {
+            background: #1e7e34;
+            color: white;
+        }
+        .status {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e8f5e9;
+            border-radius: 5px;
+            color: #1e7e34;
+        }
+        .info {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e3f2fd;
+            border-radius: 5px;
+            color: #2874a6;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🔊 효과음 테스트</h1>
+        
+        <button class="test-btn" onclick="testClickSound()">클릭 효과음 테스트</button>
+        <button class="test-btn" onclick="testHoverSound()">호버 효과음 테스트</button>
+        <button class="test-btn" onclick="checkSoundFiles()">사운드 파일 확인</button>
+        <button class="test-btn" onclick="toggleSound()">효과음 ON/OFF</button>
+        
+        <div class="status" id="status">
+            상태: 대기 중...
+        </div>
+        
+        <div class="info">
+            <strong>테스트 방법:</strong><br>
+            1. 각 버튼을 클릭하여 효과음을 테스트하세요.<br>
+            2. 브라우저 콘솔(F12)에서 에러 메시지를 확인하세요.<br>
+            3. 효과음이 안 들리면 볼륨을 확인하세요.
+        </div>
+    </div>
+
+    <script>
+        const status = document.getElementById('status');
+        
+        // 효과음 객체 생성
+        const clickAudio = new Audio('sounds/mouse_click.mp3');
+        clickAudio.volume = 0.5;
+        
+        const hoverAudio = new Audio('sounds/hover_swish.mp3');
+        hoverAudio.volume = 0.3;
+        
+        let soundEnabled = true;
+        
+        function testClickSound() {
+            status.textContent = '클릭 효과음 재생 중...';
+            clickAudio.currentTime = 0;
+            clickAudio.play()
+                .then(() => {
+                    status.textContent = '✅ 클릭 효과음 재생 성공!';
+                    console.log('Click sound played successfully');
+                })
+                .catch(err => {
+                    status.textContent = '❌ 클릭 효과음 재생 실패: ' + err.message;
+                    console.error('Click sound error:', err);
+                });
+        }
+        
+        function testHoverSound() {
+            status.textContent = '호버 효과음 재생 중...';
+            hoverAudio.currentTime = 0;
+            hoverAudio.play()
+                .then(() => {
+                    status.textContent = '✅ 호버 효과음 재생 성공!';
+                    console.log('Hover sound played successfully');
+                })
+                .catch(err => {
+                    status.textContent = '❌ 호버 효과음 재생 실패: ' + err.message;
+                    console.error('Hover sound error:', err);
+                });
+        }
+        
+        function checkSoundFiles() {
+            status.textContent = '사운드 파일 확인 중...';
+            
+            Promise.all([
+                fetch('sounds/mouse_click.mp3').then(r => r.ok),
+                fetch('sounds/hover_swish.mp3').then(r => r.ok)
+            ]).then(([clickOk, hoverOk]) => {
+                status.innerHTML = 
+                    `mouse_click.mp3: ${clickOk ? '✅ 존재' : '❌ 없음'}<br>` +
+                    `hover_swish.mp3: ${hoverOk ? '✅ 존재' : '❌ 없음'}`;
+            }).catch(err => {
+                status.textContent = '❌ 파일 확인 실패: ' + err.message;
+            });
+        }
+        
+        function toggleSound() {
+            soundEnabled = !soundEnabled;
+            status.textContent = `효과음 ${soundEnabled ? '활성화' : '비활성화'}됨`;
+        }
+        
+        // 페이지 로드 시 자동 확인
+        window.addEventListener('load', () => {
+            console.log('🔊 효과음 테스트 페이지 로드됨');
+            console.log('clickAudio:', clickAudio);
+            console.log('hoverAudio:', hoverAudio);
+        });
+    </script>
+</body>
+</html>

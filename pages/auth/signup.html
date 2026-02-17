@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="한국ESG학회 회원가입">
+    <title>회원가입 - 한국ESG학회</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/login.css">
+    <link rel="stylesheet" href="../../css/signup.css">
+
+    <style>
+        body {
+            background-color: #f8fafc;
+        }
+
+        .main-content {
+            padding: 80px 20px;
+        }
+
+        .signup-card {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            z-index: 1;
+        }
+
+        .auth-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .auth-header h1 {
+            color: #002147;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .auth-header p {
+            color: #64748b;
+            font-size: 1.1rem;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin: 40px 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .section-title i {
+            color: #10b981;
+            font-size: 1.2rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 0.95rem;
+        }
+
+        .form-group label i {
+            margin-right: 6px;
+            color: #10b981;
+            font-size: 0.9rem;
+        }
+
+        .form-control,
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 14px 18px;
+            background-color: #eff6ff;
+            /* Pale Blue from Login */
+            border: 1px solid #dbeafe;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            color: #1e293b;
+        }
+
+        .form-control:focus,
+        .form-group input:focus,
+        .form-group select:focus {
+            background-color: #fff;
+            border-color: #10b981;
+            box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+            outline: none;
+        }
+
+        .signup-submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: #10b981;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 40px;
+        }
+
+        .signup-submit-btn:hover {
+            background: #059669;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px -3px rgba(16, 185, 129, 0.3);
+        }
+
+        .input-with-button {
+            display: flex;
+            gap: 10px;
+        }
+
+        .input-with-button input {
+            flex: 1;
+        }
+
+        .btn-check {
+            flex-shrink: 0;
+            padding: 0 20px;
+            background: #002147;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+
+        .btn-check:hover {
+            opacity: 0.9;
+        }
+
+        .terms-group {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #f1f5f9;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="../../index.html" class="logo">
+                        <img src="../../images/logo.png" alt="한국ESG학회" class="logo-img">
+                    </a>
+
+                    <button class="mobile-menu-btn" aria-label="메뉴 열기">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+
+                    <ul class="nav-menu">
+                        <!-- Navigation Items -->
+                        <li class="nav-item has-dropdown">
+                            <a href="#" class="nav-link"><i class="fas fa-building"></i> 학회소개</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../../pages/about/greeting-new.html">학회장 인사말</a></li>
+                                <li><a href="../../pages/about/purpose.html">설립 목적·비전</a></li>
+                                <li><a href="../../pages/about/history.html">연혁</a></li>
+                                <li><a href="../../pages/about/constitution.html">정관·규정</a></li>
+                                <li><a href="../../pages/about/ci.html">CI·BI</a></li>
+                                <li><a href="../../pages/about/location.html">오시는 길</a></li>
+                                <li><a href="../../pages/sitemap.html">웹 둘러보기</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-dropdown">
+                            <a href="#" class="nav-link"><i class="fas fa-users"></i> 학회조직</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../../pages/organization/executives.html">임원진</a></li>
+                                <li><a href="../../pages/organization/committees.html">위원회</a></li>
+                                <li><a href="../../pages/organization/divisions.html">분과학회·연구회</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-dropdown">
+                            <a href="#" class="nav-link"><i class="fas fa-user-check"></i> 회원안내</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../../pages/member/types-new.html">회원 구분</a></li>
+                                <li><a href="../../pages/member/process.html">가입 절차</a></li>
+                                <li><a href="../../pages/member/fee.html">회비 안내</a></li>
+                                <li><a href="../../pages/member/benefits.html">회원 혜택</a></li>
+                                <li><a href="../../pages/member/companies.html">회원사 소개</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-dropdown">
+                            <a href="#" class="nav-link"><i class="fas fa-star"></i> 핵심사업</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../../pages/core/main-services.html">ESG 주요사업</a></li>
+                                <li><a href="../../pages/core/forum-new.html">월드ESG포럼</a></li>
+                                <li><a href="../../pages/core/award.html">한국ESG대상</a></li>
+                                <li><a href="../../pages/core/ordinance.html">한국ESG조례대상</a></li>
+                                <li><a href="../../pages/core/seminar.html">월요학술세미나</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-dropdown">
+                            <a href="#" class="nav-link"><i class="fas fa-book"></i> 학술지·논문</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../../pages/journal/about.html">학술지 소개</a></li>
+                                <li><a href="../../pages/journal/submission.html">논문 투고 안내</a></li>
+                                <li><a href="../../pages/journal/editorial.html">편집위원회</a></li>
+                                <li><a href="../../pages/journal/review.html">심사 규정</a></li>
+                                <li><a href="../../pages/journal/archive.html">논문 아카이브</a></li>
+                                <li><a href="../../pages/journal/dbpia-embed.html">DBPIA 논문 검색</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-dropdown">
+                            <a href="#" class="nav-link"><i class="fas fa-chart-line"></i> ESG정책·연구</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../../pages/policy/research.html">ESG 정책 연구</a></li>
+                                <li><a href="../../pages/policy/standards.html">ESG 지표·표준</a></li>
+                                <li><a href="../../pages/policy/law.html">법·제도 분석</a></li>
+                                <li><a href="../../pages/policy/global.html">국제 ESG 동향</a></li>
+                                <li><a href="../../pages/policy/reports.html">연구보고서</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-dropdown">
+                            <a href="#" class="nav-link"><i class="fas fa-newspaper"></i> ESG뉴스</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../../pages/news/main.html">ESG 주요 뉴스</a></li>
+                                <li><a href="../../pages/news/policy.html">정책·입법 동향</a></li>
+                                <li><a href="../../pages/news/cases.html">기업 ESG 사례</a></li>
+                                <li><a href="../../pages/news/press.html">학회 보도자료</a></li>
+                                <li><a href="../../pages/news/column.html">기고·칼럼</a></li>
+                                <li><a href="../../pages/news/video.html">영상 콘텐츠</a></li>
+                                <li><a href="../../pages/news/esg-news-embed.html">코리아ESG뉴스</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-dropdown">
+                            <a href="#" class="nav-link"><i class="fas fa-comments"></i> 커뮤니티</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../../pages/community/notice.html">공지사항</a></li>
+                                <li><a href="../../pages/community/free-board.html">자유게시판</a></li>
+                                <li><a href="../../pages/community/discussion.html">학술·정책 토론</a></li>
+                                <li><a href="../../pages/community/member-news.html">회원 소식</a></li>
+                                <li><a href="../../pages/community/qna.html">Q&A</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-dropdown">
+                            <a href="#" class="nav-link"><i class="fas fa-folder-open"></i> 자료실</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../../pages/materials/academic.html">학술자료</a></li>
+                                <li><a href="../../pages/materials/policy.html">정책자료</a></li>
+                                <li><a href="../../pages/materials/presentation.html">발표자료</a></li>
+                                <li><a href="../../pages/materials/report.html">ESG 리포트</a></li>
+                                <li><a href="../../pages/materials/video.html">영상자료</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-dropdown">
+                            <a href="#" class="nav-link"><i class="fas fa-hand-holding-heart"></i> 후원·기부</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../../pages/support/guide.html">후원 안내</a></li>
+                                <li><a href="../../pages/support/corporate.html">기업 후원</a></li>
+                                <li><a href="../../pages/support/personal.html">개인 기부</a></li>
+                                <li><a href="../../pages/support/usage.html">기부금 사용 내역</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-dropdown">
+                            <a href="#" class="nav-link"><i class="fas fa-user-circle"></i> 마이페이지</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="signup.html"><i class="fas fa-user-plus"></i> 회원가입</a></li>
+                                <li><a href="login.html"><i class="fas fa-sign-in-alt"></i> 로그인</a></li>
+                                <li><a href="../../pages/mypage/profile.html"><i class="fas fa-user-edit"></i> 회원정보
+                                        관리</a></li>
+                                <li><a href="../../pages/mypage/payment.html"><i class="fas fa-credit-card"></i> 회비
+                                        납부</a></li>
+                                <li><a href="../../pages/mypage/history.html"><i class="fas fa-history"></i> 납부 내역</a>
+                                </li>
+                                <li><a href="../../pages/mypage/paper.html"><i class="fas fa-file-alt"></i> 논문 투고 현황</a>
+                                </li>
+                                <li><a href="../../pages/mypage/event.html"><i class="fas fa-calendar-check"></i> 행사·세미나
+                                        신청 내역</a></li>
+                                <li><a href="../../pages/mypage/certificate.html"><i class="fas fa-certificate"></i>
+                                        회원증·증명서</a></li>
+                                <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> 로그아웃</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <main class="main-content">
+        <div class="signup-card">
+            <div class="auth-header">
+                <h1>회원가입</h1>
+                <p>한국ESG학회의 주인공이 되어주세요</p>
+            </div>
+
+            <form id="signupForm">
+                <div class="section-title"><i class="fas fa-shield-alt"></i> 계정 정보</div>
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label for="signupEmail"><i class="fas fa-envelope"></i> 이메일 (아이디) <span
+                                style="color: #e74c3c;">*</span></label>
+                        <div class="input-with-button">
+                            <input type="email" id="signupEmail" name="email" placeholder="example@email.com" required>
+                            <button type="button" class="btn-check" onclick="checkEmailDuplicate()">중복확인</button>
+                        </div>
+                        <span id="emailCheckResult" class="validation-message"
+                            style="font-size: 0.85rem; margin-top: 5px; display: block;"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword"><i class="fas fa-lock"></i> 비밀번호 <span
+                                style="color: #e74c3c;">*</span></label>
+                        <input type="password" id="signupPassword" name="password" required
+                            placeholder="8자 이상, 영문/숫자/특수문자 포함">
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPasswordConfirm"><i class="fas fa-check-double"></i> 비밀번호 확인 <span
+                                style="color: #e74c3c;">*</span></label>
+                        <input type="password" id="signupPasswordConfirm" name="passwordConfirm" required
+                            placeholder="비밀번호를 다시 입력하세요">
+                    </div>
+                </div>
+
+                <div class="section-title"><i class="fas fa-id-card"></i> 기본 정보</div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="signupName"><i class="fas fa-user"></i> 이름 <span
+                                style="color: #e74c3c;">*</span></label>
+                        <input type="text" id="signupName" name="name" required placeholder="홍길동">
+                    </div>
+                    <div class="form-group">
+                        <label for="signupMobile"><i class="fas fa-mobile-alt"></i> 휴대폰 <span
+                                style="color: #e74c3c;">*</span></label>
+                        <input type="tel" id="signupMobile" name="mobile" required placeholder="010-1234-5678">
+                    </div>
+                </div>
+
+                <div class="section-title"><i class="fas fa-university"></i> 소속 정보</div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="signupAffiliation"><i class="fas fa-building"></i> 소속 기관 <span
+                                style="color: #e74c3c;">*</span></label>
+                        <input type="text" id="signupAffiliation" name="affiliation" required placeholder="예: 숭실대학교">
+                    </div>
+                    <div class="form-group">
+                        <label for="signupMemberType"><i class="fas fa-user-tag"></i> 회원 유형 <span
+                                style="color: #e74c3c;">*</span></label>
+                        <select id="signupMemberType" name="member_type" required>
+                            <option value="">회원 유형 선택</option>
+                            <option value="general">정회원 (연회비 5만원)</option>
+                            <option value="student">학생회원 (연회비 2만원)</option>
+                            <option value="corporate">기업/기관회원</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="section-title"><i class="fas fa-clipboard-check"></i> 약관 동의</div>
+                <div class="terms-group">
+                    <label class="checkbox-label"
+                        style="display: flex; align-items: center; margin-bottom: 12px; cursor: pointer; font-weight: 700;">
+                        <input type="checkbox" id="agreeAll"
+                            style="width: 20px; height: 20px; margin-right: 12px; accent-color: #10b981;">
+                        <span>전체 동의</span>
+                    </label>
+                    <label class="checkbox-label"
+                        style="display: flex; align-items: center; margin-bottom: 8px; cursor: pointer;">
+                        <input type="checkbox" class="term-checkbox" required
+                            style="width: 18px; height: 18px; margin-right: 12px; accent-color: #10b981;">
+                        <span>[필수] 이용약관 동의</span>
+                    </label>
+                    <label class="checkbox-label" style="display: flex; align-items: center; cursor: pointer;">
+                        <input type="checkbox" class="term-checkbox" required
+                            style="width: 18px; height: 18px; margin-right: 12px; accent-color: #10b981;">
+                        <span>[필수] 개인정보 수집 및 이용 동의</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="signup-submit-btn">가입하기</button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="../../images/logo.png" alt="한국ESG학회">
+                </div>
+                <div class="footer-info">
+                    <p>(사)한국ESG학회 | 회장: 조준모 | 사업자등록번호: 245-82-00351</p>
+                    <p>주소: 서울특별시 동작구 상도로 369 숭실대학교 진리관 508호</p>
+                    <p>이메일: jongjean@naver.com | 전화: 02-820-0114</p>
+                    <p class="copyright">&copy; 2024 KOREA ESG ASSOCIATION. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/auth.js"></script>
+    <script src="../../js/password-utils.js"></script>
+    <script src="../../js/signup.js"></script>
+    <script>
+        // DOM 로드 후 실행
+        document.addEventListener('DOMContentLoaded', function () {
+            // 1. 약관 전체 동의 로직 (가장 먼저 실행)
+            const agreeAll = document.getElementById('agreeAll');
+            const termCheckboxes = document.querySelectorAll('.term-checkbox');
+
+            if (agreeAll) {
+                agreeAll.addEventListener('change', function () {
+                    termCheckboxes.forEach(cb => cb.checked = this.checked);
+                });
+
+                termCheckboxes.forEach(cb => {
+                    cb.addEventListener('change', function () {
+                        if (!this.checked) agreeAll.checked = false;
+                        const allChecked = Array.from(termCheckboxes).every(c => c.checked);
+                        if (allChecked) agreeAll.checked = true;
+                    });
+                });
+                console.log('Terms agreement logic initialized');
+            }
+
+            // 2. 폼 제출 핸들러 연결
+            const sf = document.getElementById('signupForm');
+            if (sf) {
+                sf.addEventListener('submit', function (e) {
+                    if (typeof handleSignup === 'function') {
+                        handleSignup(e);
+                    } else {
+                        console.error('handleSignup function not found!');
+                        alert('회원가입 로직을 불러오지 못했습니다. 페이지를 새로고침 해주세요.');
+                        e.preventDefault();
+                    }
+                });
+                console.log('Signup form listener attached explicitly.');
+            }
+        });
+    </script>
+</body>
+
+</html>

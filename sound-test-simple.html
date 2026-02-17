@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>간단한 효과음 테스트</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 50px;
+            background: #f0f0f0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 20px 40px;
+            margin: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            background: #1e7e34;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #14532d;
+        }
+        #log {
+            margin-top: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            max-height: 300px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔊 효과음 테스트</h1>
+    
+    <button class="btn" onclick="playClick()">클릭 효과음</button>
+    <button class="btn" onclick="playHover()">호버 효과음</button>
+    <button class="btn" onclick="checkFiles()">파일 확인</button>
+    
+    <div id="log"></div>
+
+    <script>
+        const logDiv = document.getElementById('log');
+        
+        function log(msg) {
+            const time = new Date().toLocaleTimeString();
+            logDiv.innerHTML += `[${time}] ${msg}<br>`;
+            logDiv.scrollTop = logDiv.scrollHeight;
+            console.log(msg);
+        }
+        
+        log('페이지 로드됨');
+        
+        // 오디오 객체 생성
+        let clickAudio = null;
+        let hoverAudio = null;
+        
+        try {
+            clickAudio = new Audio('sounds/mouse_click.mp3');
+            clickAudio.volume = 0.5;
+            log('✅ 클릭 오디오 객체 생성 성공');
+        } catch (e) {
+            log('❌ 클릭 오디오 생성 실패: ' + e.message);
+        }
+        
+        try {
+            hoverAudio = new Audio('sounds/hover_swish.mp3');
+            hoverAudio.volume = 0.3;
+            log('✅ 호버 오디오 객체 생성 성공');
+        } catch (e) {
+            log('❌ 호버 오디오 생성 실패: ' + e.message);
+        }
+        
+        function playClick() {
+            log('🖱️ 클릭 버튼 눌림');
+            if (!clickAudio) {
+                log('❌ clickAudio 객체가 없습니다');
+                return;
+            }
+            
+            clickAudio.currentTime = 0;
+            clickAudio.play()
+                .then(() => log('✅ 클릭 효과음 재생 성공!'))
+                .catch(err => log('❌ 클릭 효과음 재생 실패: ' + err.message));
+        }
+        
+        function playHover() {
+            log('🖱️ 호버 버튼 눌림');
+            if (!hoverAudio) {
+                log('❌ hoverAudio 객체가 없습니다');
+                return;
+            }
+            
+            hoverAudio.currentTime = 0;
+            hoverAudio.play()
+                .then(() => log('✅ 호버 효과음 재생 성공!'))
+                .catch(err => log('❌ 호버 효과음 재생 실패: ' + err.message));
+        }
+        
+        async function checkFiles() {
+            log('📁 파일 확인 중...');
+            
+            try {
+                const clickResponse = await fetch('sounds/mouse_click.mp3');
+                log(`mouse_click.mp3: ${clickResponse.ok ? '✅ 존재 (' + clickResponse.status + ')' : '❌ 없음 (' + clickResponse.status + ')'}`);
+            } catch (e) {
+                log('❌ mouse_click.mp3 확인 실패: ' + e.message);
+            }
+            
+            try {
+                const hoverResponse = await fetch('sounds/hover_swish.mp3');
+                log(`hover_swish.mp3: ${hoverResponse.ok ? '✅ 존재 (' + hoverResponse.status + ')' : '❌ 없음 (' + hoverResponse.status + ')'}`);
+            } catch (e) {
+                log('❌ hover_swish.mp3 확인 실패: ' + e.message);
+            }
+        }
+        
+        // 자동으로 파일 확인
+        window.addEventListener('load', () => {
+            setTimeout(checkFiles, 500);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auth Debug Test</title>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            padding: 40px;
+            background: #f5f5f5;
+        }
+        .debug-panel {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1e7e34;
+            margin-bottom: 30px;
+        }
+        .status {
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 4px solid #ddd;
+        }
+        .status.success {
+            background: #e8f5e9;
+            border-color: #4caf50;
+        }
+        .status.error {
+            background: #ffebee;
+            border-color: #f44336;
+        }
+        button {
+            padding: 12px 24px;
+            margin: 10px 5px;
+            background: #1e7e34;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover {
+            background: #166028;
+        }
+        pre {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            overflow: auto;
+            font-size: 12px;
+        }
+        .info {
+            padding: 15px;
+            margin: 15px 0;
+            background: #e3f2fd;
+            border-radius: 8px;
+            border-left: 4px solid #2196f3;
+        }
+    </style>
+</head>
+<body>
+    <div class="debug-panel">
+        <h1>🔍 Auth System Debug</h1>
+        
+        <div class="info">
+            <strong>목적:</strong> 로그인 시스템이 왜 작동하지 않는지 정확히 진단합니다.
+        </div>
+        
+        <h2>1. 현재 상태 확인</h2>
+        <div id="currentStatus" class="status">확인 중...</div>
+        
+        <h2>2. 테스트 실행</h2>
+        <button onclick="testSetUser()">✅ 테스트 로그인 실행</button>
+        <button onclick="testAddBodyClass()">🎨 Body 클래스 추가</button>
+        <button onclick="testLogout()">🚪 로그아웃 실행</button>
+        <button onclick="checkAll()">🔄 전체 재확인</button>
+        
+        <h2>3. 상세 정보</h2>
+        <div id="detailInfo"></div>
+    </div>
+
+    <script>
+        // 1. 현재 상태 확인
+        function checkAll() {
+            const statusDiv = document.getElementById('currentStatus');
+            const detailDiv = document.getElementById('detailInfo');
+            
+            // localStorage 확인
+            const localUser = localStorage.getItem('user');
+            const sessionUser = sessionStorage.getItem('user');
+            
+            // body 클래스 확인
+            const hasClass = document.body.classList.contains('user-logged-in');
+            
+            // 결과 표시
+            let html = '<h3>📊 진단 결과</h3>';
+            html += '<pre>';
+            html += `localStorage.user: ${localUser || '❌ 없음'}\n`;
+            html += `sessionStorage.user: ${sessionUser || '❌ 없음'}\n`;
+            html += `body.user-logged-in: ${hasClass ? '✅ 있음' : '❌ 없음'}\n`;
+            
+            if (localUser) {
+                try {
+                    const user = JSON.parse(localUser);
+                    html += `\n사용자 정보:\n`;
+                    html += `  - ID: ${user.id}\n`;
+                    html += `  - Name: ${user.name}\n`;
+                    html += `  - Login Time: ${user.loginTime}\n`;
+                } catch (e) {
+                    html += `\n⚠️ JSON 파싱 오류: ${e.message}\n`;
+                }
+            }
+            
+            html += '</pre>';
+            
+            // CSS 상태 확인
+            html += '<h3>🎨 CSS 상태</h3>';
+            html += '<pre>';
+            
+            const loggedOutElements = document.querySelectorAll('.auth-only.logged-out');
+            const loggedInElements = document.querySelectorAll('.auth-only.logged-in');
+            
+            html += `로그아웃 메뉴 (.auth-only.logged-out): ${loggedOutElements.length}개\n`;
+            loggedOutElements.forEach((el, i) => {
+                const display = window.getComputedStyle(el).display;
+                html += `  [${i+1}] ${el.textContent.trim().substring(0, 20)}... → display: ${display}\n`;
+            });
+            
+            html += `\n로그인 메뉴 (.auth-only.logged-in): ${loggedInElements.length}개\n`;
+            loggedInElements.forEach((el, i) => {
+                const display = window.getComputedStyle(el).display;
+                html += `  [${i+1}] ${el.textContent.trim().substring(0, 20)}... → display: ${display}\n`;
+            });
+            
+            html += '</pre>';
+            
+            detailDiv.innerHTML = html;
+            
+            // 상태 메시지
+            if (localUser || sessionUser) {
+                statusDiv.className = 'status success';
+                statusDiv.innerHTML = '✅ 로그인 데이터 있음';
+                if (!hasClass) {
+                    statusDiv.innerHTML += '<br>⚠️ 하지만 body.user-logged-in 클래스 없음!';
+                    statusDiv.className = 'status error';
+                }
+            } else {
+                statusDiv.className = 'status error';
+                statusDiv.innerHTML = '❌ 로그인 데이터 없음';
+            }
+        }
+        
+        // 2. 테스트 로그인
+        function testSetUser() {
+            const userData = {
+                id: 'jongjean@naver.com',
+                name: 'Jongjean',
+                role: 'admin',
+                loginTime: new Date().toISOString()
+            };
+            
+            localStorage.setItem('user', JSON.stringify(userData));
+            console.log('✅ 테스트 로그인 실행:', userData);
+            
+            // body 클래스 추가
+            document.body.classList.add('user-logged-in');
+            console.log('✅ body.user-logged-in 클래스 추가');
+            
+            alert('테스트 로그인 완료!\n\n새로고침하면 로그인 상태가 유지되어야 합니다.');
+            
+            checkAll();
+        }
+        
+        // 3. Body 클래스 추가
+        function testAddBodyClass() {
+            document.body.classList.add('user-logged-in');
+            console.log('✅ body.user-logged-in 클래스 추가');
+            alert('body 클래스 추가 완료!\n\n로그인 메뉴가 보여야 합니다.');
+            checkAll();
+        }
+        
+        // 4. 로그아웃
+        function testLogout() {
+            localStorage.removeItem('user');
+            sessionStorage.removeItem('user');
+            document.body.classList.remove('user-logged-in');
+            console.log('✅ 로그아웃 완료');
+            alert('로그아웃 완료!');
+            checkAll();
+        }
+        
+        // 페이지 로드 시 자동 확인
+        window.addEventListener('load', () => {
+            checkAll();
+        });
+    </script>
+</body>
+</html>

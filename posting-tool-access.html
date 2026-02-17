@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포스팅툴 접근 테스트</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 24px;
+            padding: 60px 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        
+        h1 {
+            color: #1e7e34;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        p {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 20px 30px;
+            background: linear-gradient(135deg, #1e7e34 0%, #27ae60 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(30, 126, 52, 0.3);
+        }
+        
+        .link-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(30, 126, 52, 0.4);
+        }
+        
+        .link-btn i {
+            font-size: 1.5rem;
+        }
+        
+        .link-btn.secondary {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+        
+        .link-btn.secondary:hover {
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+        }
+        
+        .info-box {
+            background: #f0f9ff;
+            border-left: 4px solid #3b82f6;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            text-align: left;
+        }
+        
+        .info-box h3 {
+            color: #1e40af;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        
+        .info-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .info-box li {
+            color: #334155;
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .info-box li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+        
+        .demo-account {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .demo-account strong {
+            color: #92400e;
+            font-size: 0.95rem;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 25px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 포스팅툴 접근 테스트</h1>
+        <p>아래 버튼을 클릭하여 포스팅툴에 접근하세요</p>
+        
+        <div class="links">
+            <a href="pages/admin/posting-tool.html" class="link-btn">
+                <i class="fas fa-edit"></i>
+                포스팅툴 열기
+            </a>
+            
+            <a href="pages/admin/history-manager.html" class="link-btn secondary">
+                <i class="fas fa-history"></i>
+                히스토리 관리 열기
+            </a>
+            
+            <a href="pages/mypage/profile.html" class="link-btn">
+                <i class="fas fa-user"></i>
+                마이페이지 (관리자 메뉴 포함)
+            </a>
+            
+            <a href="index.html" class="link-btn secondary">
+                <i class="fas fa-home"></i>
+                메인페이지로 돌아가기
+            </a>
+        </div>
+        
+        <div class="info-box">
+            <h3>📋 접근 방법</h3>
+            <ul>
+                <li>로그인 필요 (데모 계정 사용)</li>
+                <li>마이페이지 → 관리자 메뉴에서도 접근 가능</li>
+                <li>관리자 권한이 있어야 표시됨</li>
+            </ul>
+        </div>
+        
+        <div class="demo-account">
+            <strong>🔑 데모 계정</strong><br>
+            ID: test@esg.or.kr<br>
+            PW: password123
+        </div>
+    </div>
+    
+    <script>
+        // 페이지 로드 시 사용자 확인
+        window.addEventListener('DOMContentLoaded', function() {
+            const user = JSON.parse(localStorage.getItem('user') || sessionStorage.getItem('user') || '{}');
+            
+            if (!user.id) {
+                console.log('⚠️ 로그인되지 않음');
+                console.log('💡 임시 사용자 정보 저장 중...');
+                
+                // 테스트용 사용자 정보 자동 저장
+                const testUser = {
+                    id: 'test@esg.or.kr',
+                    name: '관리자',
+                    role: 'admin',
+                    loginTime: new Date().toISOString()
+                };
+                
+                localStorage.setItem('user', JSON.stringify(testUser));
+                console.log('✅ 테스트 사용자 로그인 완료!');
+            } else {
+                console.log('✅ 로그인됨:', user.name);
+            }
+        });
+    </script>
+</body>
+</html>

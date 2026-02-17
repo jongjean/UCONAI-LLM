@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>강제 로그인 - 테스트 도구</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+        
+        .warning i {
+            color: #ffc107;
+            margin-right: 10px;
+        }
+        
+        .button-group {
+            display: grid;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .login-btn {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .login-btn:hover {
+            border-color: #667eea;
+            background: #f8f9ff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        }
+        
+        .login-btn i {
+            font-size: 32px;
+            margin-right: 20px;
+            min-width: 40px;
+            text-align: center;
+        }
+        
+        .login-btn.admin i {
+            color: #dc3545;
+        }
+        
+        .login-btn.manager i {
+            color: #ffc107;
+        }
+        
+        .login-btn.user i {
+            color: #28a745;
+        }
+        
+        .login-btn .info {
+            flex: 1;
+        }
+        
+        .login-btn .name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .login-btn .details {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .status {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .status h3 {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .status-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .status-item:last-child {
+            border-bottom: none;
+        }
+        
+        .status-label {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .status-value {
+            color: #333;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .logout-btn {
+            width: 100%;
+            padding: 15px;
+            background: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+        
+        .logout-btn:hover {
+            background: #c82333;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+        }
+        
+        .home-btn {
+            width: 100%;
+            padding: 15px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+        }
+        
+        .home-btn:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        
+        .badge.admin {
+            background: #ffe5e5;
+            color: #dc3545;
+        }
+        
+        .badge.manager {
+            background: #fff8e1;
+            color: #ff9800;
+        }
+        
+        .badge.user {
+            background: #e8f5e9;
+            color: #4caf50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-shield-alt"></i> 강제 로그인</h1>
+        <p class="subtitle">개발/테스트용 로그인 도구</p>
+        
+        <div class="warning">
+            <i class="fas fa-exclamation-triangle"></i>
+            <strong>경고:</strong> 이 페이지는 개발 및 테스트 전용입니다. 프로덕션 환경에서는 사용하지 마세요.
+        </div>
+        
+        <div class="button-group">
+            <button class="login-btn admin" onclick="loginAs('super_admin')">
+                <i class="fas fa-crown"></i>
+                <div class="info">
+                    <div class="name">
+                        최고관리자
+                        <span class="badge admin">SUPER ADMIN</span>
+                    </div>
+                    <div class="details">
+                        강종진 (jongjean@naver.com) • 모든 권한
+                    </div>
+                </div>
+            </button>
+            
+            <button class="login-btn manager" onclick="loginAs('admin')">
+                <i class="fas fa-user-shield"></i>
+                <div class="info">
+                    <div class="name">
+                        관리자
+                        <span class="badge manager">ADMIN</span>
+                    </div>
+                    <div class="details">
+                        테스트 관리자 (admin@kesg.or.kr) • 게시판 관리 권한
+                    </div>
+                </div>
+            </button>
+            
+            <button class="login-btn user" onclick="loginAs('user')">
+                <i class="fas fa-user"></i>
+                <div class="info">
+                    <div class="name">
+                        일반 사용자
+                        <span class="badge user">USER</span>
+                    </div>
+                    <div class="details">
+                        테스트 회원 (user@kesg.or.kr) • 기본 권한
+                    </div>
+                </div>
+            </button>
+        </div>
+        
+        <div class="status" id="statusBox">
+            <h3><i class="fas fa-info-circle"></i> 현재 로그인 상태</h3>
+            <div id="statusContent">
+                <div style="text-align: center; color: #999; padding: 20px;">
+                    로그인되지 않음
+                </div>
+            </div>
+        </div>
+        
+        <button class="logout-btn" onclick="logout()">
+            <i class="fas fa-sign-out-alt"></i> 로그아웃
+        </button>
+        
+        <a href="index.html" class="home-btn">
+            <i class="fas fa-home"></i> 메인 페이지로 이동
+        </a>
+    </div>
+    
+    <script>
+        // 계정 정보
+        const accounts = {
+            super_admin: {
+                id: 'jongjean@naver.com',
+                name: '강종진',
+                role: 'super_admin',
+                status: 'active',
+                member_type: '공동회장'
+            },
+            admin: {
+                id: 'admin@kesg.or.kr',
+                name: '테스트 관리자',
+                role: 'admin',
+                status: 'active',
+                member_type: '정회원'
+            },
+            user: {
+                id: 'user@kesg.or.kr',
+                name: '테스트 회원',
+                role: 'user',
+                status: 'active',
+                member_type: '준회원'
+            }
+        };
+        
+        // 로그인 처리
+        function loginAs(accountType) {
+            const userData = {
+                ...accounts[accountType],
+                loginTime: new Date().toISOString()
+            };
+            
+            sessionStorage.setItem('user', JSON.stringify(userData));
+            
+            console.log('✅ 강제 로그인 완료:', userData);
+            
+            // 상태 업데이트
+            updateStatus();
+            
+            // 알림
+            alert(`✅ ${userData.name}(${userData.role})로 로그인되었습니다!`);
+        }
+        
+        // 로그아웃 처리
+        function logout() {
+            sessionStorage.removeItem('user');
+            localStorage.removeItem('user');
+            
+            console.log('✅ 로그아웃 완료');
+            
+            // 상태 업데이트
+            updateStatus();
+            
+            alert('✅ 로그아웃되었습니다!');
+        }
+        
+        // 상태 업데이트
+        function updateStatus() {
+            const user = JSON.parse(sessionStorage.getItem('user') || localStorage.getItem('user') || 'null');
+            const statusContent = document.getElementById('statusContent');
+            
+            if (user) {
+                const roleNames = {
+                    super_admin: '최고관리자',
+                    admin: '관리자',
+                    user: '일반 사용자'
+                };
+                
+                statusContent.innerHTML = `
+                    <div class="status-item">
+                        <span class="status-label">이름</span>
+                        <span class="status-value">${user.name}</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">이메일</span>
+                        <span class="status-value">${user.id}</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">권한</span>
+                        <span class="status-value">${roleNames[user.role] || user.role}</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">회원 등급</span>
+                        <span class="status-value">${user.member_type}</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">상태</span>
+                        <span class="status-value">${user.status === 'active' ? '활동중' : user.status}</span>
+                    </div>
+                `;
+            } else {
+                statusContent.innerHTML = `
+                    <div style="text-align: center; color: #999; padding: 20px;">
+                        로그인되지 않음
+                    </div>
+                `;
+            }
+        }
+        
+        // 페이지 로드 시 상태 확인
+        updateStatus();
+    </script>
+</body>
+</html>

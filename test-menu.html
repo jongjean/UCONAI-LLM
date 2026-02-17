@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메뉴 테스트</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Noto Sans KR', sans-serif; padding: 20px; }
+        
+        .nav-item { 
+            position: relative; 
+            display: inline-block;
+        }
+        
+        .nav-link {
+            display: block;
+            padding: 15px 25px;
+            background: #1e7e34;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            min-width: 250px;
+            padding: 8px 0;
+            margin-top: 8px;
+            display: none;
+            z-index: 1000;
+        }
+        
+        .nav-item:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu li {
+            list-style: none;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        
+        .dropdown-menu li:last-child {
+            border-bottom: none;
+        }
+        
+        .dropdown-menu li a {
+            display: block;
+            padding: 12px 20px;
+            color: #333;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        
+        .dropdown-menu li a:hover {
+            background: #d4f4dd;
+            color: #14532d;
+        }
+        
+        .dropdown-menu li a i {
+            margin-right: 10px;
+            width: 18px;
+            text-align: center;
+        }
+        
+        .dropdown-divider {
+            height: 1px;
+            background: #e2e8f0;
+            margin: 8px 0;
+        }
+        
+        #logoutBtn {
+            color: #dc2626;
+        }
+        
+        #logoutBtn:hover {
+            background: #fee2e2;
+        }
+        
+        .test-info {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .test-info h2 {
+            color: #1e7e34;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-info">
+        <h2><i class="fas fa-info-circle"></i> 메뉴 테스트</h2>
+        <p>아래 "마이페이지" 메뉴에 마우스를 올려보세요.</p>
+        <p><strong>회원가입</strong>과 <strong>로그인</strong> 메뉴가 보여야 합니다.</p>
+    </div>
+
+    <nav>
+        <ul style="list-style: none;">
+            <li class="nav-item has-dropdown">
+                <a href="#" class="nav-link"><i class="fas fa-user-circle"></i> 마이페이지</a>
+                <ul class="dropdown-menu">
+                    <!-- 로그인 전 메뉴 -->
+                    <li><a href="pages/auth/signup.html"><i class="fas fa-user-plus"></i> 회원가입</a></li>
+                    <li><a href="pages/auth/login.html"><i class="fas fa-sign-in-alt"></i> 로그인</a></li>
+                    <li class="dropdown-divider"></li>
+                    
+                    <!-- 로그인 후 메뉴 -->
+                    <li><a href="pages/mypage/profile.html"><i class="fas fa-user-edit"></i> 회원정보 관리</a></li>
+                    <li><a href="pages/mypage/payment.html"><i class="fas fa-credit-card"></i> 회비 납부</a></li>
+                    <li><a href="pages/mypage/history.html"><i class="fas fa-history"></i> 납부 내역</a></li>
+                    <li><a href="pages/mypage/paper.html"><i class="fas fa-file-alt"></i> 논문 투고 현황</a></li>
+                    <li><a href="pages/mypage/event.html"><i class="fas fa-calendar-check"></i> 행사·세미나 신청 내역</a></li>
+                    <li><a href="pages/mypage/certificate.html"><i class="fas fa-certificate"></i> 회원증·증명서</a></li>
+                    <li class="dropdown-divider"></li>
+                    <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> 로그아웃</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</body>
+</html>

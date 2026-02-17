@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관리자 로그인 테스트 페이지</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: linear-gradient(135deg, #1e7e34 0%, #0f4c1f 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 50px;
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        h1 {
+            color: #1e7e34;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            color: #666;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 16px;
+        }
+        
+        .status-box {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-left: 4px solid #1e7e34;
+        }
+        
+        .status-box h3 {
+            color: #1e7e34;
+            font-size: 18px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .status-box p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+        
+        .status-box code {
+            background: #e8f5e9;
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: #1e7e34;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+        
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            padding: 16px 24px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+            color: white;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #1e7e34 0%, #0f4c1f 100%);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(30, 126, 52, 0.3);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(33, 150, 243, 0.3);
+        }
+        
+        .btn-info {
+            background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
+        }
+        
+        .btn-info:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 152, 0, 0.3);
+        }
+        
+        .success-message {
+            background: #e8f5e9;
+            color: #1e7e34;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: none;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid #1e7e34;
+            animation: slideIn 0.5s ease;
+        }
+        
+        .success-message.show {
+            display: flex;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .icon {
+            font-size: 20px;
+        }
+        
+        .info-box {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin-top: 20px;
+            color: #856404;
+        }
+        
+        .info-box strong {
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .console-output {
+            background: #2d2d2d;
+            color: #00ff00;
+            padding: 15px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            margin-top: 20px;
+            max-height: 200px;
+            overflow-y: auto;
+            display: none;
+        }
+        
+        .console-output.show {
+            display: block;
+        }
+        
+        .console-output div {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔐 관리자 로그인 테스트</h1>
+        <p class="subtitle">한국ESG학회 관리자 메뉴 접근 테스트</p>
+        
+        <div class="status-box" id="statusBox">
+            <h3>
+                <span class="icon">ℹ️</span>
+                현재 로그인 상태
+            </h3>
+            <p id="loginStatus">로그인되지 않음</p>
+        </div>
+        
+        <div class="btn-group">
+            <button class="btn btn-primary" onclick="doLogin()">
+                <span class="icon">🔐</span>
+                관리자 로그인 실행
+            </button>
+            
+            <a class="btn btn-secondary" href="pages/mypage/profile.html" target="_blank">
+                <span class="icon">📱</span>
+                마이페이지 열기 (관리자 메뉴 확인)
+            </a>
+            
+            <button class="btn btn-info" onclick="checkStatus()">
+                <span class="icon">🔍</span>
+                현재 로그인 상태 확인
+            </button>
+        </div>
+        
+        <div class="success-message" id="successMessage">
+            <span class="icon">✅</span>
+            <span id="successText">로그인 성공!</span>
+        </div>
+        
+        <div class="info-box">
+            <strong>📋 테스트 순서:</strong>
+            1. "관리자 로그인 실행" 버튼 클릭<br>
+            2. "마이페이지 열기" 버튼 클릭<br>
+            3. 좌측 사이드바에서 "관리자 메뉴" 확인<br>
+            4. 포스팅툴 또는 히스토리 관리 접근
+        </div>
+        
+        <div class="console-output" id="consoleOutput"></div>
+    </div>
+    
+    <script>
+        // 페이지 로드 시 상태 확인
+        window.addEventListener('DOMContentLoaded', function() {
+            checkStatus();
+            log('페이지 로드 완료');
+            log('관리자 로그인 테스트 페이지 준비됨');
+        });
+        
+        // 로그인 실행 함수
+        function doLogin() {
+            log('=== 관리자 로그인 시작 ===');
+            
+            const userData = {
+                id: 'test@esg.or.kr',
+                name: '관리자',
+                role: 'admin',
+                loginTime: new Date().toISOString()
+            };
+            
+            // LocalStorage에 저장
+            localStorage.setItem('user', JSON.stringify(userData));
+            log('✅ LocalStorage에 사용자 정보 저장 완료');
+            log('   - ID: ' + userData.id);
+            log('   - 이름: ' + userData.name);
+            log('   - 권한: ' + userData.role);
+            
+            // SessionStorage에도 저장
+            sessionStorage.setItem('user', JSON.stringify(userData));
+            log('✅ SessionStorage에 사용자 정보 저장 완료');
+            
+            // 상태 업데이트
+            checkStatus();
+            
+            // 성공 메시지 표시
+            const successMessage = document.getElementById('successMessage');
+            const successText = document.getElementById('successText');
+            successText.textContent = '관리자 로그인 성공! 이제 마이페이지에서 관리자 메뉴가 표시됩니다.';
+            successMessage.classList.add('show');
+            
+            log('=== 로그인 완료 ===');
+            log('');
+            log('💡 다음 단계: "마이페이지 열기" 버튼을 클릭하세요!');
+            
+            setTimeout(() => {
+                successMessage.classList.remove('show');
+            }, 5000);
+        }
+        
+        // 상태 확인 함수
+        function checkStatus() {
+            const localUser = localStorage.getItem('user');
+            const sessionUser = sessionStorage.getItem('user');
+            const user = localUser ? JSON.parse(localUser) : (sessionUser ? JSON.parse(sessionUser) : null);
+            
+            const statusBox = document.getElementById('statusBox');
+            const loginStatus = document.getElementById('loginStatus');
+            
+            if (user) {
+                statusBox.style.borderColor = '#1e7e34';
+                statusBox.style.background = '#e8f5e9';
+                loginStatus.innerHTML = `
+                    <strong style="color: #1e7e34; font-size: 18px;">✅ 로그인됨</strong><br><br>
+                    <strong>아이디:</strong> <code>${user.id}</code><br>
+                    <strong>이름:</strong> <code>${user.name}</code><br>
+                    <strong>권한:</strong> <code>${user.role || '일반'}</code><br>
+                    <strong>로그인 시간:</strong> <code>${new Date(user.loginTime).toLocaleString('ko-KR')}</code>
+                `;
+                
+                log('🔍 현재 로그인 상태: 로그인됨');
+                log('   - ID: ' + user.id);
+                log('   - 이름: ' + user.name);
+                log('   - 권한: ' + (user.role || '일반'));
+            } else {
+                statusBox.style.borderColor = '#e74c3c';
+                statusBox.style.background = '#fee';
+                loginStatus.innerHTML = `
+                    <strong style="color: #e74c3c; font-size: 18px;">❌ 로그인되지 않음</strong><br><br>
+                    <p>"관리자 로그인 실행" 버튼을 클릭하여 로그인하세요.</p>
+                `;
+                
+                log('🔍 현재 로그인 상태: 로그인되지 않음');
+            }
+            
+            // 콘솔 출력 표시
+            document.getElementById('consoleOutput').classList.add('show');
+        }
+        
+        // 콘솔 로그 함수
+        function log(message) {
+            const consoleOutput = document.getElementById('consoleOutput');
+            const logEntry = document.createElement('div');
+            const timestamp = new Date().toLocaleTimeString('ko-KR');
+            logEntry.textContent = `[${timestamp}] ${message}`;
+            consoleOutput.appendChild(logEntry);
+            consoleOutput.scrollTop = consoleOutput.scrollHeight;
+            console.log(message);
+        }
+    </script>
+</body>
+</html>

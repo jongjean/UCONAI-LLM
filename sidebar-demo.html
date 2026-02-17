@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사이드바 네비게이션 데모 - 한국ESG학회</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: #f5f5f5;
+            padding: 40px 20px;
+        }
+
+        .demo-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .demo-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px;
+            background: linear-gradient(135deg, #1e7e34, #2874a6);
+            color: white;
+            border-radius: 12px;
+        }
+
+        .demo-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .demo-header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .demo-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .demo-card-header {
+            padding: 25px;
+            background: linear-gradient(135deg, #e8f5e9, #e3f2fd);
+            border-bottom: 3px solid #1e7e34;
+        }
+
+        .demo-card-header h3 {
+            font-size: 1.5rem;
+            color: #1e7e34;
+            margin-bottom: 10px;
+        }
+
+        .demo-card-header p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .demo-card-body {
+            padding: 25px;
+        }
+
+        .demo-card-body ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .demo-card-body ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+            color: #333;
+        }
+
+        .demo-card-body ul li:last-child {
+            border-bottom: none;
+        }
+
+        .demo-card-body ul li i {
+            color: #1e7e34;
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        .demo-button {
+            display: inline-block;
+            width: 100%;
+            padding: 15px;
+            background: #1e7e34;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: background 0.3s ease;
+        }
+
+        .demo-button:hover {
+            background: #166028;
+        }
+
+        .features-section {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .features-section h2 {
+            color: #1e7e34;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #1e7e34;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            background: #e8f5e9;
+            transform: translateY(-3px);
+        }
+
+        .feature-item i {
+            font-size: 3rem;
+            color: #1e7e34;
+            margin-bottom: 15px;
+        }
+
+        .feature-item h4 {
+            color: #333;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .comparison-section {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .comparison-section h2 {
+            color: #1e7e34;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .comparison-table {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .comparison-col {
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .comparison-col.before {
+            background: #ffebee;
+            border-left: 5px solid #f44336;
+        }
+
+        .comparison-col.after {
+            background: #e8f5e9;
+            border-left: 5px solid #4caf50;
+        }
+
+        .comparison-col h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .comparison-col.before h3 {
+            color: #c62828;
+        }
+
+        .comparison-col.after h3 {
+            color: #2e7d32;
+        }
+
+        .comparison-col ul {
+            list-style: none;
+        }
+
+        .comparison-col ul li {
+            padding: 12px 0;
+            font-size: 1.05rem;
+        }
+
+        .comparison-col.before ul li {
+            color: #c62828;
+        }
+
+        .comparison-col.after ul li {
+            color: #2e7d32;
+        }
+
+        @media (max-width: 768px) {
+            .demo-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .demo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-table {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        
+        <!-- Header -->
+        <div class="demo-header">
+            <h1><i class="fas fa-bars"></i> 사이드바 네비게이션 시스템</h1>
+            <p>한국ESG학회 웹사이트 개선 완료 - 깔끔하고 직관적인 네비게이션</p>
+        </div>
+
+        <!-- Demo Cards -->
+        <div class="demo-grid">
+            
+            <!-- Card 1 -->
+            <div class="demo-card">
+                <div class="demo-card-header">
+                    <h3><i class="fas fa-info-circle"></i> 학회소개</h3>
+                    <p>학회의 기본 정보를 확인하세요</p>
+                </div>
+                <div class="demo-card-body">
+                    <ul>
+                        <li><i class="fas fa-chevron-right"></i> 학회장 인사말</li>
+                        <li><i class="fas fa-chevron-right"></i> 설립 목적·비전</li>
+                        <li><i class="fas fa-chevron-right"></i> 연혁</li>
+                        <li><i class="fas fa-chevron-right"></i> 정관·규정</li>
+                        <li><i class="fas fa-chevron-right"></i> CI·BI</li>
+                        <li><i class="fas fa-chevron-right"></i> 오시는 길</li>
+                    </ul>
+                    <a href="pages/about/greeting-new.html" class="demo-button">
+                        <i class="fas fa-external-link-alt"></i> 페이지 보기
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="demo-card">
+                <div class="demo-card-header">
+                    <h3><i class="fas fa-users"></i> 회원안내</h3>
+                    <p>회원가입 및 혜택 안내</p>
+                </div>
+                <div class="demo-card-body">
+                    <ul>
+                        <li><i class="fas fa-chevron-right"></i> 회원 구분</li>
+                        <li><i class="fas fa-chevron-right"></i> 가입 절차</li>
+                        <li><i class="fas fa-chevron-right"></i> 회비 안내</li>
+                        <li><i class="fas fa-chevron-right"></i> 회원 혜택</li>
+                        <li><i class="fas fa-chevron-right"></i> 회원사 소개</li>
+                    </ul>
+                    <a href="pages/member/types-new.html" class="demo-button">
+                        <i class="fas fa-external-link-alt"></i> 페이지 보기
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="demo-card">
+                <div class="demo-card-header">
+                    <h3><i class="fas fa-star"></i> 핵심사업</h3>
+                    <p>학회의 주요 사업 및 행사</p>
+                </div>
+                <div class="demo-card-body">
+                    <ul>
+                        <li><i class="fas fa-chevron-right"></i> 월드ESG포럼</li>
+                        <li><i class="fas fa-chevron-right"></i> 한국ESG대상</li>
+                        <li><i class="fas fa-chevron-right"></i> 한국ESG조례대상</li>
+                        <li><i class="fas fa-chevron-right"></i> 월요학술세미나</li>
+                    </ul>
+                    <a href="pages/core/forum-new.html" class="demo-button">
+                        <i class="fas fa-external-link-alt"></i> 페이지 보기
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="demo-card">
+                <div class="demo-card-header">
+                    <h3><i class="fas fa-comments"></i> 커뮤니티</h3>
+                    <p>회원 간 소통과 정보 공유</p>
+                </div>
+                <div class="demo-card-body">
+                    <ul>
+                        <li><i class="fas fa-chevron-right"></i> 공지사항</li>
+                        <li><i class="fas fa-chevron-right"></i> 자유게시판</li>
+                        <li><i class="fas fa-chevron-right"></i> 학술·정책 토론</li>
+                        <li><i class="fas fa-chevron-right"></i> 회원 소식</li>
+                        <li><i class="fas fa-chevron-right"></i> Q&A</li>
+                    </ul>
+                    <a href="pages/community/notice-new.html" class="demo-button">
+                        <i class="fas fa-external-link-alt"></i> 페이지 보기
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Features Section -->
+        <div class="features-section">
+            <h2><i class="fas fa-magic"></i> 주요 특징</h2>
+            <div class="features-grid">
+                
+                <div class="feature-item">
+                    <i class="fas fa-paint-brush"></i>
+                    <h4>깔끔한 디자인</h4>
+                    <p>화이트 배경과 그린-블루 그라데이션으로 세련된 느낌</p>
+                </div>
+
+                <div class="feature-item">
+                    <i class="fas fa-link"></i>
+                    <h4>실제 작동하는 링크</h4>
+                    <p>모든 메뉴가 실제 페이지로 연결되어 작동</p>
+                </div>
+
+                <div class="feature-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h4>반응형 디자인</h4>
+                    <p>모바일에서 접기/펼치기 기능 제공</p>
+                </div>
+
+                <div class="feature-item">
+                    <i class="fas fa-mouse-pointer"></i>
+                    <h4>인터랙티브</h4>
+                    <p>호버 시 부드러운 애니메이션 효과</p>
+                </div>
+
+                <div class="feature-item">
+                    <i class="fas fa-thumbtack"></i>
+                    <h4>고정 위치</h4>
+                    <p>스크롤 시 사이드바가 상단에 고정</p>
+                </div>
+
+                <div class="feature-item">
+                    <i class="fas fa-check-circle"></i>
+                    <h4>활성 표시</h4>
+                    <p>현재 페이지를 명확하게 하이라이트</p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Comparison Section -->
+        <div class="comparison-section">
+            <h2><i class="fas fa-exchange-alt"></i> 개선 사항</h2>
+            <div class="comparison-table">
+                
+                <div class="comparison-col before">
+                    <h3><i class="fas fa-times-circle"></i> Before (기존)</h3>
+                    <ul>
+                        <li>❌ 사이드바 없음</li>
+                        <li>❌ 페이지 네비게이션 불편</li>
+                        <li>❌ 모바일 최적화 부족</li>
+                        <li>❌ 현재 위치 파악 어려움</li>
+                        <li>❌ 일관성 없는 레이아웃</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-col after">
+                    <h3><i class="fas fa-check-circle"></i> After (개선)</h3>
+                    <ul>
+                        <li>✅ 깔끔한 사이드바 네비게이션</li>
+                        <li>✅ 직관적인 메뉴 구조</li>
+                        <li>✅ 완벽한 모바일 반응형</li>
+                        <li>✅ 활성 메뉴 하이라이트</li>
+                        <li>✅ 일관된 사용자 경험</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Back to Home -->
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="index.html" style="display: inline-block; padding: 15px 40px; background: #1e7e34; color: white; text-decoration: none; border-radius: 8px; font-size: 1.1rem; font-weight: 600;">
+                <i class="fas fa-home"></i> 메인 페이지로 돌아가기
+            </a>
+        </div>
+
+    </div>
+</body>
+</html>

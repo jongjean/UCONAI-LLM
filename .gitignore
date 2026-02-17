@@ -1,0 +1,23 @@
+# 운영 환경 파일
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+
+# 에디터 설정
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 빌드 파일
+dist/
+build/
+
+# 환경 변수
+.env
+.env.local
+
+# 백업 파일
+*.backup
+*~

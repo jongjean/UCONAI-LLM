@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Menu Check</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+    <style>
+        body {
+            padding: 40px;
+            background: #f5f5f5;
+        }
+        .test-panel {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 { color: #1e7e34; margin-bottom: 30px; }
+        .status-box {
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 4px solid #ddd;
+        }
+        .status-box.success {
+            background: #e8f5e9;
+            border-color: #4caf50;
+        }
+        .status-box.error {
+            background: #ffebee;
+            border-color: #f44336;
+        }
+        button {
+            padding: 12px 24px;
+            margin: 10px 5px;
+            background: #1e7e34;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover { background: #166028; }
+        pre {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            overflow: auto;
+            font-size: 12px;
+            max-height: 400px;
+        }
+        .menu-demo {
+            margin: 30px 0;
+            padding: 20px;
+            background: #fafafa;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-panel">
+        <h1>🔍 드롭다운 메뉴 진단</h1>
+        
+        <div class="status-box" id="mainStatus">확인 중...</div>
+        
+        <h2>1. 현재 상태</h2>
+        <button onclick="checkStatus()">🔄 상태 확인</button>
+        <button onclick="forceLogin()">✅ 강제 로그인</button>
+        <button onclick="forceLogout()">🚪 강제 로그아웃</button>
+        <button onclick="toggleBodyClass()">🎨 body 클래스 토글</button>
+        
+        <div id="statusDetail"></div>
+        
+        <h2>2. 메뉴 테스트</h2>
+        <div class="menu-demo">
+            <nav style="background: white; padding: 20px; border-radius: 8px;">
+                <ul class="nav-menu" style="display: flex; gap: 20px; list-style: none; padding: 0; margin: 0;">
+                    <li class="nav-item has-dropdown">
+                        <a href="#" class="nav-link" style="color: #333; text-decoration: none; font-weight: 500;">
+                            <i class="fas fa-user-circle"></i> 마이페이지
+                        </a>
+                        <ul class="dropdown-menu" style="display: none; position: absolute; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-radius: 8px; padding: 10px; margin-top: 10px; min-width: 200px;">
+                            <!-- 로그아웃 상태 메뉴 -->
+                            <li class="auth-only logged-out" style="list-style: none; padding: 8px 12px;">
+                                <a href="#" style="color: #666; text-decoration: none; display: block;">
+                                    <i class="fas fa-user-plus"></i> 회원가입
+                                </a>
+                            </li>
+                            <li class="auth-only logged-out" style="list-style: none; padding: 8px 12px;">
+                                <a href="#" style="color: #666; text-decoration: none; display: block;">
+                                    <i class="fas fa-sign-in-alt"></i> 로그인
+                                </a>
+                            </li>
+                            
+                            <!-- 로그인 상태 메뉴 -->
+                            <li class="auth-only logged-in" style="list-style: none; padding: 8px 12px;">
+                                <a href="#" style="color: #666; text-decoration: none; display: block;">
+                                    <i class="fas fa-user-cog"></i> 회원정보 관리
+                                </a>
+                            </li>
+                            <li class="auth-only logged-in" style="list-style: none; padding: 8px 12px;">
+                                <a href="#" style="color: #666; text-decoration: none; display: block;">
+                                    <i class="fas fa-credit-card"></i> 회비 납부
+                                </a>
+                            </li>
+                            <li class="auth-only logged-in" style="list-style: none; padding: 8px 12px;">
+                                <a href="#" style="color: #666; text-decoration: none; display: block;">
+                                    <i class="fas fa-sign-out-alt"></i> 로그아웃
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <p style="margin-top: 15px; color: #666; font-size: 14px;">
+                ☝️ 위 메뉴를 클릭하면 드롭다운이 표시됩니다
+            </p>
+        </div>
+        
+        <h2>3. CSS 테스트 결과</h2>
+        <div id="cssTest"></div>
+    </div>
+
+    <script>
+        function checkStatus() {
+            const statusDiv = document.getElementById('mainStatus');
+            const detailDiv = document.getElementById('statusDetail');
+            const cssDiv = document.getElementById('cssTest');
+            
+            // 로그인 데이터 확인
+            const localUser = localStorage.getItem('user');
+            const sessionUser = sessionStorage.getItem('user');
+            const user = localUser ? JSON.parse(localUser) : (sessionUser ? JSON.parse(sessionUser) : null);
+            
+            // body 클래스 확인
+            const hasClass = document.body.classList.contains('user-logged-in');
+            
+            // 결과 표시
+            let html = '<h3>📊 진단 결과</h3><pre>';
+            html += `localStorage.user: ${localUser ? '✅ 있음' : '❌ 없음'}\n`;
+            html += `sessionStorage.user: ${sessionUser ? '✅ 있음' : '❌ 없음'}\n`;
+            html += `body.user-logged-in: ${hasClass ? '✅ 있음' : '❌ 없음'}\n\n`;
+            
+            if (user) {
+                html += `사용자 정보:\n`;
+                html += `  ID: ${user.id}\n`;
+                html += `  Name: ${user.name}\n`;
+                html += `  Role: ${user.role || 'N/A'}\n`;
+            }
+            html += '</pre>';
+            
+            detailDiv.innerHTML = html;
+            
+            // 상태 메시지
+            if (user && hasClass) {
+                statusDiv.className = 'status-box success';
+                statusDiv.innerHTML = '✅ 로그인 완료 + body 클래스 있음 → 로그아웃 메뉴가 보여야 함!';
+            } else if (user && !hasClass) {
+                statusDiv.className = 'status-box error';
+                statusDiv.innerHTML = '⚠️ 로그인 데이터 있음 BUT body 클래스 없음 → 이게 문제!';
+            } else {
+                statusDiv.className = 'status-box error';
+                statusDiv.innerHTML = '❌ 로그인 안 됨';
+            }
+            
+            // CSS 테스트
+            checkCSSRules();
+        }
+        
+        function checkCSSRules() {
+            const cssDiv = document.getElementById('cssTest');
+            
+            const loggedOutItems = document.querySelectorAll('.auth-only.logged-out');
+            const loggedInItems = document.querySelectorAll('.auth-only.logged-in');
+            
+            let html = '<pre>';
+            html += `로그아웃 메뉴 (.auth-only.logged-out): ${loggedOutItems.length}개\n`;
+            loggedOutItems.forEach((el, i) => {
+                const display = window.getComputedStyle(el).display;
+                html += `  [${i+1}] display: ${display}\n`;
+            });
+            
+            html += `\n로그인 메뉴 (.auth-only.logged-in): ${loggedInItems.length}개\n`;
+            loggedInItems.forEach((el, i) => {
+                const display = window.getComputedStyle(el).display;
+                html += `  [${i+1}] display: ${display}\n`;
+            });
+            html += '</pre>';
+            
+            cssDiv.innerHTML = html;
+        }
+        
+        function forceLogin() {
+            const userData = {
+                id: 'jongjean@naver.com',
+                name: 'Jongjean',
+                role: 'admin',
+                loginTime: new Date().toISOString()
+            };
+            localStorage.setItem('user', JSON.stringify(userData));
+            document.body.classList.add('user-logged-in');
+            console.log('✅ 강제 로그인 완료');
+            alert('로그인 완료!\n\n메뉴를 확인하세요.');
+            checkStatus();
+        }
+        
+        function forceLogout() {
+            localStorage.removeItem('user');
+            sessionStorage.removeItem('user');
+            document.body.classList.remove('user-logged-in');
+            console.log('✅ 로그아웃 완료');
+            alert('로그아웃 완료!');
+            checkStatus();
+        }
+        
+        function toggleBodyClass() {
+            document.body.classList.toggle('user-logged-in');
+            const hasClass = document.body.classList.contains('user-logged-in');
+            console.log(`body.user-logged-in: ${hasClass}`);
+            alert(`body 클래스: ${hasClass ? '추가됨' : '제거됨'}`);
+            checkStatus();
+        }
+        
+        // 드롭다운 토글
+        document.addEventListener('DOMContentLoaded', () => {
+            const dropdownToggle = document.querySelector('.has-dropdown > .nav-link');
+            const dropdown = document.querySelector('.dropdown-menu');
+            
+            if (dropdownToggle) {
+                dropdownToggle.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const isVisible = dropdown.style.display === 'block';
+                    dropdown.style.display = isVisible ? 'none' : 'block';
+                });
+            }
+            
+            // 자동 체크
+            checkStatus();
+        });
+    </script>
+</body>
+</html>

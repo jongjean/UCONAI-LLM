@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FINAL CHECK - DOM Inspector</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            padding: 20px;
+            background: #1e1e1e;
+            color: #fff;
+        }
+        .panel {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #2d2d2d;
+            padding: 30px;
+            border-radius: 8px;
+        }
+        h1 { color: #4ec9b0; }
+        h2 { color: #dcdcaa; margin-top: 30px; }
+        pre {
+            background: #1e1e1e;
+            padding: 15px;
+            border-radius: 4px;
+            overflow: auto;
+            border-left: 3px solid #4ec9b0;
+        }
+        .success { color: #4ec9b0; }
+        .error { color: #f48771; }
+        .warning { color: #ce9178; }
+        button {
+            padding: 10px 20px;
+            margin: 10px 5px;
+            background: #0e639c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        button:hover { background: #1177bb; }
+        .iframe-container {
+            margin: 20px 0;
+            border: 2px solid #4ec9b0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="panel">
+        <h1>🔬 FINAL CHECK: DOM Inspector</h1>
+        <p class="warning">미리보기 페이지의 실제 DOM 구조와 스타일을 직접 확인합니다</p>
+        
+        <h2>1. 테스트 대상 URL</h2>
+        <pre>pages/mypage/profile.html</pre>
+        
+        <h2>2. 진단 버튼</h2>
+        <button onclick="runFullDiagnosis()">🔍 전체 진단 실행</button>
+        <button onclick="checkNavigation()">🧭 네비게이션 확인</button>
+        <button onclick="checkCSS()">🎨 CSS 규칙 확인</button>
+        <button onclick="checkBody()">📦 body 태그 확인</button>
+        
+        <div id="results"></div>
+        
+        <h2>3. 미리보기 페이지 로드</h2>
+        <div class="iframe-container">
+            <iframe id="testFrame" src="pages/mypage/profile.html"></iframe>
+        </div>
+    </div>
+
+    <script>
+        function runFullDiagnosis() {
+            const iframe = document.getElementById('testFrame');
+            const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+            const iframeWindow = iframe.contentWindow;
+            
+            let report = '<h2>📊 전체 진단 보고서</h2>';
+            
+            // 1. body 클래스 확인
+            report += '<h3 class="success">1. body 태그 클래스</h3><pre>';
+            const bodyClasses = Array.from(iframeDoc.body.classList);
+            report += `body 클래스 목록: ${bodyClasses.length}개\n`;
+            bodyClasses.forEach(cls => {
+                report += `  - ${cls}\n`;
+            });
+            report += `\n✓ user-logged-in: ${iframeDoc.body.classList.contains('user-logged-in') ? '<span class="success">있음</span>' : '<span class="error">없음 ⚠️</span>'}`;
+            report += '</pre>';
+            
+            // 2. localStorage 확인
+            report += '<h3 class="success">2. localStorage 데이터</h3><pre>';
+            try {
+                const user = iframeWindow.localStorage.getItem('user');
+                if (user) {
+                    const userData = JSON.parse(user);
+                    report += `✓ user 데이터: <span class="success">있음</span>\n`;
+                    report += `  ID: ${userData.id}\n`;
+                    report += `  Name: ${userData.name}\n`;
+                    report += `  Role: ${userData.role || 'N/A'}\n`;
+                } else {
+                    report += `<span class="error">✗ user 데이터 없음</span>`;
+                }
+            } catch (e) {
+                report += `<span class="error">에러: ${e.message}</span>`;
+            }
+            report += '</pre>';
+            
+            // 3. 드롭다운 메뉴 확인
+            report += '<h3 class="success">3. 드롭다운 메뉴 구조</h3><pre>';
+            const dropdownMenus = iframeDoc.querySelectorAll('.dropdown-menu');
+            report += `드롭다운 메뉴 총 개수: ${dropdownMenus.length}개\n\n`;
+            
+            dropdownMenus.forEach((menu, idx) => {
+                const parentLi = menu.closest('.nav-item');
+                const parentLink = parentLi ? parentLi.querySelector('.nav-link') : null;
+                const menuName = parentLink ? parentLink.textContent.trim() : '알 수 없음';
+                
+                report += `[메뉴 ${idx + 1}] ${menuName}\n`;
+                
+                const loggedOutItems = menu.querySelectorAll('.auth-only.logged-out');
+                const loggedInItems = menu.querySelectorAll('.auth-only.logged-in');
+                
+                report += `  로그아웃 메뉴: ${loggedOutItems.length}개\n`;
+                loggedOutItems.forEach((item, i) => {
+                    const display = iframeWindow.getComputedStyle(item).display;
+                    const text = item.textContent.trim().substring(0, 20);
+                    report += `    [${i+1}] "${text}" → display: ${display}\n`;
+                });
+                
+                report += `  로그인 메뉴: ${loggedInItems.length}개\n`;
+                loggedInItems.forEach((item, i) => {
+                    const display = iframeWindow.getComputedStyle(item).display;
+                    const text = item.textContent.trim().substring(0, 20);
+                    report += `    [${i+1}] "${text}" → display: ${display}\n`;
+                });
+                
+                report += '\n';
+            });
+            report += '</pre>';
+            
+            // 4. 로그아웃 버튼 확인
+            report += '<h3 class="success">4. 로그아웃 버튼</h3><pre>';
+            const logoutBtn = iframeDoc.getElementById('logoutBtn');
+            if (logoutBtn) {
+                const display = iframeWindow.getComputedStyle(logoutBtn.parentElement).display;
+                report += `✓ #logoutBtn 요소: <span class="success">있음</span>\n`;
+                report += `  부모 li 태그 display: ${display}\n`;
+                report += `  텍스트: "${logoutBtn.textContent.trim()}"\n`;
+            } else {
+                report += `<span class="error">✗ #logoutBtn 요소 없음</span>`;
+            }
+            report += '</pre>';
+            
+            // 5. CSS 파일 확인
+            report += '<h3 class="success">5. 로드된 CSS 파일</h3><pre>';
+            const styleSheets = Array.from(iframeDoc.styleSheets);
+            report += `로드된 CSS 파일: ${styleSheets.length}개\n`;
+            styleSheets.forEach((sheet, i) => {
+                try {
+                    report += `  [${i+1}] ${sheet.href || '(인라인)'}\n`;
+                } catch (e) {
+                    report += `  [${i+1}] (접근 불가: CORS)\n`;
+                }
+            });
+            report += '</pre>';
+            
+            // 6. 스크립트 파일 확인
+            report += '<h3 class="success">6. 로드된 스크립트</h3><pre>';
+            const scripts = iframeDoc.querySelectorAll('script[src]');
+            report += `외부 스크립트: ${scripts.length}개\n`;
+            scripts.forEach((script, i) => {
+                const src = script.getAttribute('src');
+                report += `  [${i+1}] ${src}\n`;
+            });
+            report += '</pre>';
+            
+            // 최종 판정
+            report += '<h3 class="warning">🎯 최종 판정</h3><pre>';
+            const hasUser = !!iframeWindow.localStorage.getItem('user');
+            const hasBodyClass = iframeDoc.body.classList.contains('user-logged-in');
+            const hasLogoutBtn = !!iframeDoc.getElementById('logoutBtn');
+            
+            if (hasUser && hasBodyClass && hasLogoutBtn) {
+                report += '<span class="success">✅ 모든 조건 충족: 로그아웃 버튼이 보여야 합니다!</span>\n';
+                report += '\n만약 보이지 않는다면:\n';
+                report += '  1. CSS 캐시 문제 → 강제 새로고침 (Ctrl+Shift+R)\n';
+                report += '  2. 드롭다운이 닫혀있음 → 마이페이지 클릭\n';
+                report += '  3. z-index 문제 → 개발자도구로 확인';
+            } else {
+                report += '<span class="error">❌ 문제 발견:</span>\n';
+                if (!hasUser) report += '  - localStorage에 user 데이터 없음\n';
+                if (!hasBodyClass) report += '  - body.user-logged-in 클래스 없음\n';
+                if (!hasLogoutBtn) report += '  - #logoutBtn 요소 없음\n';
+            }
+            report += '</pre>';
+            
+            document.getElementById('results').innerHTML = report;
+        }
+        
+        function checkNavigation() {
+            const iframe = document.getElementById('testFrame');
+            const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+            
+            const nav = iframeDoc.querySelector('nav');
+            if (nav) {
+                console.log('네비게이션 HTML:', nav.outerHTML.substring(0, 1000));
+                alert('콘솔에 네비게이션 HTML 출력됨 (F12 확인)');
+            } else {
+                alert('네비게이션 요소를 찾을 수 없습니다!');
+            }
+        }
+        
+        function checkCSS() {
+            const iframe = document.getElementById('testFrame');
+            const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+            const iframeWindow = iframe.contentWindow;
+            
+            const testEl = iframeDoc.querySelector('.auth-only.logged-in');
+            if (testEl) {
+                const styles = iframeWindow.getComputedStyle(testEl);
+                console.log('CSS Computed Styles:', {
+                    display: styles.display,
+                    visibility: styles.visibility,
+                    opacity: styles.opacity,
+                    height: styles.height
+                });
+                alert('콘솔에 CSS 스타일 출력됨 (F12 확인)');
+            } else {
+                alert('.auth-only.logged-in 요소를 찾을 수 없습니다!');
+            }
+        }
+        
+        function checkBody() {
+            const iframe = document.getElementById('testFrame');
+            const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+            
+            console.log('body 클래스:', Array.from(iframeDoc.body.classList));
+            console.log('body innerHTML (처음 500자):', iframeDoc.body.innerHTML.substring(0, 500));
+            alert('콘솔에 body 정보 출력됨 (F12 확인)');
+        }
+        
+        // iframe 로드 완료 시 자동 진단
+        window.addEventListener('load', () => {
+            const iframe = document.getElementById('testFrame');
+            iframe.onload = () => {
+                setTimeout(() => {
+                    runFullDiagnosis();
+                }, 2000); // 2초 후 자동 실행
+            };
+        });
+    </script>
+</body>
+</html>
